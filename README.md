@@ -2,12 +2,12 @@
 
 Integrantes del Grupo.
 
-  Juan García Martínez (coordinador)
-  Alfonso Izura Concellón
-  Emilio Prieto Uclés
-  Pablo Navarro Ortiz
-  Carlos Daniel Ojeda Giménez
-  Benjamín Cornelio Sorto
+  - Juan García Martínez (coordinador) 
+  - Alfonso Izura Concellón
+  - Emilio Prieto Uclés
+  - Pablo Navarro Ortiz
+  - Carlos Daniel Ojeda Giménez
+  - Benjamín Cornelio Sorto
 
 Turno de Prácticas.
   Lunes 17:00-19:00
