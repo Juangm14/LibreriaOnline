@@ -26,7 +26,7 @@ Listado EN Pública.
  - ENSoporte: Preguntas y respuestas de Ayuda.
  - ENRegistro: Creacion de Usuario
  - ENLibros: Almacenamos datos de los libros gratuitos
- - ENComics: Almacenar datos de los comics
+ - ENSugerencia: Almacenar sugerencias
  - ENColeccion: Almacenar datos de una coleccion de libros
  
 Parte privada.
@@ -39,8 +39,7 @@ Parte privada.
 Listado EN Privada.
   Separamos las caracteristicas de los libros digitales y fisicos en distintas clases (ENProveedores y ENLicencias)
   - ENUsuario: Almacenamiento de Usuarios
-  - ENProveedores: Almacenamiento de libros físicos
-  - ENLicencias: Almacenamiento de libros digitales
+  - ENProveedores: Almacenamiento de libros (fisicos/online)
   - ENCriticas: Realizar comentarios/criticas de los libros
   - ENRelatos: Almacenar datos de los relatos
   - ENRecomendaciones: Se recomendaran libros con las mejores puntuaciones
@@ -48,9 +47,4 @@ Listado EN Privada.
   - ENListaDeseo: Almacenar los libros que el usuario desea comprar/alquilar
   
 Posibles mejoras.
-  - Preguntas frecuentes
-  - Lista de proveedores
   - Sistema de puntos con recompensas para los ususarios
-  - Lista de deseos, libros leidos
-
-
