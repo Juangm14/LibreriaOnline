@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-	public class ENURecomendaciones
+	public class ENRecomendaciones
 	{
-		private List<ENULibro> recomendados;
+		private List<ENLibro> recomendados;
 		string usuario; //email del usuario, es decir su CP en la BBDD
 
 		public string Usuario
@@ -21,7 +21,7 @@ namespace ConsoleApp1
 			}
 		}
 
-		public List<ENULibro> Recomendados
+		public List<ENLibro> Recomendados
 		{
 			get
 			{
@@ -32,13 +32,13 @@ namespace ConsoleApp1
 				recomendados = value; //Por si un usuario quiere cambiar su lista de recomendados por la de otro
 			}
 		}
-		public ENURecomendaciones()
+		public ENRecomendaciones()
 		{
 			recomendados =  new List<ENULibro>();
 			usuario = "";
 		}
 
-		public ENURecomendaciones(List<ENULibro> reco, string usu)
+		public ENRecomendaciones(List<ENULibro> reco, string usu)
 		{
 			recomendados = reco;
 			usuario = usu;

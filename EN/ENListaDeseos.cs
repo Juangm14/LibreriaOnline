@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-	public class ENUListaDeseos
+	public class ENListaDeseos
 	{
-		List<ENULibro> deseados; //lista con los libros marcados como deseados
+		List<ENLibro> deseados; //lista con los libros marcados como deseados
 		string usuario; //email del usuario, es decir su CP en la BBDD
 
 		public string Usuario
@@ -20,7 +20,7 @@ namespace ConsoleApp1
 			}
 		}
 
-		public List<ENULibro> Deseados
+		public List<ENLibro> Deseados
 		{
 			get
 			{
@@ -32,12 +32,12 @@ namespace ConsoleApp1
 			}
 		}
 
-		public ENUListaDeseos()
+		public ENListaDeseos()
 		{
 			deseados = new List<ENULibro>(); ;
 			usuario = "";
 		}
-		public ENUListaDeseos(ENULibro libro, string usu)
+		public ENListaDeseos(ENULibro libro, string usu)
 		{
 			deseados.Add(libro);
 			usuario = usu;
