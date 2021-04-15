@@ -45,4 +45,14 @@ public class ENColeccion
 
 		return c.addColeccion(this);
 	}
+
+	//Elimina un libro de la colección
+	public bool removeColeccion(EnLibro libro)
+    {
+		CADColeccion c = new CADColeccion();
+
+		_coleccion.Remove(libro);
+
+		return c.removeColeccion(this);
+	}
 }
