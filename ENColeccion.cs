@@ -35,4 +35,14 @@ public class ENColeccion
 		_nombre = nom;
 		_coleccion = col;
     }
+
+	//Añade un libro a la colección
+	public bool addColeccion(ENLibro libro)
+    {
+		CADColeccion c = new CADColeccion();
+
+		_coleccion.Add(libro);
+
+		return c.addColeccion(this);
+	}
 }
