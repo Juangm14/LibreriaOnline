@@ -49,4 +49,11 @@ public class ENListaUsuario
 
 		return c.addPuntuacion(this);
 	}
+
+	public bool removePuntuacion()
+    {
+		CADListaUsuario c = new CADListaUsuario();
+
+		return c.removePuntuacion(this);
+	}
 }
