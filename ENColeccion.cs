@@ -36,14 +36,29 @@ public class ENColeccion
 		_coleccion = col;
     }
 
+	//Revisa si un libro en especifíco, se encuentra en la colección
+	private bool checkLibro(ENLibro libro)
+    {
+		if (_coleccion.Contains(libro))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 	//Añade un libro a la colección
 	public bool addColeccion(ENLibro libro)
     {
 		CADColeccion c = new CADColeccion();
 
-		_coleccion.Add(libro);
+        if (!checkLibro(libro))
+        {
+			_coleccion.Add(libro);
+			return c.addColeccion(this);
+		}
 
-		return c.addColeccion(this);
+		return false;
 	}
 
 	//Elimina un libro de la colección
@@ -51,8 +66,14 @@ public class ENColeccion
     {
 		CADColeccion c = new CADColeccion();
 
-		_coleccion.Remove(libro);
-
-		return c.removeColeccion(this);
+		if (checkLibro(libro))
+        {
+			_coleccion.Remove(libro);
+			return c.removeColeccion(this);
+		}
+		
+		return false;
 	}
+
+
 }
