@@ -25,8 +25,14 @@ public class ENListaUsuario
 
 	public ENListaUsuario()
 	{
-		
+		_libros = new List<ENLibro>();
+		_puntuacion = 0;
 	}
 
+	public ENListaUsuario(List<ENlibro> l, int p)
+    {
+		_libros = l;
+		_puntuacion = p;
+    }
 
 }
