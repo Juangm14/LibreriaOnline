@@ -26,8 +26,13 @@ public class ENColeccion
 
 	public ENColeccion()
 	{
-		
+		_nombre = "";
+		_coleccion = new List<ENLibro>();
 	}
 
-	
+	public ENColeccion(string nom, List<ENlibro> col)
+    {
+		_nombre = nom;
+		_coleccion = col;
+    }
 }
