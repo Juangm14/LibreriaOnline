@@ -9,13 +9,19 @@ using System.Threading.Tasks;
 /// </summary>
 public class ENListaUsuario
 {
-	private List<ENLibro> _libros;
+	private ENUsuario _usu;
+	private ENLibro _libro;
 	private int _puntuacion;
 
-	public List<ENLibro> libros
+	public ENUsuario usu
+    {
+		get { return _usu; }
+		set { _usu = value; }
+    }
+	public ENLibro libro
 	{
-		get { return _libros; }
-		set { _libros = value; }
+		get { return _libro; }
+		set { _libro = value; }
 	}
 	public int puntuacion
     {
@@ -25,13 +31,15 @@ public class ENListaUsuario
 
 	public ENListaUsuario()
 	{
-		_libros = new List<ENLibro>();
+		_usu = new ENUsuario();
+		_libro = new ENLibro();
 		_puntuacion = 0;
 	}
 
-	public ENListaUsuario(List<ENlibro> l, int p)
+	public ENListaUsuario(ENUsuario u, ENlibro l, int p)
     {
-		_libros = l;
+		_usu = u;
+		_libro = l;
 		_puntuacion = p;
     }
 
