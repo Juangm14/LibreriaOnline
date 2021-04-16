@@ -54,6 +54,20 @@ namespace ConsoleApp1
 
 			return c.removeColeccion(this);
 		}
+
+		public bool updateColeccion()
+		{
+			CADColeccion c = new CADColeccion();
+
+			return c.updateColeccion(this);
+		}
+
+		public bool readColeccion()
+        {
+			CADColeccion c = new CADColeccion();
+
+			return c.readColeccion(this);
+		}
 	}
 }
 

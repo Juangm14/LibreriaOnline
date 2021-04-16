@@ -23,6 +23,16 @@ namespace ConsoleApp1
 		{
 
 		}
+
+		public bool updateColeccion()
+		{
+			
+		}
+
+		public bool readColeccion()
+		{
+			
+		}
 	}
 }
 
