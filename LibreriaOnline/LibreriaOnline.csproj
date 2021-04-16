@@ -4,7 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>949e80b0-865d-4e3a-bb24-afdc3778a8d7</ProjectGuid>
+=======
+    <ProjectGuid>4d23cb71-047a-47fc-aba7-e75be4a79e0b</ProjectGuid>
+>>>>>>> origin/73439051M
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LibreriaOnline</RootNamespace>
