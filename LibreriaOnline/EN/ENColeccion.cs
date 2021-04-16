@@ -12,7 +12,7 @@ namespace ConsoleApp1
 	public class ENColeccion
 	{
 		private string _nombre;  //Nombre de la colección
-		private List<ENLibro> _coleccion; //Libros de la colección
+		private string _coleccion; //Libro de la colección
 
 		public string nombre
 		{
@@ -20,7 +20,7 @@ namespace ConsoleApp1
 			set { _nombre = value; }
 		}
 
-		public List<ENLibro> coleccion
+		public string coleccion
 		{
 			get { return _coleccion; }
 			set { _coleccion = value; }
@@ -29,52 +29,30 @@ namespace ConsoleApp1
 		public ENColeccion()
 		{
 			_nombre = "";
-			_coleccion = new List<ENLibro>();
+			_coleccion = "";
 		}
 
-		public ENColeccion(string nom, List<ENlibro> col)
+		public ENColeccion(string nom, string col)
 		{
 			_nombre = nom;
 			_coleccion = col;
 		}
 
-		//Revisa si un libro en especifíco, se encuentra en la colección
-		private bool checkLibro(ENLibro libro)
-		{
-			if (_coleccion.Contains(libro))
-			{
-				return true;
-			}
-
-			return false;
-		}
 
 		//Añade un libro a la colección
-		public bool addColeccion(ENLibro libro)
+		public bool addColeccion()
 		{
 			CADColeccion c = new CADColeccion();
 
-			if (!checkLibro(libro))
-			{
-				_coleccion.Add(libro);
-				return c.addColeccion(this);
-			}
-
-			return false;
+			return c.addColeccion(this);
 		}
 
 		//Elimina un libro de la colección
-		public bool removeColeccion(EnLibro libro)
+		public bool removeColeccion()
 		{
 			CADColeccion c = new CADColeccion();
 
-			if (checkLibro(libro))
-			{
-				_coleccion.Remove(libro);
-				return c.removeColeccion(this);
-			}
-
-			return false;
+			return c.removeColeccion(this);
 		}
 	}
 }
