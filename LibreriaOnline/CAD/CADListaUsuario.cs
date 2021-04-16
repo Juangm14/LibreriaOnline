@@ -21,4 +21,9 @@ public class CADListaUsuario
 	{
 
 	}
+
+	public bool updatePuntuacion()
+	{
+		
+	}
 }

@@ -11,16 +11,16 @@ namespace ConsoleApp1
 	/// </summary>
 	public class ENListaUsuario
 	{
-		private ENUsuario _usu;
-		private ENLibro _libro;
+		private string _usuario;
+		private string _libro;
 		private int _puntuacion;
 
-		public ENUsuario usu
+		public string usuario
 		{
-			get { return _usu; }
-			set { _usu = value; }
+			get { return _usuario; }
+			set { _usuario = value; }
 		}
-		public ENLibro libro
+		public string libro
 		{
 			get { return _libro; }
 			set { _libro = value; }
@@ -33,15 +33,15 @@ namespace ConsoleApp1
 
 		public ENListaUsuario()
 		{
-			_usu = new ENUsuario();
-			_libro = new ENLibro();
+			_usuario = "";
+			_libro = "";
 			_puntuacion = 0;
 		}
 
-		public ENListaUsuario(ENUsuario u, ENlibro l, int p)
+		public ENListaUsuario(string usu, string li, int p)
 		{
-			_usu = u;
-			_libro = l;
+			_usuario = usu;
+			_libro = li;
 			_puntuacion = p;
 		}
 
@@ -59,6 +59,13 @@ namespace ConsoleApp1
 			CADListaUsuario c = new CADListaUsuario();
 
 			return c.removePuntuacion(this);
+		}
+
+		public bool updatePuntuacion()
+        {
+			CADListaUsuario c = new CADListaUsuario();
+
+			return c.updatePuntuacion(this);
 		}
 	}
 }
