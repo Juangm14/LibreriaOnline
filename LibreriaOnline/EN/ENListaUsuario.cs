@@ -67,6 +67,13 @@ namespace ConsoleApp1
 
 			return c.updatePuntuacion(this);
 		}
+
+		public bool readPuntuacion()
+        {
+			CADListaUsuario c = new CADListaUsuario();
+
+			return c.readPuntuacion(this);
+		}
 	}
 }
 
