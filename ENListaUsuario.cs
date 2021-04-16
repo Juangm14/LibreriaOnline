@@ -4,56 +4,62 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/// <summary>
-/// Almacena los libros que se ha leido el usuario con su puntuacion.
-/// </summary>
-public class ENListaUsuario
+namespace ConsoleApp1
 {
-	private ENUsuario _usu;
-	private ENLibro _libro;
-	private int _puntuacion;
-
-	public ENUsuario usu
-    {
-		get { return _usu; }
-		set { _usu = value; }
-    }
-	public ENLibro libro
+	/// <summary>
+	/// Almacena los libros que se ha leido el usuario con su puntuacion.
+	/// </summary>
+	public class ENListaUsuario
 	{
-		get { return _libro; }
-		set { _libro = value; }
-	}
-	public int puntuacion
-    {
-		get { return _puntuacion; }
-		set { _puntuacion = value; }
-    }
+		private ENUsuario _usu;
+		private ENLibro _libro;
+		private int _puntuacion;
 
-	public ENListaUsuario()
-	{
-		_usu = new ENUsuario();
-		_libro = new ENLibro();
-		_puntuacion = 0;
-	}
+		public ENUsuario usu
+		{
+			get { return _usu; }
+			set { _usu = value; }
+		}
+		public ENLibro libro
+		{
+			get { return _libro; }
+			set { _libro = value; }
+		}
+		public int puntuacion
+		{
+			get { return _puntuacion; }
+			set { _puntuacion = value; }
+		}
 
-	public ENListaUsuario(ENUsuario u, ENlibro l, int p)
-    {
-		_usu = u;
-		_libro = l;
-		_puntuacion = p;
-    }
+		public ENListaUsuario()
+		{
+			_usu = new ENUsuario();
+			_libro = new ENLibro();
+			_puntuacion = 0;
+		}
 
-	public bool addPuntuacion()
-    {
-		CADListaUsuario c = new CADListaUsuario();
+		public ENListaUsuario(ENUsuario u, ENlibro l, int p)
+		{
+			_usu = u;
+			_libro = l;
+			_puntuacion = p;
+		}
 
-		return c.addPuntuacion(this);
-	}
+		//Añade la puntuación a la BBDD, con su respectivo usuario y libro
+		public bool addPuntuacion()
+		{
+			CADListaUsuario c = new CADListaUsuario();
 
-	public bool removePuntuacion()
-    {
-		CADListaUsuario c = new CADListaUsuario();
+			return c.addPuntuacion(this);
+		}
 
-		return c.removePuntuacion(this);
+		//Elimina la puntuación de la BBDD
+		public bool removePuntuacion()
+		{
+			CADListaUsuario c = new CADListaUsuario();
+
+			return c.removePuntuacion(this);
+		}
 	}
 }
+
