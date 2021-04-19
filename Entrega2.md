@@ -4,4 +4,6 @@
 
 - Respecto la base de datos, las entidades licencia y físico (de la  generalización) tiene que tener algún atributo que no esté en Proveedor.
 
+- Cuidado en el Readme con líneas del estilo "<<<<<<< HEAD", que se produce al hacer merge.
+
 - La entrega es CORRECTA.
