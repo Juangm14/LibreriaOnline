@@ -2,7 +2,6 @@
 
 Integrantes del Grupo.
 
-<<<<<<< HEAD
   - Juan García Martínez (coordinador) 
   - Alfonso Izura Concellón
   - Emilio Prieto Uclés
@@ -16,7 +15,6 @@ Turno de Prácticas.
 Descripción.
   Web orientada a la compra/venta fisica o digital de libros online. Como usuarios dispondrá de opciones de alquilar, intercambiar, pubicar comentarios, hacer criticas, valorar...   libros pero únicamente de su versión online. Ante cualquier duda, la web dispondra de Soporte de Atención al Cliente.
   
-=======
     Juan García Martínez (coordinador)
     Alfonso Izura Concellón
     Emilio Prieto Uclés
@@ -28,7 +26,6 @@ Turno de Prácticas. Lunes 17:00-19:00
 
 Descripción. Web orientada a la compra/venta fisica o digital de libros online. Como usuarios dispondrá de opciones de alquilar, intercambiar, pubicar comentarios, hacer criticas, valorar... libros pero únicamente de su versión online. Ante cualquier duda, la web dispondra de Soporte de Atención al Cliente.
 
->>>>>>> 04640593K
 Parte Pública.
 
     Vista principal (Home) donde se visualizaran libros disponibles
@@ -38,7 +35,6 @@ Parte Pública.
     Vista al panel de Atención al Cliente
 
 Listado EN Pública.
-<<<<<<< HEAD
  - ENSoporte: Preguntas y respuestas de Ayuda.
  - ENRegistro: Creacion de Usuario
  - ENLibros: Almacenamos datos de los libros gratuitos
@@ -64,7 +60,7 @@ Listado EN Privada.
   
 Posibles mejoras.
   - Sistema de puntos con recompensas para los ususarios
-=======
+
 
     ENSoporte: Preguntas y respuestas de Ayuda.
     ENRegistro: Creacion de Usuario
@@ -92,7 +88,3 @@ Listado EN Privada. Separamos las caracteristicas de los libros digitales y fisi
 Posibles mejoras.
 
     Sistema de puntos con recompensas para los ususarios
-
-
-
->>>>>>> 04640593K
