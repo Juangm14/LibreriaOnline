@@ -73,6 +73,7 @@
     </Content>
     <Content Include="BorrarColeccion.aspx" />
     <Content Include="Coleccion.aspx" />
+    <Content Include="Config.jpg" />
     <Content Include="Criticas.aspx" />
     <Content Include="FAQs.aspx" />
     <Content Include="Leidos.aspx" />

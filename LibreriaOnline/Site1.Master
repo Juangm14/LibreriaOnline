@@ -20,7 +20,7 @@
             </style>
 
             <h1  style="background-color:cadetblue; width:auto; padding:20px">
-                <a href="home.aspx">
+                <a href="Home.aspx">
 
                     <img src="Libro Auxiliar.png"; style="height: 48px; width: 61px; margin-left: 16px" />
 
@@ -29,60 +29,100 @@
             </h1>
             </div>
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark  bg-dark  mb-3">
-              <div class="container">
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <!-- menu izquierda -->
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="Home.aspx">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="Coleccion.aspx" tabindex="-1">Colección</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="Criticas.aspx" tabindex="-1">Criticas</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="Relatos.aspx" tabindex="-1">Relatos</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="FAQs.aspx" tabindex="-1">PPFF</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="Soporte.aspx" tabindex="-1">Soporte</a>
-                    </li>
-                  </ul>
-                  <!-- menu derecha -->
-                  <ul class="navbar-nav me-right mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="SignIn.aspx">Iniciar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="Leidos.aspx" tabindex="-1">Leidos</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="ListaDeseo.aspx" tabindex="-1">Lista Deseo</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="Perfil.aspx">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#" tabindex="-1">Cerrar Sesion</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
+
+            <div class="container">
+                <asp:menu id="NavigationMenu" 
+                    StaticMenuStyle-CssClass="StaticMenuStyle"
+                    StaticMenuItemStyle-CssClass="StaticMenuItemStyle"
+                    StaticSelectedStyle-CssClass="StaticSelectedStyle"
+                    StaticHoverStyle-CssClass="StaticHoverStyle"
+                    orientation="Horizontal" 
+                    runat="server" 
+                    Font-names="Arial, Gill Sans" OnMenuItemClick="NavigationMenu_MenuItemClick">
+
+                     <items>
+                        <asp:menuitem navigateurl="Home.aspx" Text="Inicio" tooltip="Inicio"></asp:menuitem>
+
+                        <asp:menuitem navigateurl="Coleccion.aspx" text="Coleccion" tooltip="Coleccion"></asp:menuitem>
+
+                        <asp:menuitem navigateurl="Relatos.aspx" text="Relatos" tooltip="Relatos"> </asp:menuitem>
+
+                        <asp:menuitem navigateurl="Criticas.aspx" text="Criticas" tooltip="Criticas"> </asp:menuitem>
+
+                        <asp:menuitem navigateurl="FAQs.aspx" text="PPFF" tooltip="PPFF"> </asp:menuitem>
+            
+                        <asp:menuitem navigateurl="Soporte.aspx" text="Soporte" tooltip="Soporte"> </asp:menuitem>
+            
+                        <asp:menuitem  navigateurl="SignIn.aspx" text="Iniciar Sesion" tooltip="Iniciar Sesion"> </asp:menuitem>
+
+                         <asp:menuitem ImageUrl="~/Config.jpg">
+                         <asp:menuitem navigateurl="Perfil.aspx"
+                         text="Perfil"
+                         tooltip="Perfil">
+                         </asp:menuitem>
+                         <asp:menuitem navigateurl="ListaDeseo.aspx"
+                         text="Lista Deseo"
+                         tooltip="Lista Deseo">
+                         </asp:menuitem>
+                         <asp:menuitem navigateurl="Leidos.aspx"
+                         text="Leidos"
+                         tooltip="Leidos">
+                         </asp:menuitem>
+                         <asp:menuitem navigateurl="#"
+                         text="Cerrar Sesion"
+                         tooltip="Cerrar Sesion">
+                         </asp:menuitem>
+                         </asp:menuitem>
+                     </items>
+                </asp:menu>
+            </div>
+            <br />
+
+    <style>     
+    
+        .level1
+        {
+            color: White;
+            background-color: Black;
+            font-variant: small-caps;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        .level2
+        {
+            color: Blue;
+            font-family: Gill Sans MT !important;
+            font-size: medium;
+            background-color: Gray;
+        }
+
+        .level3
+        {
+            color: black;
+            background-color: Silver;
+            font-family: Gill Sans MT !important;
+            font-size: small;
+        }
+
+        .hoverstyle
+        {
+            font-weight: bold;
+        }
+       
+        .sublevel1
+        {
+            background-color: Gray !important;
+            color: White !important;
+            font-variant: small-caps;
+        } 
+
+    </style>
 
             <asp:ContentPlaceHolder ID="Inicio" runat="server">
+
             </asp:ContentPlaceHolder>
 
-           
         </div>
         <footer  style="width:100%; margin-left: 0px;"  >
             <div class="copyright container" style="background-color: #0d47a1;">
@@ -96,7 +136,6 @@
             </div>
         </footer>
     </form>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
 </body>
 </html>

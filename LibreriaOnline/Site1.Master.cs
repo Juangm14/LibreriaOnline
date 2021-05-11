@@ -10,5 +10,9 @@ namespace LibreriaOnline {
         protected void Page_Load(object sender, EventArgs e) {
 
         }
+
+        protected void NavigationMenu_MenuItemClick(object sender, MenuEventArgs e) {
+
+        }
     }
 }
