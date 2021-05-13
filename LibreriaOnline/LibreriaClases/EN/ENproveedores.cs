@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaOnline.CAD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,31 +9,27 @@ namespace LibreriaOnline
 {
     public class ENproveedores
     {
-        private int Telefono;
-        private string Email;
-        private string Nombre;
-
-        public int Telefono
+        private int Telefono
         {
-            get { Telefono}
-            set { Telefono = value}
+            get { return Telefono; }
+            set { Telefono = value; }
         }
 
         public string Email
         {
-            get { Email}
-            set { Email = value}
+            get { return Email; }
+            set { Email = value; }
         }
 
         public string Nombre
         {
-            get { Nombre}
-            set { Nombre = value}
+            get { return Nombre; }
+            set { Nombre = value; }
         }
 
         public ENproveedores()
         {
-            Telefono = "";
+            Telefono = 0;
             Email = "";
             Nombre = "";
         }
@@ -41,7 +38,7 @@ namespace LibreriaOnline
         {
             Telefono = telefono;
             Email = email;
-            Nomber = nombre;
+            Nombre = nombre;
         }
 
         public bool LicenciaProveedores()

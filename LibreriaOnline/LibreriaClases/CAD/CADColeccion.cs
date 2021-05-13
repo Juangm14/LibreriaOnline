@@ -16,22 +16,22 @@ namespace ConsoleApp1
 
 		public bool addColeccion(ENColeccion en)
 		{
-
+			return true;
 		}
 
 		public bool removeColeccion(ENColeccion en)
 		{
-
+			return true;
 		}
 
-		public bool updateColeccion()
+		public bool updateColeccion(ENColeccion eNColeccion)
 		{
-			
+			return true;
 		}
 
-		public bool readColeccion()
+		public bool readColeccion(ENColeccion eNColeccion)
 		{
-			
+			return true;
 		}
 	}
 }

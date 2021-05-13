@@ -1,47 +1,39 @@
-﻿using System;
+﻿using LibreriaOnline.CAD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace LibreriaOnline
-{
+namespace LibreriaOnline {
     public class ENlibros
     {
-        private string ISBN;
-        private string Autores;
-        private string Titulo;
-        private string Editorial;
-        private string Genero;
-
-
-        public string ISBN()
+        private string ISBN
         {
-            get { ISBN; }
+            get { return ISBN; }
             set { ISBN = value; }
         }
 
-        public string Autores()
+        public string Autores
         {
-            get { Autores; }
+            get { return Autores; }
             set { Autores = value; }
         }
 
-        public string Titulo()
+        public string Titulo
         {
-            get { Titulo}
+            get { return Titulo; }
             set { Titulo = value; }
         }
 
-        public string Editorial()
+        public string Editorial
         {
-            get { Editorial; }
+            get { return Editorial; }
             set { Editorial = value; }
         }
 
-        public string Genero()
+        public string Genero
         {
-            get { Genero; }
+            get { return Genero; }
             set { Genero = value; }
         }
 
@@ -66,7 +58,7 @@ namespace LibreriaOnline
         public bool createLibros()
         {
             CADlibros cl = new CADlibros();
-            return c1.addLibro(this);
+            return cl.addLibro(this);
         }
 
         public bool deleteLibros()
@@ -75,7 +67,7 @@ namespace LibreriaOnline
             return c1.deleteLibros(this);
         }
 
-        public bool updateLibros()
+        public bool UpdateLibros()
         {
             CADlibros c1 = new CADlibros();
             return c1.updateLibros(this);
@@ -86,7 +78,7 @@ namespace LibreriaOnline
             CADlibros c1 = new CADlibros();
             return c1.adminLibros(this);
         }
-        public bool ColeccionLibros(this)
+        public bool ColeccionLibros() 
         {
             CADlibros c1 = new CADlibros();
             return c1.ColeccionLibros(this);

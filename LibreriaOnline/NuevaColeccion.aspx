@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
-    <div>
+    <div class="container">
         <p>
             Nombre: <asp:TextBox id="cp"  TextMode="SingleLine" Columns="30" runat="server" ></asp:TextBox>
         </p>

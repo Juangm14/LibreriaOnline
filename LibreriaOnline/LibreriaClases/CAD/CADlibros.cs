@@ -52,13 +52,21 @@ namespace LibreriaOnline.CAD
             return true;
         }
 
-        public RecomiendaLibros(ENlibros en)
+        public bool RecomiendaLibros(ENlibros en)
         {
             return true;
         }
-        public relUsuarioLibros(ENlibros en)
+        public bool relUsuarioLibros(ENlibros en)
         {
             return true;
+        }
+
+        public bool addLibro(ENlibros eNlibros) {
+            throw new NotImplementedException();
+        }
+
+        public bool updateLibros(ENlibros eNlibros) {
+            throw new NotImplementedException();
         }
     }
 }

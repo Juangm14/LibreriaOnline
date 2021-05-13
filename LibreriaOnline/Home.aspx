@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
     <div class="container">
-        Aqui mostramos los libros
+        
 
         <p>
             <asp:GridView runat="server">

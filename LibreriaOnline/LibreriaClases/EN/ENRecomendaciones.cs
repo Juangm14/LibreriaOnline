@@ -6,7 +6,7 @@ namespace LibreriaOnline
 {
 	public class ENRecomendaciones
 	{
-		private List<ENLibro> recomendados;
+		private List<ENlibros> recomendados;
 		string usuario; //email del usuario, es decir su CP en la BBDD
 
 		public string Usuario
@@ -21,7 +21,7 @@ namespace LibreriaOnline
 			}
 		}
 
-		public List<ENLibro> Recomendados
+		public List<ENlibros> Recomendados
 		{
 			get
 			{
@@ -34,17 +34,17 @@ namespace LibreriaOnline
 		}
 		public ENRecomendaciones()
 		{
-			recomendados =  new List<ENULibro>();
+			recomendados =  new List<ENlibros>();
 			usuario = "";
 		}
 
-		public ENRecomendaciones(List<ENULibro> reco, string usu)
+		public ENRecomendaciones(List<ENlibros> reco, string usu)
 		{
 			recomendados = reco;
 			usuario = usu;
 		}
 
-		public bool addRecomendado(ENULibro libro)
+		public bool addRecomendado(ENlibros libro)
 		{
 			CADRecomendaciones added = new CADRecomendaciones();
 
@@ -57,7 +57,7 @@ namespace LibreriaOnline
 			return false;
 		}
 
-		public bool removeDeseado(ENULibro libro)
+		public bool removeDeseado(ENlibros libro)
 		{
 			CADRecomendaciones removed = new CADRecomendaciones();
 
@@ -70,7 +70,7 @@ namespace LibreriaOnline
 			return false;
 		}
 
-		private bool checkLibros(ENULibro l)
+		private bool checkLibros(ENlibros l)
 		{
 			if (this.recomendados.Contains(l))
 			{

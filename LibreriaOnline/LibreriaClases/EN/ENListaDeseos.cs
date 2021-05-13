@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LibreriaOnline
+namespace LibreriaOnline.EN
 {
 	public class ENListaDeseos
 	{
-		List<ENLibro> deseados; //lista con los libros marcados como deseados
+		List<ENlibros> deseados; //lista con los libros marcados como deseados
 		string usuario; //email del usuario, es decir su CP en la BBDD
 
 		public string Usuario
@@ -20,7 +20,7 @@ namespace LibreriaOnline
 			}
 		}
 
-		public List<ENLibro> Deseados
+		public List<ENlibros> Deseados
 		{
 			get
 			{
@@ -34,16 +34,16 @@ namespace LibreriaOnline
 
 		public ENListaDeseos()
 		{
-			deseados = new List<ENULibro>(); ;
+			deseados = new List<ENlibros>(); ;
 			usuario = "";
 		}
-		public ENListaDeseos(ENULibro libro, string usu)
+		public ENListaDeseos(ENlibros libro, string usu)
 		{
 			deseados.Add(libro);
 			usuario = usu;
 		}
 
-		public bool addDeseado(ENULibro libro)
+		public bool addDeseado(ENlibros libro)
         {
 			CADListaDeseos added = new CADListaDeseos();
 
@@ -56,7 +56,7 @@ namespace LibreriaOnline
 			return false;
         }
 
-		public bool removeDeseado(ENULibro libro)
+		public bool removeDeseado(ENlibros libro)
 		{
 			CADListaDeseos removed = new CADListaDeseos();
 
@@ -69,7 +69,7 @@ namespace LibreriaOnline
 			return false;
 		}
 
-		private bool checkLibros(ENULibro l)
+		private bool checkLibros(ENlibros l)
         {
 			if (this.deseados.Contains(l))
 			{

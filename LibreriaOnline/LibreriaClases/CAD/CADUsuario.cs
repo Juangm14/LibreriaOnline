@@ -70,5 +70,9 @@ namespace LibreriaOnline.CAD
         {
             return true;
         }
+
+        internal bool modificarUsuario(ENUsuario eNUsuario) {
+            throw new NotImplementedException();
+        }
     }
 }

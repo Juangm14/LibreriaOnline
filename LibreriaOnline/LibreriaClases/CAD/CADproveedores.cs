@@ -8,11 +8,11 @@ namespace LibreriaOnline.CAD
 {
     public class CADproveedores
     {
-        public bool LicenciaProveedores()
+        public bool LicenciaProveedores(ENproveedores eNproveedores)
         {
             return true;
         }
-        public bool AdministraLibros()
+        public bool AdministraLibros(ENproveedores eNproveedores)
         {
             return true;
         }
