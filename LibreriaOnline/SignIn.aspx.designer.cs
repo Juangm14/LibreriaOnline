@@ -7,28 +7,30 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace LibreriaOnline {
+namespace LibreriaOnline
+{
 
 
-    public partial class SignIn {
+    public partial class SignIn
+    {
 
         /// <summary>
-        /// Control exampleFormControlInput1.
+        /// Control logUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox exampleFormControlInput1;
+        protected global::System.Web.UI.WebControls.TextBox logUsuario;
 
         /// <summary>
-        /// Control exampleFormControlInput2.
+        /// Control logContrasena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox exampleFormControlInput2;
+        protected global::System.Web.UI.WebControls.TextBox logContrasena;
 
         /// <summary>
         /// Control Msg.
