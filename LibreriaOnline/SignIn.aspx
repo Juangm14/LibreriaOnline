@@ -7,13 +7,13 @@
     <div class="container">
 
         <div class="mb-3">
-          <asp:label runat="server" for="exampleFormControlInput1" class="form-label">Email o nick</asp:label>
-          <asp:TextBox runat="server" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" TextMode="Email"></asp:TextBox> 
+          <asp:label runat="server" for="logUsuario" class="form-label">Email o nick</asp:label>
+          <asp:TextBox runat="server" class="form-control" id="logUsuario" placeholder="name@example.com" TextMode="Email"></asp:TextBox> 
         </div>
 
         <div class="mb-3">
-          <asp:label runat="server" for="exampleFormControlInput1" class="form-label">Contraseña</asp:label>
-          <asp:TextBox runat="server" TextMode="Password" class="form-control" id="exampleFormControlInput2" placeholder="Contraseña"></asp:TextBox>
+          <asp:label runat="server" for="logUsuario" class="form-label">Contraseña</asp:label>
+          <asp:TextBox runat="server" TextMode="Password" class="form-control" id="logContrasena" placeholder="Contraseña" OnTextChanged="logContrasena_TextChanged"></asp:TextBox>
         </div>
            
         <asp:Button class="btn-sm btn-success" runat="server" onclick="InicioSesion_Click" text="Iniciar Sesion"/> 
