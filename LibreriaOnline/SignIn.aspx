@@ -8,12 +8,12 @@
 
         <div class="mb-3">
           <asp:label runat="server" for="logUsuario" class="form-label">Email o nick</asp:label>
-          <asp:TextBox runat="server" class="form-control" id="logUsuario" placeholder="name@example.com" TextMode="Email"></asp:TextBox> 
+          <asp:TextBox runat="server" class="form-control" id="logUsuario" placeholder="name@example.com" TextMode="SingleLine"></asp:TextBox> 
         </div>
 
         <div class="mb-3">
           <asp:label runat="server" for="logUsuario" class="form-label">Contraseña</asp:label>
-          <asp:TextBox runat="server" TextMode="Password" class="form-control" id="logContrasena" placeholder="Contraseña" OnTextChanged="logContrasena_TextChanged"></asp:TextBox>
+          <asp:TextBox runat="server" TextMode="Password" class="form-control" id="logContrasena" placeholder="Contraseña"></asp:TextBox>
         </div>
            
         <asp:Button class="btn-sm btn-success" runat="server" onclick="InicioSesion_Click" text="Iniciar Sesion"/> 

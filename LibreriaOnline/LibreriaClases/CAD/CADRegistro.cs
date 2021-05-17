@@ -14,7 +14,7 @@ namespace LibreriaOnline.CAD
 		private String constring;
 		public CADRegistro()
 		{
-			constring = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+			constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
 		}
 
 		public bool ExisteEmail(ENRegistro registro)
@@ -75,7 +75,7 @@ namespace LibreriaOnline.CAD
 			{
 				SqlConnection c = new SqlConnection(constring);
 				c.Open();
-				SqlCommand com = new SqlCommand("Insert INTO [dbo].[Usuario] (email, nick, contrasena, edad, telefono) VALUES ('" + registro.Email + "', '" + registro.Nick + "', '" + registro.Contrasena + "', "+registro.Edad+", "+registro.Telefono+ ")", c);
+				SqlCommand com = new SqlCommand("Insert INTO Usuario (email, nick, contraseña, edad, telefono) VALUES ('" + registro.Email + "', '" + registro.Nick + "', '" + registro.Contrasena + "', "+registro.Edad+", "+registro.Telefono + ")", c);
 				com.ExecuteNonQuery();
 				creado = true;
 				c.Close();
@@ -98,7 +98,7 @@ namespace LibreriaOnline.CAD
 				SqlDataReader dr = com.ExecuteReader();
 				if (dr.Read())
 				{
-					registro.Contrasena = dr["contrasena"].ToString();
+					registro.Contrasena = dr["contraseña"].ToString();
 					leido = true;
 				}
 				dr.Close();
@@ -124,7 +124,7 @@ namespace LibreriaOnline.CAD
 				SqlDataReader dr = com.ExecuteReader();
 				if (dr.Read())
 				{
-					registro.Contrasena = dr["contrasena"].ToString();
+					registro.Contrasena = dr["contraseña"].ToString();
 					leido = true;
 				}
 				dr.Close();

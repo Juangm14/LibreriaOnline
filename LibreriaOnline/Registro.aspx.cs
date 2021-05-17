@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace LibreriaOnline {
+﻿using LibreriaOnline.EN;
+using System;
+namespace LibreriaOnline
+{
     public partial class Registro : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             Msg.Text = "";
@@ -16,7 +12,7 @@ namespace LibreriaOnline {
             {
                 Msg.Text = "Algun campo obligatorio esta vacio.";
             }
-            else if (registroContraseña.Text == registroContraseña2.Text)
+            else if (registroContraseña.Text != registroContraseña2.Text)
             {
                 Msg.Text = "La contraseña repetida no coincide con la contraseña introducida.";
             }
@@ -30,7 +26,7 @@ namespace LibreriaOnline {
                 {
                     Msg.Text = "El email introducido ya esta en uso. Por favor, introduzca un email diferente.";
                 }
-                if (usuarioNick.NickRepetido())
+                else if(usuarioNick.NickRepetido())
                 {
                     Msg.Text = "El nick introducido ya esta en uso. Por favor, introduzca un nick diferente";
                 }
@@ -51,6 +47,8 @@ namespace LibreriaOnline {
                     if (usuarioFinal.Registrar())
                     {
                         Msg.Text = "Usuario creado con exito";
+                        Session.Add("email", usuarioFinal.Email);
+                        Response.Redirect("Home.aspx");
                     }
                     else
                     {

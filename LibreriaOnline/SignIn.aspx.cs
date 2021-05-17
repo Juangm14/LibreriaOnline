@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaOnline.EN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,9 +26,11 @@ namespace LibreriaOnline {
                 usuario.Nick = logUsuario.Text;
                 usuario.Email = logUsuario.Text;
                 usuario.Contrasena = logContrasena.Text;
-                if (usuario.log())
+                if (usuario.Log())
                 {
                     Msg.Text = "Se ha iniciado sesión correctamente.";
+                    Session.Add("email", usuario.Email);
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {
