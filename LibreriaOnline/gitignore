@@ -1,0 +1,7 @@
+﻿*.cache
+/LibreriaOnline/.vs/
+/LibreriaOnline/LibreriaClases/bin/
+/LibreriaOnline/LibreriaClases/obj/
+/LibreriaOnline/bin/
+/LibreriaOnline/obj/
+/LibreriaOnline/packages/
