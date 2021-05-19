@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LibreriaOnline.EN {
-    class ENCritica {
+    public class ENCritica {
         private string texto;
         private string titulo;
         private int nota;
@@ -38,8 +38,8 @@ namespace LibreriaOnline.EN {
             nota = 0;
         }
 
-        public ENCritica(string texto, string titulo, int nota) {
-            this.nota = nota;
+        public ENCritica(string texto, string titulo, string nota) {
+            this.nota = int.Parse(nota);
             this.texto = texto;
             this.titulo = titulo;
         }
@@ -56,9 +56,9 @@ namespace LibreriaOnline.EN {
             CADCritica cad = new CADCritica();
             return cad.updateCritica(this);
         }
-        public bool leerCritica() {
+        public bool buscarCritica() {
             CADCritica cad = new CADCritica();
-            return cad.leerCritica(this);
+            return cad.buscarCritica(this);
         }
     }
 }
