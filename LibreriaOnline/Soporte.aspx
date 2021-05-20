@@ -9,10 +9,10 @@
             </h2>
         </a>
 
-        <select>
-            <option>Pregunta</option>
-            <option>Sugerencia</option>
-        </select>
+        <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:ListItem Selected="True" Value="Pregunta"> Pregunta </asp:ListItem>
+            <asp:ListItem Value="Sugerencia"> Sugerencia </asp:ListItem>
+        </asp:DropDownList>
 
         <p>Asunto
         <br />
