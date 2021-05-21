@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaOnline.EN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,7 +25,22 @@ namespace LibreriaOnline {
 
         protected void EnviarPregunta(object sender, EventArgs e)
         {
-
+            if (AsuntoTextBox.Text == "")
+            {
+                MsgSoporte.Text = "Por favor, introduzca un asunto.";
+            }
+            else if (PreguntaTextBox.Text == "")
+            {
+                MsgSoporte.Text = "Por favor, introduzca una pregunta.";
+            }
+            else
+            {
+                ENSoporte pregunta = new ENSoporte();
+                pregunta.Pregunta = PreguntaTextBox.Text;
+                pregunta.Asunto = AsuntoTextBox.Text;
+                pregunta.createPregunta();
+                MsgSoporte.Text = "Pregunta enviada a soporte.";
+            }
         }
 
         protected void EnviarSugerencia(object sender, EventArgs e)
