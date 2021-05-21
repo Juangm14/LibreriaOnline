@@ -11,9 +11,7 @@ namespace LibreriaOnline.CAD {
 
         private String conexionRelato;
         public CADRelato() {
-            conexionRelato = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename =" +
-                             "C:\\Users\\Usuario\\source\\repos\\LibreriaOnline\\App_Data\\LibreriaOnline.mdf; " +
-                             "Integrated Security = True";
+            conexionRelato = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
         }
 
         public bool createRelato(ENRelato en) {
@@ -22,7 +20,7 @@ namespace LibreriaOnline.CAD {
             try {
                 connection.Open();
                 SqlCommand com = new SqlCommand("Insert Into Relato (Titulo, genero, text, email) VALUES " +
-                                                "('" + en.getTitulo() + "','" + en.getGenero() + "','" + en.getTexto() + "','" + "juan@gcloud.es" + "')", connection);
+                                                "('" + en.getTitulo() + "','" + en.getGenero() + "','" + en.getTexto() + "','" + en.getUsuario() + "')", connection);
                 com.ExecuteNonQuery();
                 connection.Close();
                 return true;
@@ -80,5 +78,4 @@ namespace LibreriaOnline.CAD {
             return false;
         }
     }
-
 }

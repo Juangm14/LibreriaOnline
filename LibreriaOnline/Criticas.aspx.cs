@@ -18,6 +18,8 @@ namespace LibreriaOnline {
             NuevaValidacionLabel.Visible = false;
             NuevaValoracionText.Visible = false;
             ConfirmacionNuevaCritica.Visible = false;
+            LabelNuevoLibro.Visible = false;
+            ListaNuevosLibros.Visible = false;
 
             //Modificacion de Critica
             ModTituloLabel.Visible = false;
@@ -32,6 +34,8 @@ namespace LibreriaOnline {
             ModValoracionLabel.Visible = false;
             ConfirmarModificacionCritica.Visible = false;
             ConfirmarBusquedaCritica.Visible = false;
+            ModLabelListaLibros.Visible = false;
+            ModListaLibros.Visible = false;
 
             //Eliminacion de Critica
             ElimBuscarLabel.Visible = false;
@@ -40,7 +44,22 @@ namespace LibreriaOnline {
             ConfirmarEliminacionCritica.Visible = false;
 
             //Grid de critica
-            GridCritica.Visible = false;
+            if (Session["email"] == null) {
+                ConfirmacionNuevaCritica.Visible = true;
+                DesplegarEliminacion.Visible = false;
+                DesplegarCritica.Visible = false;
+                DesplegarModificacion.Visible = false;
+                MsgCritica.Visible = true;
+                GridCritica.Visible = false;
+                MsgCritica.Text = "<br> Para tener el acceso completo a esta funcionalidad inicia sesion, ";
+                mensajeSession.Visible = true;
+            } else {
+                GridCritica.Visible = true;
+                DesplegarEliminacion.Visible = true;
+                DesplegarCritica.Visible = true;
+                DesplegarModificacion.Visible = true;
+                mensajeSession.Visible = false;
+            }
         }
 
         protected void desplegarNuevaCritica(object sender, EventArgs e) {
@@ -52,6 +71,8 @@ namespace LibreriaOnline {
             EnviarNuevaCritica.Visible = true;
             NuevaValidacionLabel.Visible = true;
             NuevaValoracionText.Visible = true;
+            LabelNuevoLibro.Visible = true;
+            ListaNuevosLibros.Visible = true;
         }
 
         protected void desplegarModCrit_Click(object sender, EventArgs e) {
@@ -59,8 +80,6 @@ namespace LibreriaOnline {
             ModBuscarTituloLabel.Visible = true;
             ModBuscarTituloText.Visible = true;
             ModBuscarTituloBoton.Visible = true;
-
-
         }
 
         protected void desplegarElimCrit_Click(object sender, EventArgs e) {
@@ -72,7 +91,7 @@ namespace LibreriaOnline {
         protected void NuevaCritica_Click(object sender, EventArgs e) {
             GridCritica.Visible = false;
             try {
-                ENCritica en = new ENCritica(NuevoTituloCritica.Text.ToString(), NuevoTextoCritica.Text.ToString(), NuevaValoracionText.Text.ToString());
+                ENCritica en = new ENCritica(NuevoTextoCritica.Text.ToString(), NuevoTituloCritica.Text.ToString(), NuevaValoracionText.Text.ToString(), Session["email"].ToString(), ListaNuevosLibros.Text.ToString());
                 if (en.createCritica()) {
                     ConfirmacionNuevaCritica.Visible = true;
                     ConfirmacionNuevaCritica.Text = "<br> La critica se ha creado correctamente";
@@ -87,10 +106,10 @@ namespace LibreriaOnline {
         }
 
         protected void ModBuscarTituloBoton_Click(object sender, EventArgs e) {
-             GridCritica.Visible = false;
+            GridCritica.Visible = false;
             try {
-                ENCritica en = new ENCritica();
-                en.setTitulo(ModTituloText.Text.ToString());
+                ENCritica en = new ENCritica(Session["email"].ToString());
+                en.setTitulo(ModBuscarTituloText.Text.ToString());
                 if (en.buscarCritica()) {
                     ModTituloLabel.Visible = true;
                     ModTituloText.Visible = true;
@@ -99,15 +118,51 @@ namespace LibreriaOnline {
                     ModButton.Visible = true;
                     ModValoracionText.Visible = true;
                     ModValoracionLabel.Visible = true;
+                    ModLabelListaLibros.Visible = true;
+                    ModListaLibros.Visible = true;
                 } else {
-                    //ModMsgBuscar.Visible = true;
-                    //ModMsgBuscar.Text = "<br> No existe ese Relato, intentalo de nuevo.";
+                    ConfirmarModificacionCritica.Visible = true;
+                    ConfirmarModificacionCritica.Text = "<br> No existe esa critica, intentalo de nuevo.";
                 }
             } catch (Exception ex) {
-                //ModMsgBuscar.Visible = true;
-                //ModMsgBuscar.Text = "<br> ERROR: " + ex.Message.ToString();
+                ConfirmarBusquedaCritica.Visible = true;
+                ConfirmarBusquedaCritica.Text = "<br> ERROR: " + ex.Message.ToString();
             }
 
+        }
+        protected void ModificarCritica_Click(object sender, EventArgs e){
+            GridCritica.Visible = false;
+            ENCritica en = new ENCritica(ModTextoText.Text.ToString(), ModTituloText.Text.ToString(), ModValoracionText.Text.ToString(), Session["email"].ToString(), ModListaLibros.ToString());
+            try {
+                if (en.updateCritica()) {
+                    ConfirmarModificacionCritica.Visible = true;
+                    ConfirmarModificacionCritica.Text = "<br>La critica ha sido modificado correctamente.";
+                } else {
+                    ConfirmarModificacionCritica.Visible = true;
+                    ConfirmarModificacionCritica.Text = "<br>La critica no ha podido ser modificado, intentelo de nuevo.";
+                }
+            } catch (FormatException ex) {
+                ConfirmarModificacionCritica.Visible = true;
+                ConfirmarModificacionCritica.Text = "<br> ERROR: " + ex.Message.ToString();
+            }
+        }
+
+        protected void ElimBuscarBoton_Click(object sender, EventArgs e) {
+            GridCritica.Visible = false;
+            try {
+                ENCritica en = new ENCritica(Session["email"].ToString());
+                en.setTitulo(ElimBuscarText.Text.ToString());
+                if (en.deleteCritica()) {
+                    ConfirmarEliminacionCritica.Visible = true;
+                    ConfirmarEliminacionCritica.Text = "<br> La critica se ha eliminado correctamente.";
+                } else {
+                    ConfirmarEliminacionCritica.Visible = true;
+                    ConfirmarEliminacionCritica.Text = "<br> No existe ese Critica, intentalo de nuevo.";
+                }
+            } catch (Exception ex) {
+                ConfirmarBusquedaCritica.Visible = true;
+                ConfirmarBusquedaCritica.Text = "<br> ERROR: " + ex.Message.ToString();
+            }
         }
     }
 }

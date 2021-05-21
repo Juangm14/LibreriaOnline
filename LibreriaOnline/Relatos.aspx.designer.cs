@@ -121,6 +121,15 @@ namespace LibreriaOnline {
         protected global::System.Web.UI.WebControls.Label MsgRelato;
 
         /// <summary>
+        /// Control mensajeSession.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label mensajeSession;
+
+        /// <summary>
         /// Control ModLabelTitulo.
         /// </summary>
         /// <remarks>

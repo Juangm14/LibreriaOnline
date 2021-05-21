@@ -40,7 +40,22 @@ namespace LibreriaOnline {
             ElimMsg.Visible = false;
 
             //Ocultamos la vista de los relatos
-            GridRelatosShow.Visible = true;
+            if (Session["email"] == null) {
+                GridRelatosShow.Visible = false;
+                NuevoRelato.Visible = false;
+                EditarRelato.Visible = false;
+                BorrarRelato.Visible = false;
+                MsgRelato.Visible = true;
+                MsgRelato.Text = "<br> Para tener el acceso completo a esta funcionalidad inicia sesion, ";
+                mensajeSession.Visible = true;
+            } else {
+                GridRelatosShow.Visible = true;
+                NuevoRelato.Visible = true;
+                EditarRelato.Visible = true;
+                BorrarRelato.Visible = true;
+                mensajeSession.Visible = false;
+            }
+            
         }
 
         protected void NuevoRelato_Click(object sender, EventArgs e) {
@@ -51,16 +66,18 @@ namespace LibreriaOnline {
             TextoRelato.Visible = true;
             GeneroRelato.Visible = true;
             CrearRelatoButton.Visible = true;
-
+            MsgRelato.Visible = false;
             GridRelatosShow.Visible = false;
         }
 
 
         protected void EditarRelato_Click(object sender, EventArgs e) {
+
             ModLabelTitulo.Visible = true;
             ModTextTitulo.Visible = true;
             ModBuscarTitulo.Visible = true;
             GridRelatosShow.Visible = false;
+
         }
 
         protected void BuscarRelato_Click(object sender, EventArgs e) {
@@ -93,18 +110,29 @@ namespace LibreriaOnline {
             GridRelatosShow.Visible = false;
         }
         protected void CrearNuevoRelato_Click(object sender, EventArgs e) {
-            try {
-                 ENRelato en = new ENRelato(exampleFormControlInput1.Text.ToString(), GeneroDesplegable.Text.ToString(), exampleFormControlInput2.Text.ToString());
-                if (en.createRelato()) {
+            
+            String usuario = null;
+
+            if (Session["email"] != null) { 
+
+                usuario = Session["email"].ToString();
+
+                try {
+                    ENRelato en = new ENRelato(exampleFormControlInput1.Text.ToString(), GeneroDesplegable.Text.ToString(), exampleFormControlInput2.Text.ToString(), usuario);
+                    if (en.createRelato()) {
+                        LabelCrear.Visible = true;
+                        LabelCrear.Text = "<br> El relato se ha creado correctamente";
+                    } else {
+                        LabelCrear.Visible = true;
+                        LabelCrear.Text = "<br> El relato no se ha creado, intentalo de nuevo.";
+                    }
+                } catch (FormatException ex) {
                     LabelCrear.Visible = true;
-                    LabelCrear.Text = "<br> El relato se ha creado correctamente";
-                } else {
-                    LabelCrear.Visible = true;
-                    LabelCrear.Text = "<br> El relato no se ha creado, intentalo de nuevo.";
+                    LabelCrear.Text = "<br> ERROR: " + ex.Message.ToString();
                 }
-            } catch (FormatException ex) {
-                LabelCrear.Visible = true;
-                LabelCrear.Text = "<br> ERROR: " + ex.Message.ToString();
+            } 
+            else { 
+                Response.Redirect("Signin.aspx"); 
             }
 
         }

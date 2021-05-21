@@ -11,6 +11,7 @@ namespace LibreriaOnline.EN {
         private string genero;
         private string titulo;
         private string texto;
+        private string usuario;
 
         public string getGenero() { return genero; }
         public void setGenero(string genero) { this.genero = genero; }
@@ -18,11 +19,20 @@ namespace LibreriaOnline.EN {
         public void setTitulo(string titulo) { this.titulo = titulo; }
         public string getTexto() { return texto; }
         public void setTexto(string texto) { this.texto = texto; }
+        public string getUsuario() { return usuario; }
+        public void setUsuario(string usuario) { this.usuario = usuario; }
 
         public ENRelato(string titulo, string genero, string texto) {
             this.genero = genero;
             this.titulo = titulo;
             this.texto = texto;
+        }
+
+        public ENRelato(string titulo, string genero, string texto, string usuario) {
+            this.genero = genero;
+            this.titulo = titulo;
+            this.texto = texto;
+            this.usuario = usuario;
         }
 
         public ENRelato() {

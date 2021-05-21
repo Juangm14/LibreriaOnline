@@ -26,7 +26,6 @@
                   <asp:ListItem>Histórico</asp:ListItem>
                   <asp:ListItem>Terror</asp:ListItem>
                   <asp:ListItem>Otros</asp:ListItem>
-
               </asp:DropDownList>
             </div>
 
@@ -39,6 +38,10 @@
            
             <p>
                 <asp:Label ID="MsgRelato" runat="server"></asp:Label>
+
+                <asp:Label id="mensajeSession" runat="server">
+                    <a href="SignIn.aspx" style="color:blue">aquí.</a>
+                </asp:Label>
             </p>
         </div>
 
