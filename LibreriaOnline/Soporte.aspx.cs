@@ -38,8 +38,15 @@ namespace LibreriaOnline {
                 ENSoporte pregunta = new ENSoporte();
                 pregunta.Pregunta = PreguntaTextBox.Text;
                 pregunta.Asunto = AsuntoTextBox.Text;
-                pregunta.createPregunta();
-                MsgSoporte.Text = "Pregunta enviada a soporte.";
+                if (pregunta.createPregunta())
+                {
+                    MsgSoporte.Text = "Pregunta enviada a soporte.";
+                    PreguntaTextBox.Text = "";
+                    AsuntoTextBox.Text = "";
+                }
+                else {
+                    MsgSoporte.Text = "Error inesperado, intentalo mas tarde.";
+                }
             }
         }
 

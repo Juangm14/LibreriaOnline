@@ -25,6 +25,7 @@
         <asp:textbox ID="PreguntaTextBox" runat="server" Width="987px" Height="80px" TextMode="MultiLine"></asp:textbox>
         </p>
         <asp:Button class="btn-sm btn-primary mb-3" runat="server" Text="Enviar" OnClick="Enviar_Click"></asp:Button>
+        <asp:Label ID="MsgSoporte" runat="server"></asp:Label>
     </div>
-    <asp:Label ID="MsgSoporte" runat="server"></asp:Label>
+   
 </asp:Content>

@@ -33,7 +33,7 @@ namespace LibreriaOnline.CAD
 			{
 				SqlConnection c = new SqlConnection(constring);
 				c.Open();
-				SqlCommand com = new SqlCommand("Insert INTO Usuario (pregunta, asunto) VALUES ('" + soporte.Pregunta +"' '"+soporte.Asunto+"'", c);
+				SqlCommand com = new SqlCommand("Insert INTO Soporte (pregunta, asunto) VALUES ('" + soporte.Pregunta +"', '"+soporte.Asunto+"')", c);
 				com.ExecuteNonQuery();
 				creado = true;
 				c.Close();
