@@ -28,7 +28,7 @@
     </p>
     <div class=" container mb-3"> 
 
-        Si no encuentra la pregunta que se le redirigira a
+        Si su pregunta no ha sido respondida, dirigase a
 
         <a href="Soporte.aspx">
             <span style="color:blue";>Soporte</span>
