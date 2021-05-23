@@ -6,8 +6,10 @@ namespace LibreriaOnline
 {
 	public class ENRecomendaciones
 	{
-		private List<ENlibros> recomendados;
+		string recomendados; //libro para recomendar
 		string usuario; //email del usuario, es decir su CP en la BBDD
+        string critica;
+		string titulo;
 
 		public string Usuario
 		{
@@ -20,8 +22,29 @@ namespace LibreriaOnline
 				usuario = value; 
 			}
 		}
-
-		public List<ENlibros> Recomendados
+		public string Critica
+		{
+			get
+			{
+				return critica;
+			}
+			set
+			{
+				critica = value;
+			}
+		}
+		public string Titulo
+		{
+			get
+			{
+				return titulo;
+			}
+			set
+			{
+				titulo = value;
+			}
+		}
+		public string Recomendados
 		{
 			get
 			{
@@ -34,43 +57,30 @@ namespace LibreriaOnline
 		}
 		public ENRecomendaciones()
 		{
-			recomendados =  new List<ENlibros>();
+			recomendados =  "";
 			usuario = "";
 		}
 
-		public ENRecomendaciones(List<ENlibros> reco, string usu)
+		public ENRecomendaciones(string reco, string usu)
 		{
 			recomendados = reco;
 			usuario = usu;
 		}
 
-		public bool addRecomendado(ENlibros libro)
+		public bool addRecomendado(string libro)
 		{
 			CADRecomendaciones added = new CADRecomendaciones();
 
 			if (!checkLibros(libro)) //No esta ya marcado como recomendado
 			{
-				this.recomendados.Add(libro);
+				this.recomendados = libro;
 				return added.addRecomendado(this);
 			}
 
 			return false;
 		}
 
-		public bool removeDeseado(ENlibros libro)
-		{
-			CADRecomendaciones removed = new CADRecomendaciones();
-
-			if (checkLibros(libro))
-			{
-				this.recomendados.Remove(libro);
-				return removed.removeRecomendado(this);
-			}
-
-			return false;
-		}
-
-		private bool checkLibros(ENlibros l)
+		private bool checkLibros(string l)
 		{
 			if (this.recomendados.Contains(l))
 			{

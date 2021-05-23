@@ -5,7 +5,7 @@ namespace LibreriaOnline.EN
 {
 	public class ENListaDeseos
 	{
-		string deseados; //libro marcado como deseados
+		string deseados; //lista con los libros marcados como deseados
 		string usuario; //email del usuario, es decir su CP en la BBDD
 
 		public string Usuario
@@ -20,7 +20,7 @@ namespace LibreriaOnline.EN
 			}
 		}
 
-		public List<ENlibros> Deseados
+		public string Deseados
 		{
 			get
 			{
@@ -34,42 +34,41 @@ namespace LibreriaOnline.EN
 
 		public ENListaDeseos()
 		{
-			deseados = new List<ENlibros>(); ;
+			deseados = "" ;
 			usuario = "";
 		}
-		public ENListaDeseos(ENlibros libro, string usu)
+		public ENListaDeseos(string libro, string usu)
 		{
-			deseados.Add(libro);
+			deseados = libro;
 			usuario = usu;
 		}
 
-		public bool addDeseado(ENlibros libro)
+		public bool addDeseado(string libro)
         {
 			CADListaDeseos added = new CADListaDeseos();
 
             if (!checkLibros(libro)) //No esta ya marcado como deseado
             {
-				this.deseados.Add(libro);
+				this.deseados = libro;
 				return added.addDeseado(this);
 			}
 
 			return false;
         }
 
-		public bool removeDeseado(ENlibros libro)
+		public bool removeDeseado(string libro)
 		{
 			CADListaDeseos removed = new CADListaDeseos();
 
 			if (checkLibros(libro))
             {
-				this.deseados.Remove(libro);
 				return removed.removeDeseado(this);
 			}
 
 			return false;
 		}
 
-		private bool checkLibros(ENlibros l)
+		private bool checkLibros(string l)
         {
 			if (this.deseados.Contains(l))
 			{
