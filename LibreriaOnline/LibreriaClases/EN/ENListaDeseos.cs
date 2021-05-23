@@ -5,7 +5,7 @@ namespace LibreriaOnline.EN
 {
 	public class ENListaDeseos
 	{
-		List<ENlibros> deseados; //lista con los libros marcados como deseados
+		string deseados; //libro marcado como deseados
 		string usuario; //email del usuario, es decir su CP en la BBDD
 
 		public string Usuario
