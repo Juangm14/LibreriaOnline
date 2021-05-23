@@ -86,7 +86,7 @@ namespace LibreriaOnline {
 
         public ENlibros(string isbn, string proveedor)
         {
-            ISBN = int.Parse(isbn);
+            ISBN = 30;
             Autores = "";
             Titulo = "";
             Editorial = "";
@@ -108,10 +108,10 @@ namespace LibreriaOnline {
             Imagen = imagen;
         }
 
-        public bool createLibros()
+        public bool CreateLibros()
         {
             CADlibros cl = new CADlibros();
-            return cl.createLibros(this);
+            return cl.CreateLibros(this);
         }
 
         public bool deleteLibros()
@@ -120,10 +120,16 @@ namespace LibreriaOnline {
             return c1.deleteLibros(this);
         }
 
-        public bool UpdateLibros()
+        public bool updateLibros()
         {
             CADlibros c1 = new CADlibros();
             return c1.updateLibros(this);
+        }
+
+        public bool buscarLibro()
+        {
+            CADlibros cad = new CADlibros();
+            return cad.buscarLibro(this);
         }
 
         public bool adminLibros()
@@ -153,12 +159,6 @@ namespace LibreriaOnline {
         {
             CADlibros c1 = new CADlibros();
             return c1.NotaLibros(this);
-        }
-
-        public bool updateLibros()
-        {
-            CADlibros c1 = new CADlibros();
-            return c1.updateLibros(this);
         }
 
         public bool RecomiendaLibros()

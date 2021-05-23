@@ -15,7 +15,7 @@ namespace LibreriaOnline.CAD
             cadenaConexion = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
         }
 
-        public bool createLibros(ENlibros en)
+        public bool CreateLibros(ENlibros en)
         {
             SqlConnection connection = new SqlConnection(cadenaConexion);
             try
@@ -33,17 +33,71 @@ namespace LibreriaOnline.CAD
                 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
                 return false;
             }
-            return true;
         }
 
         public bool deleteLibros(ENlibros en)
         {
-            return true;
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            String sql = "Delete from Libros where ISBN = ('" + en.getISBN().ToString() + "')";
+            try
+            {
+                connection.Open();
+                SqlCommand c = new SqlCommand(sql, connection);
+                int filasAfectadas = c.ExecuteNonQuery();
+                connection.Close();
+                if (filasAfectadas > 0) return true;
+                else return false;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                return false;
+            }
         }
 
-        public bool updatelibros(ENlibros en)
+        public bool updateLibros(ENlibros en)
         {
-            return true;
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            String sql = "update Libro set  ISBN = '{0}', Autores = '{1}', Titulo = '{2}', Editorial = '{3}', Genero = '{4}', Proveedor = '{5}', Precio = '{6}' where ISBN = '{0}'";
+            try
+            {
+                connection.Open();
+                SqlCommand c = new SqlCommand(string.Format(sql, new String[] { en.getISBN().ToString(), en.getAutores(), en.getTitulo(), en.getEditorial(), en.getGenero(), en.getProveedor(), en.getPrecio().ToString()}), connection);
+                int filasAfectadas = c.ExecuteNonQuery();
+                connection.Close();
+                if (filasAfectadas > 0) return true;
+                else return false;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                return false;
+            }
+        }
+
+        public bool buscarLibro(ENlibros en)
+        {
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            String sql = "select ISBN from Libros where ISBN = '{0}'";
+            try
+            {
+                connection.Open();
+                SqlCommand c = new SqlCommand(string.Format(sql, new String[] { en.getISBN().ToString() }), connection);
+                SqlDataReader reader = c.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    if (reader["ISBN"].ToString().Equals(en.getISBN().ToString())) return true;
+                }
+                else { return false; }
+                connection.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                return false;
+            }
+            return false;
         }
 
         public bool adminLibros(ENlibros en)
@@ -77,14 +131,6 @@ namespace LibreriaOnline.CAD
         public bool relUsuarioLibros(ENlibros en)
         {
             return true;
-        }
-
-        public bool addLibro(ENlibros en) {
-            throw new NotImplementedException();
-        }
-
-        public bool updateLibros(ENlibros eNlibros) {
-            throw new NotImplementedException();
         }
     }
 }
