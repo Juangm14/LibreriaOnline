@@ -1,23 +1,14 @@
-<<<<<<< HEAD
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-=======
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
->>>>>>> ca319b49702c4a611f874ca2bc876ef2ada9a871
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-<<<<<<< HEAD
-    <ProjectGuid>{949E80B0-865D-4E3A-BB24-AFDC3778A8D7}</ProjectGuid>
-=======
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{97221A8D-65D9-4E2F-BD37-9305855AF2FA}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
->>>>>>> ca319b49702c4a611f874ca2bc876ef2ada9a871
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LibreriaOnline</RootNamespace>
@@ -52,23 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="CAD\CADlibros.cs" />
-    <Compile Include="CAD\CADproveedores.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="EN\ENlibros.cs" />
-    <Compile Include="EN\ENproveedores.cs" />
-=======
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -173,7 +147,6 @@
     <Compile Include="Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
->>>>>>> ca319b49702c4a611f874ca2bc876ef2ada9a871
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
@@ -218,9 +191,6 @@
       <DependentUpon>Soporte.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-<<<<<<< HEAD
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-=======
   <ItemGroup>
     <Content Include="libro alfonso" />
     <None Include="packages.config" />
@@ -231,6 +201,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LibreriaClases\LibreriaClases.csproj">
+      <Project>{d7449dd8-af5b-418f-8a70-ac744a350a0b}</Project>
+      <Name>LibreriaClases</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -276,5 +252,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
->>>>>>> ca319b49702c4a611f874ca2bc876ef2ada9a871
 </Project>
