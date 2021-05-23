@@ -55,7 +55,7 @@ namespace LibreriaOnline {
                 BorrarRelato.Visible = true;
                 mensajeSession.Visible = false;
             }
-            
+
         }
 
         protected void NuevoRelato_Click(object sender, EventArgs e) {
@@ -84,18 +84,24 @@ namespace LibreriaOnline {
             GridRelatosShow.Visible = false;
             try {
                 ENRelato en = new ENRelato();
-                en.setTitulo(ModTextTitulo.Text.ToString());
-                if (en.bucarRelato()) {
-                    ModButton.Visible = true;
-                    ModDropDownList1.Visible = true;
-                    ModGenero.Visible = true;
-                    ModLabelTexto.Visible = true;
-                    ModTextTexto.Visible = true;
-                    ModTextNewTitulo.Visible = true;
-                    ModLabelNewTitulo.Visible = true;
+                if (ModTextTitulo.Text.Length != 0) {
+                    en.setTitulo(ModTextTitulo.Text.ToString());
+
+                    if (en.bucarRelato()) {
+                        ModButton.Visible = true;
+                        ModDropDownList1.Visible = true;
+                        ModGenero.Visible = true;
+                        ModLabelTexto.Visible = true;
+                        ModTextTexto.Visible = true;
+                        ModTextNewTitulo.Visible = true;
+                        ModLabelNewTitulo.Visible = true;
+                    } else {
+                        ModMsgBuscar.Visible = true;
+                        ModMsgBuscar.Text = "<br> No existe ese Relato, intentalo de nuevo.";
+                    }
                 } else {
                     ModMsgBuscar.Visible = true;
-                    ModMsgBuscar.Text = "<br> No existe ese Relato, intentalo de nuevo.";
+                    ModMsgBuscar.Text = "<br>ERROR: No ha introducido ningun dato.";
                 }
             } catch (Exception ex) {
                 ModMsgBuscar.Visible = true;
@@ -110,29 +116,32 @@ namespace LibreriaOnline {
             GridRelatosShow.Visible = false;
         }
         protected void CrearNuevoRelato_Click(object sender, EventArgs e) {
-            
+
             String usuario = null;
 
-            if (Session["email"] != null) { 
+            if (Session["email"] != null) {
 
                 usuario = Session["email"].ToString();
-
-                try {
-                    ENRelato en = new ENRelato(exampleFormControlInput1.Text.ToString(), GeneroDesplegable.Text.ToString(), exampleFormControlInput2.Text.ToString(), usuario);
-                    if (en.createRelato()) {
+                if (exampleFormControlInput1.Text.Length != 0) {
+                    try {
+                        ENRelato en = new ENRelato(exampleFormControlInput1.Text.ToString(), GeneroDesplegable.Text.ToString(), exampleFormControlInput2.Text.ToString(), usuario);
+                        if (en.createRelato()) {
+                            LabelCrear.Visible = true;
+                            LabelCrear.Text = "<br> El relato se ha creado correctamente";
+                        } else {
+                            LabelCrear.Visible = true;
+                            LabelCrear.Text = "<br> El relato no se ha creado, intentalo de nuevo.";
+                        }
+                    } catch (FormatException ex) {
                         LabelCrear.Visible = true;
-                        LabelCrear.Text = "<br> El relato se ha creado correctamente";
-                    } else {
-                        LabelCrear.Visible = true;
-                        LabelCrear.Text = "<br> El relato no se ha creado, intentalo de nuevo.";
+                        LabelCrear.Text = "<br> ERROR: " + ex.Message.ToString();
                     }
-                } catch (FormatException ex) {
+                } else {
                     LabelCrear.Visible = true;
-                    LabelCrear.Text = "<br> ERROR: " + ex.Message.ToString();
+                    LabelCrear.Text = "<br>ERROR: El relato no se ha creado, introduce un titulo.";
                 }
-            } 
-            else { 
-                Response.Redirect("Signin.aspx"); 
+            } else {
+                Response.Redirect("Signin.aspx");
             }
 
         }
@@ -158,21 +167,25 @@ namespace LibreriaOnline {
         protected void EliminarRelato_Click(object sender, EventArgs e) {
             GridRelatosShow.Visible = false;
             ElimMsg.Visible = true;
-            try {
-                ENRelato en = new ENRelato();
-                en.setTitulo(ElimTituloRelato.Text.ToString());
-                if (en.deleteRelato()) {
+            if (ElimTituloRelato.Text.Length != 0) {
+                try {
+                    ENRelato en = new ENRelato();
+                    en.setTitulo(ElimTituloRelato.Text.ToString());
+                    if (en.deleteRelato()) {
+                        ElimMsg.Visible = true;
+                        ElimMsg.Text = "<br>Relato eliminado correctamente.";
+                    } else {
+                        ElimMsg.Visible = true;
+                        ElimMsg.Text = "<br>El relato no se ha podido eliminar.";
+                    }
+                } catch (FormatException ex) {
                     ElimMsg.Visible = true;
-                    ElimMsg.Text = "<br>Relato eliminado correctamente.";
-                } else {
-                    ElimMsg.Visible = true;
-                    ElimMsg.Text = "<br>El relato no se ha podido eliminar.";
+                    ElimMsg.Text = "<br> ERROR: " + ex.Message.ToString();
                 }
-            } catch (FormatException ex) {
+            } else {
                 ElimMsg.Visible = true;
-                ElimMsg.Text = "<br> ERROR: " + ex.Message.ToString();
+                ElimMsg.Text = "<br>ERROR: Introduce el titulo del relato a borrar.";
             }
         }
-
     }
 }

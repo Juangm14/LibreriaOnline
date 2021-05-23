@@ -62,6 +62,7 @@ namespace LibreriaOnline.CAD {
         public bool bucarRelato(ENRelato en) {
             SqlConnection connection = new SqlConnection(conexionRelato);
             String sql = "select Titulo from Relato where Titulo = '{0}'";
+
             try {
                 connection.Open();
                 SqlCommand c = new SqlCommand(string.Format(sql, new String[] { en.getTitulo() }), connection);
@@ -69,7 +70,9 @@ namespace LibreriaOnline.CAD {
 
                 if (reader.Read()) {
                     if (reader["Titulo"].ToString().Equals(en.getTitulo())) return true;
-                } else { return false; }
+                } else { 
+                    return false;
+                }
                 connection.Close();
             } catch (SqlException ex) {
                 Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
