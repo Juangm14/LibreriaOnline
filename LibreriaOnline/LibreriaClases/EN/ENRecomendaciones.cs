@@ -99,10 +99,9 @@ namespace LibreriaOnline
 				this.recomendados = libro; 
 				//El CAD buscara el libro con mayor nota y lo devuelve guardandolo en los atributos ENRecomendaciones
 				ENRecomendaciones aux = added.addRecomendado(this);
-                if (aux.correct)
-                {
-					return true;
-				}
+                
+                return aux.correct;
+				
 			}
 
 			return false;
