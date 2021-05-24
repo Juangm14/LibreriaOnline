@@ -17,20 +17,23 @@ namespace LibreriaOnline
         {
             constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
         }
+
+        //Los tres métodos de esta clase funcionan de manera muy similar...
         public bool addDeseado(ENListaDeseos param)
         {
             bool anyadido = false;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
-                c.Open();
+                c.Open(); //... Primero se conectan con la BBDD
                 SqlCommand com = new SqlCommand("Insert INTO ListaDeseo (email, ISBN) VALUES ('" + param.Usuario + "', '" + param.Deseados + ")", c);
-                com.ExecuteNonQuery();
-                anyadido = true;
+                com.ExecuteNonQuery(); //Y ejecutan cada uno su respectivo comando
+                anyadido = true; //Si todo sale bien se devuelve true y no se ha lanzado ninguna excepción
                 c.Close();
             }
             catch (SqlException e)
             {
+                //Los tres estan rodeados de try/catch para capturar las posibles excepciones que se produzcan
                 anyadido = false;
                 Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
@@ -57,6 +60,31 @@ namespace LibreriaOnline
             }
 
             return eliminado;
+        }
+
+        public bool checkLibros(string l)
+        {
+            bool encontrado = false;
+            try
+            {
+                SqlConnection c = new SqlConnection(constring);
+                c.Open();
+                SqlCommand com = new SqlCommand("Select * from [dbo].[ListaDeseo] Where ISBN='" + l + "'", c);
+                SqlDataReader dr = com.ExecuteReader();
+                if (dr.Read())
+                {
+                    encontrado = true;
+                }
+                dr.Close();
+                c.Close();
+            }
+            catch (SqlException e)
+            {
+                encontrado = false;
+                Console.WriteLine("Error: {0}", e.Message ," El libro no se encuntra marcado como deseado");
+            }
+
+            return encontrado;
         }
     }
 }

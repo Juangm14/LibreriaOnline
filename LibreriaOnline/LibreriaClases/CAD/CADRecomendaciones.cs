@@ -17,34 +17,34 @@ namespace LibreriaOnline
         {
             constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
         }
-        public bool addRecomendado(ENRecomendaciones lista)
+        public ENRecomendaciones addRecomendado(ENRecomendaciones MiEnRecomendado)
         {
-            //Actualiza la lista de recomendados de un usuario, al añadir un libro
-            bool encontrado = false;
+            //Busca el libro con mejor puntuacion para recomendarlo a un usuario
+            MiEnRecomendado.Correct = false;
             try
             {
+                //Nos conectamos a la BBDD
                 SqlConnection c = new SqlConnection(constring);
                 c.Open();
+                //Buscamos el libro con mayor nota para recomendarlo
                 SqlCommand com = new SqlCommand("Select * from [dbo].[Critica] MAX(nota)", c);
                 SqlDataReader dr = com.ExecuteReader();
-                if (dr.Read())
-                {
-                    lista.Recomendados = dr["ISBN"].ToString();
-                    lista.Titulo = dr["titulo"].ToString();
-                    lista.Critica = dr["critica"].ToString();
-
-                    encontrado = true;
-                }
+                //Igualamos los atributos de MiEnRecomendado a los sacados de la base de datos
+                MiEnRecomendado.Recomendados = dr["ISBN"].ToString();
+                MiEnRecomendado.Titulo = dr["titulo"].ToString();
+                MiEnRecomendado.Critica = dr["critica"].ToString();
+                MiEnRecomendado.Correct = true;
                 dr.Close();
                 c.Close();
             }
             catch (SqlException e)
             {
-                encontrado = false;
+                //Rodeamos el código con un try/catch para manejar las excepciones
+                MiEnRecomendado.Correct = false;
                 Console.WriteLine("User operation has failed.Error: {0}", e.Message);
             }
 
-            return encontrado;
+            return MiEnRecomendado;
         }
         
     }

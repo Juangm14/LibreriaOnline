@@ -8,9 +8,14 @@ namespace LibreriaOnline
 	{
 		string recomendados; //libro para recomendar
 		string usuario; //email del usuario, es decir su CP en la BBDD
-        string critica;
-		string titulo;
+        string critica; //también imprimimos la critica con la recomendación
+		string titulo; //el título de la misma también se imprime
+		bool correct; //Bool auxiliar para ver si el CAD ha funcionado bien
 
+		//Creamos todos los gets y sets correspondientes, por si acaso
+		//Creamos los constructores correspondientes, por si acaso
+		// *A la hora de la verdad en la prácticas muchos de estos no son utilizados, pero en un proyecto así siempre
+		//viene bien tener esto creado para poder realizar una mantenimiento y pruebo de la aplicación bueno
 		public string Usuario
 		{
 			get
@@ -55,16 +60,34 @@ namespace LibreriaOnline
 				recomendados = value; //Por si un usuario quiere cambiar su lista de recomendados por la de otro
 			}
 		}
+
+		public bool Correct
+		{
+			get
+			{
+				return correct;
+			}
+			set
+			{
+				correct = value;
+			}
+		}
 		public ENRecomendaciones()
 		{
 			recomendados =  "";
 			usuario = "";
+			critica = "";
+			titulo = "";
+			correct = false;
 		}
 
-		public ENRecomendaciones(string reco, string usu)
+		public ENRecomendaciones(string reco, string usu, string cr, string ti, bool cor)
 		{
 			recomendados = reco;
 			usuario = usu;
+			critica = cr;
+			titulo = ti;
+			correct = cor;
 		}
 
 		public bool addRecomendado(string libro)
@@ -73,8 +96,13 @@ namespace LibreriaOnline
 
 			if (!checkLibros(libro)) //No esta ya marcado como recomendado
 			{
-				this.recomendados = libro;
-				return added.addRecomendado(this);
+				this.recomendados = libro; 
+				//El CAD buscara el libro con mayor nota y lo devuelve guardandolo en los atributos ENRecomendaciones
+				ENRecomendaciones aux = added.addRecomendado(this);
+                if (aux.correct)
+                {
+					return true;
+				}
 			}
 
 			return false;
