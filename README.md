@@ -1,4 +1,5 @@
-# Libreria Online **BookEnd**
+# Libreria Online 
+# BookEnd
 
 **Integrantes del Grupo.**
 
@@ -75,6 +76,7 @@ Una vez dicho esto, las tareas principales hechas por cada uno del grupo son:
  - Benjamin: Coleccion,  ListaUsus
  - Pablo: Sugerencia, Usuario
  - Juan: Critica, Relatos
+ 
 *Cada uno realizo los respectivos EN y CAD de cada clase
 
 En cuanto a la planificación, el único problema con el que nos hemos topado fue al hacer merge con la rama develop. Pensabamos que iba a ser tarea fácil, pero estubimos peleandonos con GIT durante horas para solucionar los multiples errores que a cada uno nos daba al hacer el "git merge", por lo demás todo ha ido bien y cada integrante ha cumplido con los plazos de entrega estipulados.
