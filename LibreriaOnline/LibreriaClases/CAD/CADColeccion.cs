@@ -25,8 +25,8 @@ namespace LibreriaOnline.CAD
 			try
 			{
 				c.Open();
-				SqlCommand com1 = new SqlCommand("Insert into Coleccion (id,nombre) VALUES ('" + en.id + "','" + en.nombre + "')", c);
-				SqlCommand com2 = new SqlCommand("Insert into ColeccionLibros (id,ISBN) VALUES ('" + en.id + "','" + en.coleccion + "')", c);
+				SqlCommand com1 = new SqlCommand("Insert into Coleccion (id,nombre) VALUES (" + en.id + ",'" + en.nombre + "')", c);
+				SqlCommand com2 = new SqlCommand("Insert into ColeccionLibros (id,ISBN) VALUES (" + en.id + "," + en.coleccion + ")", c);
 				if (com1.ExecuteNonQuery() == 0 || com2.ExecuteNonQuery() == 0)
 					added = false;
 			}
@@ -47,9 +47,8 @@ namespace LibreriaOnline.CAD
 			try
 			{
 				c.Open();
-				SqlCommand com1 = new SqlCommand("Delete from ColeccionLibros where id='" + en.id + "'", c);
-				SqlCommand com2 = new SqlCommand("Delete from Coleccion where id='" + en.id + "'", c);
-				if (com1.ExecuteNonQuery() == 0 || com2.ExecuteNonQuery() == 0)
+				SqlCommand com = new SqlCommand("Delete from Coleccion where id=" + en.id, c);
+				if (com.ExecuteNonQuery() == 0)
 					deleted = false;
 			}
 			catch (SqlException ex)
@@ -62,9 +61,26 @@ namespace LibreriaOnline.CAD
 			return deleted;
 		}
 
-		public bool updateColeccion(ENColeccion eNColeccion)
+		public bool updateColeccion(ENColeccion en)
 		{
-			return true;
+			bool updated = true;
+			SqlConnection c = new SqlConnection(constring);
+			try
+			{
+				c.Open();
+				SqlCommand com1 = new SqlCommand("Update ColeccionLibros set nombre='" + en.nombre + "' where id=" + en.id, c);
+				SqlCommand com2 = new SqlCommand("Update Coleccion set nombre='" + en.nombre + "' where id=" + en.id, c);
+				if (com1.ExecuteNonQuery() == 0 || com2.ExecuteNonQuery() == 0)
+					updated = false;
+			}
+			catch (SqlException ex)
+			{
+				updated = false;
+				Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+			}
+			finally { c.Close(); }
+			
+			return updated;
 		}
 
 		public bool readColeccion(ENColeccion eNColeccion)
