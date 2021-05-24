@@ -42,7 +42,24 @@ namespace LibreriaOnline.CAD
 
 		public bool removeColeccion(ENColeccion en)
 		{
-			return true;
+			bool deleted = true;
+			SqlConnection c = new SqlConnection(constring);
+			try
+			{
+				c.Open();
+				SqlCommand com1 = new SqlCommand("Delete from ColeccionLibros where id='" + en.id + "'", c);
+				SqlCommand com2 = new SqlCommand("Delete from Coleccion where id='" + en.id + "'", c);
+				if (com1.ExecuteNonQuery() == 0 || com2.ExecuteNonQuery() == 0)
+					deleted = false;
+			}
+			catch (SqlException ex)
+			{
+				deleted = false;
+				Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+			}
+			finally { c.Close(); }
+			
+			return deleted;
 		}
 
 		public bool updateColeccion(ENColeccion eNColeccion)
