@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LibreriaOnline.EN {
-    class ENCritica {
+    public class ENCritica {
         private string texto;
         private string titulo;
         private int nota;
+        private string usuario;
+        private string libro;
 
         public string getTexto() {
             return texto;
@@ -32,16 +34,27 @@ namespace LibreriaOnline.EN {
         public void setNota(int nota) {
             this.nota = nota;
         }
-        public ENCritica() {
+        public string getUsuario() { return usuario; }
+        public void setUsuario(string usuario) { this.usuario = usuario; }
+        public string getLibro() { return libro; }
+        public void setLibro(string libro) {
+            this.libro = libro;
+        }
+
+        public ENCritica(string usuario) {
             texto = "";
             titulo = "";
             nota = 0;
+            libro = "";
+            this.usuario = usuario;
         }
 
-        public ENCritica(string texto, string titulo, int nota) {
-            this.nota = nota;
+        public ENCritica(string texto, string titulo, string nota, string usuario, string libro) {
+            this.nota = int.Parse(nota);
             this.texto = texto;
             this.titulo = titulo;
+            this.usuario = usuario;
+            this.libro = libro;
         }
 
         public bool createCritica() {
@@ -56,9 +69,9 @@ namespace LibreriaOnline.EN {
             CADCritica cad = new CADCritica();
             return cad.updateCritica(this);
         }
-        public bool leerCritica() {
+        public bool buscarCritica() {
             CADCritica cad = new CADCritica();
-            return cad.leerCritica(this);
+            return cad.buscarCritica(this);
         }
     }
 }

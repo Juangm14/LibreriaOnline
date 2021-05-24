@@ -1,6 +1,7 @@
 ﻿using LibreriaOnline.EN;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace LibreriaOnline.CAD
 
 			public CADSoporte()
 			{
-
+			constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
 			}
 
 			public bool readPregunta(ENSoporte soporte)
@@ -25,10 +26,26 @@ namespace LibreriaOnline.CAD
 				return true;
 			}
 
-		public bool createPregunta(ENSoporte soporte)
+			public bool createPregunta(ENSoporte soporte)
 			{
-				return true;
+				bool creado = false;
+			try
+			{
+				SqlConnection c = new SqlConnection(constring);
+				c.Open();
+				SqlCommand com = new SqlCommand("Insert INTO Soporte (pregunta, asunto) VALUES ('" + soporte.Pregunta +"', '"+soporte.Asunto+"')", c);
+				com.ExecuteNonQuery();
+				creado = true;
+				c.Close();
 			}
+			catch (SqlException e)
+			{
+				creado = false;
+				Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+			}
+			return creado;
+			}
+
 			public bool readFirtPregunta(ENSoporte soporte)
 			{
 				return true;
