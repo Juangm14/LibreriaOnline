@@ -14,29 +14,28 @@ namespace LibreriaOnline
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelCrear.Visible = false;
-            LabelTitulo.Visible = false;
+
+            /*IDs crear libro */
+            GeneroLibro.Visible = false;
+            GeneroDesplegable.Visible = false;
             Titulo.Visible = false;
             TextTitulo.Visible = false;
             ISBN.Visible = false;
             TextISBN.Visible = false;
-            Genero.Visible = false;
-            TextGenero.Visible = false;
             Autores.Visible = false;
             TextAutores.Visible = false;
             Editorial.Visible = false;
             TextEditorial.Visible = false;
-            Precio.Visible = false;
-            TextPrecio.Visible = false;
+            Genero.Visible = false;
+            TextGenero.Visible = false;
             Proveedor.Visible = false;
             TextProveedor.Visible = false;
-            TextBox1.Visible = false;
-            ModLabelISBN.Visible = false;
-            ModTextISBN.Visible = false;
-            ModGenero.Visible = false;
-            ModBuscarISBN.Visible = false;
-            GeneroLibro.Visible = false;
-            GeneroDesplegable.Visible = false;
+            Precio.Visible = false;
+            TextPrecio.Visible = false;
+            Boton_crearLibro.Visible = false;
+            LabelCrear.Visible = false;
+
+            /*IDs Modificar libro*/
             ModLabelISBN.Visible = false;
             ModTextISBN.Visible = false;
             ModBuscarISBN.Visible = false;
@@ -50,11 +49,14 @@ namespace LibreriaOnline
             ModLabelPrecio.Visible = false;
             ModTextPrecio.Visible = false;
             ModButton.Visible = false;
-            Boton_crearLibro.Visible = false;
+            ModLabelUpdateLibro.Visible = false;
+
+            /*IDs Eliminar libro */
             ElimLabelLibro.Visible = false;
             ElimISBNLibro.Visible = false;
             ElimBotonLibro.Visible = false;
             ElimMsg.Visible = false;
+
             /*GridRelatosShow.Visible = true;*/
         }
         protected void Boton_crear(object sender, EventArgs e)
@@ -82,7 +84,7 @@ namespace LibreriaOnline
         protected void NuevoLibro_Click(object sender, EventArgs e)
         {
             LabelCrear.Visible = true;
-            LabelTitulo.Visible = true;
+            Titulo.Visible = true;
             TextTitulo.Visible = true;
             ISBN.Visible = true;
             TextISBN.Visible = true;
@@ -96,7 +98,7 @@ namespace LibreriaOnline
             TextPrecio.Visible = true;
             Proveedor.Visible = true;
             TextProveedor.Visible = true;
-
+            Boton_crearLibro.Visible = true;
         }
         protected void EditarLibro_Click(object sender, EventArgs e)
         {

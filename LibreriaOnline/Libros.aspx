@@ -25,14 +25,12 @@
             </div>
 
             <div class="mb-3">
-                <asp:label runat="server" id="LabelTitulo" for="exampleFormControlInput1" class="form-label">Titulo</asp:label>
-                <asp:TextBox runat="server" class="form-control" id="TextBox1" placeholder="Introduce el título del libro" TextMode="SingleLine"></asp:TextBox>
+                <asp:label runat="server" id="Titulo" for="exampleFormControlInput1" class="form-label">Titulo</asp:label>
+                <asp:TextBox runat="server" class="form-control" id="TextTitulo" placeholder="Introduce el título del libro" TextMode="SingleLine"></asp:TextBox>
                 <asp:label runat="server" id="ISBN" for="exampleFormControlInput1" class="form-label">ISBN</asp:label>
                 <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="TextISBN" placeholder="Introducir ISBN"></asp:TextBox>
                 <asp:label runat="server" id="Autores" for="exampleFormControlInput1" class="form-label">Autores</asp:label>
                 <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="TextAutores" placeholder="Introducir autor/es"></asp:TextBox>
-                <asp:label runat="server" id="Titulo" for="exampleFormControlInput1" class="form-label">Titulo</asp:label>
-                <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="TextTitulo" placeholder="Introducir titulo"></asp:TextBox>
                 <asp:label runat="server" id="Editorial" for="exampleFormControlInput1" class="form-label">Editorial</asp:label>
                 <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="TextEditorial" placeholder="Introducir Editorial"></asp:TextBox>
                 <asp:label runat="server" id="Genero" for="exampleFormControlInput1" class="form-label">Genero</asp:label>
@@ -74,12 +72,12 @@
 
             <div class="mb-3">
               <asp:label runat="server" id="ModLabelEditorial" for="exampleFormControlInput1" class="form-label">Editorial</asp:label>
-              <asp:TextBox runat="server" TextMode="MultiLine" class="form-control" id="ModTextEditorial" placeholder="Editorial" Height="150px"></asp:TextBox>
+              <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="ModTextEditorial" placeholder="Editorial" Height="70px"></asp:TextBox>
             </div>
 
             <div class="mb-3">
               <asp:label runat="server" id="ModLabelPrecio" for="exampleFormControlInput1" class="form-label">Precio</asp:label>
-              <asp:TextBox runat="server" TextMode="MultiLine" class="form-control" id="ModTextPrecio" placeholder="Precio" Height="150px"></asp:TextBox>
+              <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="ModTextPrecio" placeholder="Precio" Height="70px"></asp:TextBox>
             </div>
            
             <asp:Button class="btn-sm btn-warning" id="ModButton" runat="server" onclick="EditarLibro_Click" text="Modificar Libro"/> 
