@@ -1,4 +1,4 @@
-# LibreriaOnline
+# Libreria Online **BookEnd**
 
 **Integrantes del Grupo.**
 
@@ -37,7 +37,8 @@ Por dentro, el Listado de EN Públicas que hacen que la aplicación funcione cor
  
  
 **Parte privada.**
-  Por otro lado. centrandonos ahora en la parte privada, un usuario registrado puede acceder a:
+
+Por otro lado. centrandonos ahora en la parte privada, un usuario registrado puede acceder a:
    - Ver su listado de sus libros comprados/alquilados
    - Realizar criticas, comentarios, valoraciones
    - Ver un listado con los libros que ha alquilado
@@ -53,10 +54,13 @@ En este caso, el Listado de EN Privadas que hacen que la aplicación funcione co
   - ENListaUsuario: Almacenar los libros que se ha leido el usuario con su puntuacion. 
   - ENListaDeseo: Almacenar los libros que el usuario desea comprar/alquilar
   
+  
 **Posibles mejoras.**
+
 Como posibles mejoras que nuestra página web podría llegar a tener, podemos destacar:
   - Sistema de puntos con recompensas para los ususarios
   - Registro mediante correo electronico o similares
+ 
  
 **Problemas y forma de funcionar**
 Por suerte en nuestro grupo no nos hemos topado con ningún problema grave con nadie del mismo.
