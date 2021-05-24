@@ -82,11 +82,6 @@ namespace LibreriaOnline.CAD
 			
 			return updated;
 		}
-
-		public bool readColeccion(ENColeccion eNColeccion)
-		{
-			return true;
-		}
 	}
 }
 

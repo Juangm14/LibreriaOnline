@@ -58,8 +58,24 @@ public class CADListaUsuario
         return deleted;
     }
 
-	public bool updateListaUsuario(ENListaUsuario eNListaUsuario)
+	public bool updateListaUsuario(ENListaUsuario en)
 	{
-		return true;
-	}
+        bool updated = true;
+        SqlConnection c = new SqlConnection(constring);
+        try
+        {
+            c.Open();
+            SqlCommand com = new SqlCommand("Update Leidos set Nota=" + en.nota + " where email='" + en.usuario + "' and ISBN="+ en.libro, c);
+            if (com.ExecuteNonQuery() == 0)
+                updated = false;
+        }
+        catch (SqlException ex)
+        {
+            updated = false;
+            Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+        }
+        finally { c.Close(); }
+      
+        return updated;
+    }
 }
