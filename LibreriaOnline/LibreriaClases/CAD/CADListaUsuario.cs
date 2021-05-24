@@ -1,43 +1,65 @@
-﻿using ConsoleApp1;
+﻿using LibreriaOnline.EN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Data.SqlClient;
 
 public class CADListaUsuario
 {
-	private string costring;
+	private string constring;
 
 	public CADListaUsuario()
 	{
+		constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
 	}
 
 	public bool addListaUsuario(ENListaUsuario en)
 	{
-		return true;
-	}
+        bool added = true;
+        SqlConnection c = new SqlConnection(constring);
+        try
+        {
+            c.Open();
+            SqlCommand com = new SqlCommand("Insert into Leidos (email,ISBN,Nota) VALUES ('" + en.usuario + "'," + en.libro + "," + en.nota + ")", c);
+            if (com.ExecuteNonQuery() == 0)
+                added = false;
+        }
+        catch (SqlException ex)
+        {
+            added = false;
+            Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+        }
+        finally { c.Close(); }
+        
+        return added;
+    }
 
 	public bool removeListaUsuario(ENListaUsuario en)
 	{
-		return true;
-	}
+        bool deleted = true;
+        SqlConnection c = new SqlConnection(constring);
+        try
+        {
+            c.Open();
+            SqlCommand com = new SqlCommand("Delete from Leidos where email='" + en.usuario + "' and ISBN=" + en.libro, c);
+            if (com.ExecuteNonQuery() == 0)
+                deleted = false;
+        }
+        catch (SqlException ex)
+        {
+            deleted = false;
+            Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
+        }
+        finally { c.Close(); }
+        
+        return deleted;
+    }
 
-	public bool updatePuntuacion(ENListaUsuario eNListaUsuario)
+	public bool updateListaUsuario(ENListaUsuario eNListaUsuario)
 	{
 		return true;
 	}
-
-	public bool readPuntuacion(ENListaUsuario eNListaUsuario)
-	{
-		return true;
-	}
-
-    internal bool addPuntuacion(ENListaUsuario eNListaUsuario) {
-        throw new NotImplementedException();
-    }
-
-    internal bool removePuntuacion(ENListaUsuario eNListaUsuario) {
-        throw new NotImplementedException();
-    }
 }
