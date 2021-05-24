@@ -4,8 +4,11 @@
 **Integrantes del Grupo.**
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
   - Juan García Martínez (coordinador) 
   - Alfonso Izura Concellón
@@ -24,6 +27,7 @@ Turno de Prácticas.
 
   
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 **Parte Pública.**
 
@@ -33,6 +37,28 @@ Centrándonos ahora en la parte pública, visible o "interfaz" que tendrá nuest
  - Vista al Inicio de Sesión
  - Vista al Registro
  - Vista al panel de Atención al Cliente
+=======
+=======
+    Juan García Martínez (coordinador)
+    Alfonso Izura Concellón
+    Emilio Prieto Uclés
+    Pablo Navarro Ortiz
+    Carlos Daniel Ojeda Giménez
+    Benjamín Cornelio Sorto
+
+Turno de Prácticas. Lunes 17:00-19:00
+
+Descripción. Web orientada a la compra/venta fisica o digital de libros online. Como usuarios dispondrá de opciones de alquilar, intercambiar, pubicar comentarios, hacer criticas, valorar... libros pero únicamente de su versión online. Ante cualquier duda, la web dispondra de Soporte de Atención al Cliente.
+
+>>>>>>> 04640593K
+Parte Pública.
+
+    Vista principal (Home) donde se visualizaran libros disponibles
+    Se podrá hacer uso de los libros que sean gratuitos y ver sus respectivas criticas
+    Vista al Inicio de Sesión
+    Vista al Registro
+    Vista al panel de Atención al Cliente
+>>>>>>> develop
 
 Por dentro, el Listado de EN Públicas que hacen que la aplicación funcione correctamente es:
 =======
@@ -59,6 +85,9 @@ Parte Pública.
 
 Listado EN Pública.
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
  - ENSoporte: Preguntas y respuestas de Ayuda.
  - ENRegistro: Creacion de Usuario
@@ -66,6 +95,9 @@ Listado EN Pública.
  - ENSugerencia: Almacenar sugerencias
  - ENColeccion: Almacenar datos de una coleccion de libros
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> develop
  
 =======
 >>>>>>> develop
@@ -84,7 +116,11 @@ En este caso, el Listado de EN Privadas que hacen que la aplicación funcione co
   - ENProveedores: Almacenamiento de libros (fisicos/online)
   - ENCriticas: Realizar comentarios/criticas de los libros
 <<<<<<< HEAD
+<<<<<<< HEAD
   - ENRelato: Almacenar datos de los relatos
+=======
+  - ENRelatos: Almacenar datos de los relatos
+>>>>>>> develop
 =======
   - ENRelatos: Almacenar datos de los relatos
 >>>>>>> develop
@@ -130,6 +166,14 @@ Listado EN Privada. Separamos las caracteristicas de los libros digitales y fisi
     ENRecomendaciones: Se recomendaran libros con las mejores puntuaciones
     ENListaUsuario: Almacenar los libros que se ha leido el usuario con su puntuacion.
     ENListaDeseo: Almacenar los libros que el usuario desea comprar/alquilar
+<<<<<<< HEAD
+=======
+
+Posibles mejoras.
+
+    Sistema de puntos con recompensas para los ususarios
+
+>>>>>>> develop
 
 Posibles mejoras.
 
@@ -151,7 +195,11 @@ Una vez dicho esto, las tareas principales hechas por cada uno del grupo son:
 *Cada uno realizo los respectivos EN y CAD de cada clase
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 En cuanto a la planificación, el único problema con el que nos hemos topado fue al hacer merge con la rama develop. Pensabamos que iba a ser tarea fácil, pero estubimos peleandonos con GIT durante horas para solucionar los multiples errores que a cada uno nos daba al hacer el "git merge", por lo demás todo ha ido bien y cada integrante ha cumplido con los plazos de entrega estipulados.
+=======
+>>>>>>> 04640593K
+>>>>>>> develop
 =======
 >>>>>>> 04640593K
 >>>>>>> develop
