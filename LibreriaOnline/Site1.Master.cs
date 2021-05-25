@@ -18,6 +18,7 @@ namespace LibreriaOnline {
             if (Session["email"] == null && NavigationMenu.FindItem("") != null)
             {
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem(""));
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("carrito"));
                 /* IEnumerator menuItemEnumerator = engranaje.ChildItems.GetEnumerator();
                  while (menuItemEnumerator.MoveNext())
                  {

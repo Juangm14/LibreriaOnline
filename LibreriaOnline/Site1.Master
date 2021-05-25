@@ -47,7 +47,7 @@
 
                         <asp:menuitem navigateurl="Coleccion.aspx" text="Colecciones" tooltip="Colecciones"></asp:menuitem>
             
-                        <asp:menuitem  navigateurl="SignIn.aspx" text="Iniciar Sesion" tooltip="Iniciar Sesion"> </asp:menuitem>
+                        
                         <asp:menuitem navigateurl="Relatos.aspx" text="Relatos" tooltip="Relatos"> 
                             <asp:MenuItem NavigateUrl="~/MisRelatos.aspx" text="MisRelatos"></asp:MenuItem>
                         </asp:menuitem>
@@ -58,8 +58,10 @@
             
                         <asp:menuitem navigateurl="Soporte.aspx" text="Soporte" tooltip="Soporte"> </asp:menuitem>
 
-                          <asp:MenuItem ImageUrl="carrito.png" navigateurl="carrito.aspx" ToolTip="carrito" Value="carrito"></asp:MenuItem> 
-            
+                        <asp:MenuItem ImageUrl="~/carrito.png" navigateurl="carrito.aspx" ToolTip="carrito" Value="carrito"></asp:MenuItem> 
+
+                        <asp:menuitem navigateurl="SignIn.aspx" text="Iniciar Sesion" tooltip="Iniciar Sesion"> </asp:menuitem>
+
                          <asp:menuitem ImageUrl="~/Config.jpg" tooltip="engranaje">
                          <asp:menuitem navigateurl="Perfil.aspx"
                          text="Perfil"
@@ -80,6 +82,14 @@
                          </asp:menuitem>
                          </asp:menuitem>
                      </items>
+
+                    <StaticHoverStyle CssClass="StaticHoverStyle"></StaticHoverStyle>
+
+                    <StaticMenuItemStyle CssClass="StaticMenuItemStyle"></StaticMenuItemStyle>
+
+                    <StaticMenuStyle CssClass="StaticMenuStyle"></StaticMenuStyle>
+
+                    <StaticSelectedStyle CssClass="StaticSelectedStyle"></StaticSelectedStyle>
                 </asp:menu>
             </div>
             <br />
