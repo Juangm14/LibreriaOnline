@@ -57,7 +57,7 @@
             
                         <asp:menuitem  navigateurl="SignIn.aspx" text="Iniciar Sesion" tooltip="Iniciar Sesion"> </asp:menuitem>
 
-                         <asp:menuitem ImageUrl="~/Config.jpg">
+                         <asp:menuitem ImageUrl="~/Config.jpg" tooltip="engranaje">
                          <asp:menuitem navigateurl="Perfil.aspx"
                          text="Perfil"
                          tooltip="Perfil">
@@ -71,7 +71,7 @@
                          text="Leidos"
                          tooltip="Leidos">
                          </asp:menuitem>
-                         <asp:menuitem navigateurl="#"
+                         <asp:menuitem
                          text="Cerrar Sesion"
                          tooltip="Cerrar Sesion">
                          </asp:menuitem>
