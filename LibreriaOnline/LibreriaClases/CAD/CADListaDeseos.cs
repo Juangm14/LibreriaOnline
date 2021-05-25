@@ -19,14 +19,21 @@ namespace LibreriaOnline
         }
 
         //Los tres métodos de esta clase funcionan de manera muy similar...
-        public bool addDeseado(ENListaDeseos param)
+        public bool addDeseado(ENListaDeseos param, string aux)
         {
             bool anyadido = false;
+            param.Isbn = BuscaISBN(aux);
+
+            if (checkLibros(param.Isbn))
+            {
+                return false;
+            }
+
             try
             {
                 SqlConnection c = new SqlConnection(constring);
                 c.Open(); //... Primero se conectan con la BBDD
-                SqlCommand com = new SqlCommand("Insert INTO ListaDeseo (email, ISBN) VALUES ('" + param.Usuario + "', '" + param.Deseados + ")", c);
+                SqlCommand com = new SqlCommand("Insert INTO ListaDeseo (email, ISBN) VALUES ('" + param.Usuario + "', " + param.Isbn + ")", c);
                 com.ExecuteNonQuery(); //Y ejecutan cada uno su respectivo comando
                 anyadido = true; //Si todo sale bien se devuelve true y no se ha lanzado ninguna excepción
                 c.Close();
@@ -41,6 +48,30 @@ namespace LibreriaOnline
             return anyadido;
         }
 
+        public int BuscaISBN(string titulo)
+        {
+            int ISBN = -1;
+            try
+            {
+                SqlConnection c = new SqlConnection(constring);
+                c.Open();
+                SqlCommand com = new SqlCommand("Select * from [dbo].[Libros] Where titulo='" + titulo + "'", c);
+                SqlDataReader dr = com.ExecuteReader();
+                if (dr.Read())
+                {
+                    string aux = dr["ISBN"].ToString();
+                    ISBN = int.Parse(aux);
+                }
+                dr.Close();
+                c.Close();
+            }
+            catch (SqlException e)
+            {
+                ISBN = -1;
+                Console.WriteLine("Error: {0}", e.Message, " El libro no se encuntra marcado como deseado");
+            }
+            return ISBN;
+        }
         public bool removeDeseado(ENListaDeseos param)
         {
             bool eliminado = false;
@@ -48,7 +79,7 @@ namespace LibreriaOnline
             {
                 SqlConnection c = new SqlConnection(constring);
                 c.Open();
-                SqlCommand com = new SqlCommand("Delete from [dbo].[ListaDeseo] Where ISBN='" + param.Deseados + "'", c);
+                SqlCommand com = new SqlCommand("Delete from [dbo].[ListaDeseo] Where ISBN=" + param.Isbn + "", c);
                 com.ExecuteNonQuery();
                 eliminado = true;
                 c.Close();
@@ -62,14 +93,14 @@ namespace LibreriaOnline
             return eliminado;
         }
 
-        public bool checkLibros(string l)
+        public bool checkLibros(int l)
         {
             bool encontrado = false;
             try
             {
                 SqlConnection c = new SqlConnection(constring);
                 c.Open();
-                SqlCommand com = new SqlCommand("Select * from [dbo].[ListaDeseo] Where ISBN='" + l + "'", c);
+                SqlCommand com = new SqlCommand("Select * from [dbo].[ListaDeseo] Where ISBN=" + l + "", c);
                 SqlDataReader dr = com.ExecuteReader();
                 if (dr.Read())
                 {

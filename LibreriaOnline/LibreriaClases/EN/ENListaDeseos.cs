@@ -5,7 +5,7 @@ namespace LibreriaOnline.EN
 {
 	public class ENListaDeseos
 	{
-		private string deseados; //los libros marcados como deseados
+		private int isbn; //los libros marcados como deseados
 		private string usuario; //email del usuario, es decir su CP en la BBDD
 
 		//Creamos todos los gets y sets correspondientes, por si acaso
@@ -24,57 +24,52 @@ namespace LibreriaOnline.EN
 			}
 		}
 
-		public string Deseados
+		public int Isbn
 		{
 			get
 			{
-				return deseados;
+				return isbn;
 			}
 			set
 			{
-				deseados = value;
+				isbn = value;
 			}
 		}
 
 		public ENListaDeseos()
 		{
-			deseados = "";
+			isbn = 0;
 			usuario = "";
 		}
-		public ENListaDeseos(string libro, string usu)
+		public ENListaDeseos(int libro, string usu)
 		{
-			deseados = libro;
+			isbn = libro;
 			usuario = usu;
 		}
 
-		public bool addDeseado(string libro)
+		public bool addDeseado(string aux)
 		{
 			CADListaDeseos added = new CADListaDeseos();
-
-			if (!checkLibros(libro)) //No esta ya marcado como deseado
-			{
-				this.deseados = libro;
-				return added.addDeseado(this); //Return el bool del CAD, para ver si ha funcionado
-			}
-
-			return false; //Si esta marcado como deseado se devuelve false
+			return added.addDeseado(this, aux); //Return el bool del CAD, para ver si ha funcionado
 		}
 
 		public bool removeDeseado(string libro)
 		{
 			CADListaDeseos removed = new CADListaDeseos();
+			int ISBN = removed.BuscaISBN(libro);
 
-			if (checkLibros(libro)) //Comprobamos que este marcado como deseado
+			if (checkLibros(ISBN)) //Comprobamos que este marcado como deseado
 			{
+				this.Isbn = ISBN;
 				return removed.removeDeseado(this);
 			}
 
 			return false;
 		}
 
-		public bool checkLibros(string l)
+		public bool checkLibros(int l)
 		{
-			if (this.deseados == l)
+			if (this.isbn == l)
 			{
 				// Como internamente el método addDeseado a parte de insertar el libro en la BBDD también sobreescribe
 				//el atributo string "deseados" si el último libro que has añadido lo quieres por ejemplo eliminar,
