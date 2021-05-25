@@ -70,6 +70,8 @@
       <DependentUpon>LibreriaOnline.mdf</DependentUpon>
     </Content>
     <Content Include="BorrarColeccion.aspx" />
+    <Content Include="Carrito.aspx" />
+    <Content Include="carrito.png" />
     <Content Include="Coleccion.aspx" />
     <Content Include="Config.jpg" />
     <Content Include="Criticas.aspx" />
@@ -78,6 +80,7 @@
     <Content Include="Libro Auxiliar.png" />
     <Content Include="libro.jpg" />
     <Content Include="ListaDeseo.aspx" />
+    <Content Include="MisRelatos.aspx" />
     <Content Include="NuevaColeccion.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="perfil.jpg" />
@@ -97,6 +100,13 @@
     </Compile>
     <Compile Include="BorrarColeccion.aspx.designer.cs">
       <DependentUpon>BorrarColeccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
     <Compile Include="Coleccion.aspx.cs">
       <DependentUpon>Coleccion.aspx</DependentUpon>
@@ -132,6 +142,13 @@
     </Compile>
     <Compile Include="ListaDeseo.aspx.designer.cs">
       <DependentUpon>ListaDeseo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MisRelatos.aspx.cs">
+      <DependentUpon>MisRelatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisRelatos.aspx.designer.cs">
+      <DependentUpon>MisRelatos.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevaColeccion.aspx.cs">
       <DependentUpon>NuevaColeccion.aspx</DependentUpon>

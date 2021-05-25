@@ -46,6 +46,7 @@
     <Compile Include="CAD\CADlibros.cs" />
     <Compile Include="CAD\CADListaDeseos.cs" />
     <Compile Include="CAD\CADListaUsuario.cs" />
+    <Compile Include="CAD\CADMisRelato.cs" />
     <Compile Include="CAD\CADproveedores.cs" />
     <Compile Include="CAD\CADRecomendaciones.cs" />
     <Compile Include="CAD\CADRegistro.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="EN\ENlibros.cs" />
     <Compile Include="EN\ENListaDeseos.cs" />
     <Compile Include="EN\ENListaUsuario.cs" />
+    <Compile Include="EN\ENMisRelato.cs" />
     <Compile Include="EN\ENproveedores.cs" />
     <Compile Include="EN\ENRecomendaciones.cs" />
     <Compile Include="EN\ENRegistro.cs" />
