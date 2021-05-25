@@ -7,14 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LibreriaOnline.CAD {
-    class CADRelato {
+    class CADMisRelato {
 
         private String conexionRelato;
-        public CADRelato() {
+        public CADMisRelato() {
             conexionRelato = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
         }
 
-        public bool createRelato(ENRelato en) {
+        public bool createRelato(ENMisRelato en) {
             SqlConnection connection = new SqlConnection(conexionRelato);
 
             try {
@@ -29,7 +29,7 @@ namespace LibreriaOnline.CAD {
                 return false;
             }
         }
-        public bool deleteRelato(ENRelato en) {
+        public bool deleteRelato(ENMisRelato en) {
             SqlConnection connection = new SqlConnection(conexionRelato);
             String sql = "Delete from Relato where Titulo = ('" + en.getTitulo() + "')";
             try {
@@ -44,7 +44,7 @@ namespace LibreriaOnline.CAD {
                 return false;
             }
         }
-        public bool updateRelato(ENRelato en) {
+        public bool updateRelato(ENMisRelato en) {
             SqlConnection connection = new SqlConnection(conexionRelato);
             String sql = "update Relato set  Titulo = '{0}', genero = '{1}', text = '{2}' where Titulo = '{0}'";
             try {
@@ -59,7 +59,7 @@ namespace LibreriaOnline.CAD {
                 return false;
             }
         }
-        public bool bucarRelato(ENRelato en) {
+        public bool bucarRelato(ENMisRelato en) {
             SqlConnection connection = new SqlConnection(conexionRelato);
             String sql = "select Titulo from Relato where Titulo = '{0}'";
 

@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace LibreriaOnline {
-    public partial class Relatos : System.Web.UI.Page {
+    public partial class MisRelatos : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             //Ocultamos el formulario de creacion de Relato
             exampleFormControlInput1.Visible = false;
@@ -83,7 +83,7 @@ namespace LibreriaOnline {
         protected void BuscarRelato_Click(object sender, EventArgs e) {
             GridRelatosShow.Visible = false;
             try {
-                ENRelato en = new ENRelato();
+                ENMisRelato en = new ENMisRelato();
                 if (ModTextTitulo.Text.Length != 0) {
                     en.setTitulo(ModTextTitulo.Text.ToString());
 
@@ -124,7 +124,7 @@ namespace LibreriaOnline {
                 usuario = Session["email"].ToString();
                 if (exampleFormControlInput1.Text.Length != 0) {
                     try {
-                        ENRelato en = new ENRelato(exampleFormControlInput1.Text.ToString(), GeneroDesplegable.Text.ToString(), exampleFormControlInput2.Text.ToString(), usuario);
+                        ENMisRelato en = new ENMisRelato(exampleFormControlInput1.Text.ToString(), GeneroDesplegable.Text.ToString(), exampleFormControlInput2.Text.ToString(), usuario);
                         if (en.createRelato()) {
                             LabelCrear.Visible = true;
                             LabelCrear.Text = "<br> El relato se ha creado correctamente";
@@ -148,7 +148,7 @@ namespace LibreriaOnline {
 
         protected void ModificarRelato_Click(object sender, EventArgs e) {
             GridRelatosShow.Visible = false;
-            ENRelato en = new ENRelato(ModTextNewTitulo.Text.ToString(), ModDropDownList1.Text.ToString(), ModTextTexto.Text.ToString());
+            ENMisRelato en = new ENMisRelato(ModTextNewTitulo.Text.ToString(), ModDropDownList1.Text.ToString(), ModTextTexto.Text.ToString());
             try {
                 if (en.updateRelato()) {
                     ModLabelUpdateRelato.Visible = true;
@@ -169,7 +169,7 @@ namespace LibreriaOnline {
             ElimMsg.Visible = true;
             if (ElimTituloRelato.Text.Length != 0) {
                 try {
-                    ENRelato en = new ENRelato();
+                    ENMisRelato en = new ENMisRelato();
                     en.setTitulo(ElimTituloRelato.Text.ToString());
                     if (en.deleteRelato()) {
                         ElimMsg.Visible = true;
