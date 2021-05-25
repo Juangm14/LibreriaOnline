@@ -90,6 +90,7 @@
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="Libros.aspx" />
+    <Content Include="Proveedores.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BorrarColeccion.aspx.cs">
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="Libros.aspx.designer.cs">
       <DependentUpon>Libros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

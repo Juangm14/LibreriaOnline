@@ -42,6 +42,8 @@
 
                      <items>
                         <asp:menuitem navigateurl="Home.aspx" Text="Inicio" tooltip="Inicio"></asp:menuitem>
+                         
+                        <asp:menuitem navigateurl="Libros.aspx" Text="Libros" tooltip="Libros"></asp:menuitem>
 
                         <asp:menuitem navigateurl="Coleccion.aspx" text="Colecciones" tooltip="Colecciones"></asp:menuitem>
 
