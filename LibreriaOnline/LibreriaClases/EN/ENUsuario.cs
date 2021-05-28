@@ -7,7 +7,7 @@ using LibreriaOnline.CAD;
 
 namespace LibreriaOnline.EN
 {
-    class ENUsuario {
+    public class ENUsuario {
         private string email;
         private string nick;
         private string nombre;
@@ -16,10 +16,12 @@ namespace LibreriaOnline.EN
         private int edad;
         private string direccion;
         private string contraseña;
+        private string text;
+        private string v1;
+        private int v2;
 
-
-        public ENUsuario() {
-            email = "";
+        public ENUsuario(string usuario) {
+            email = usuario;
             nick = "";
             nombre = "";
             apellidos = "";
@@ -27,6 +29,28 @@ namespace LibreriaOnline.EN
             edad = 0;
             direccion = "";
             contraseña = "";
+        }
+
+        public ENUsuario()
+        {
+            email = null;
+            nick = "";
+            nombre = "";
+            apellidos = "";
+            telefono = "";
+            edad = 0;
+            direccion = "";
+            contraseña = "";
+        }
+
+        public ENUsuario(string direccionn, string nickk, string telefonoo, string contraseñaa,string usuario)
+        {
+            
+            telefono = telefonoo;
+            email = usuario;
+            direccion = direccionn;
+            contraseña = contraseñaa;
+            nick = nickk;
         }
 
         public ENUsuario(string email, string nick, string nombre, int edad, string telefono, string apellidos, string direccion, string contraseña) {
@@ -39,55 +63,47 @@ namespace LibreriaOnline.EN
             this.direccion = direccion;
             this.contraseña = contraseña;
         }
+
+       
+        
+        public string email_
+        {
+            get { return email; }
+            set { email = value; }
+        }
         public bool modificardatosUsuario() {
             CADUsuario u = new CADUsuario();
             return u.modificarUsuario(this);
         }
 
-        public bool relatosUsuario() {
+        public System.Data.SqlClient.SqlDataReader mostrardatos()
+        {
             CADUsuario u = new CADUsuario();
-            return u.relatosUsuario(this);
+            return u.mostrardatos(this);
         }
+        public string getDireccion()
+        {
+            return direccion;
+        }
+        public string getNick()
+        {
+            return nick;
+        }
+        public string getTelefono()
+        {
+            return telefono;
+        }
+        public string getContraseña()
+        {
+            return contraseña;
+        }
+        public string getEmail()
+        {
+            return email;
+        }
+        public void setEmail(string email) { this.email = email; }
 
-        public bool readrelatosUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.readrelatosUsuario(this);
-        }
-
-        public bool deleterelatosUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.deleterelatosUsuario(this);
-        }
-
-        public bool venderUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.venderUsuario(this);
-        }
-
-        public bool deletevenderUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.deletevenderUsuario(this);
-        }
-
-        public bool recomendarlibrosUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.recomendarlibrosUsuario(this);
-        }
-
-        public bool criticaUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.criticaUsuario(this);
-        }
-
-        public bool readcriticaUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.readcriticaUsuario(this);
-        }
-
-        public bool deletecriticaUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.deletecriticaUsuario(this);
-        }
+       
         public bool createUsuario() {
             CADUsuario u = new CADUsuario();
             return u.readUsuario(this);
