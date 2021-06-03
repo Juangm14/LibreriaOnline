@@ -21,9 +21,9 @@ namespace LibreriaOnline.CAD
             try
             {
                 connection.Open();
-                SqlCommand com = new SqlCommand("Insert Into Libros (ISBN,Autores,Titulo,Editorial,Genero,Proveedor,Precio) VALUES " +
-                                              "('" + en.getISBN() + "','" + en.getAutores() + "','" + en.getTitulo() + "','" + en.getEditorial() + "','" + en.getGenero() + "','" + en.getProveedor() + "','" + en.getPrecio() + /*en.Imagen +*/ "')", connection);
-               
+                SqlCommand com = new SqlCommand("Insert Into Libros (ISBN,Autores,Titulo,Editorial,Genero,Proveedor,Precio, imagen) VALUES " +
+                                              "('" + en.getISBN() + "','" + en.getAutores() + "','" + en.getTitulo() + "','" + en.getEditorial() + "','" + en.getGenero() + "','" + en.getProveedor() + "','" + en.getPrecio() + "','" + en.getImagen() + "')", connection);
+
                 com.ExecuteNonQuery();
                 connection.Close();
                 return true;
