@@ -5,15 +5,15 @@ namespace LibreriaOnline
 {
     public partial class Registro : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            Msg.Text = "";
+            Msg.Text = ""; //Inicializa el label a una cadena vacia
         }
 
-        protected void Registro_Click(object sender, EventArgs e) {
-            if(registroEmail.Text=="" || registroNick.Text=="" || registroContraseña.Text=="" || registroContraseña2.Text == "")
+        protected void Registro_Click(object sender, EventArgs e) { //Registra al usuario 
+            if(registroEmail.Text=="" || registroNick.Text=="" || registroContraseña.Text=="" || registroContraseña2.Text == "") //Comprueba que los campos obligatorios no esten vacios.
             {
                 Msg.Text = "Algun campo obligatorio esta vacio.";
             }
-            else if (registroContraseña.Text != registroContraseña2.Text)
+            else if (registroContraseña.Text != registroContraseña2.Text) //Comprueba que el campo de contraseña y el campo de repetir contraseña coincidan.
             {
                 Msg.Text = "La contraseña repetida no coincide con la contraseña introducida.";
             }
@@ -23,17 +23,17 @@ namespace LibreriaOnline
                 usuarioEmail.Email = registroEmail.Text;
                 ENRegistro usuarioNick = new ENRegistro();
                 usuarioNick.Nick = registroNick.Text;
-                if (usuarioEmail.EmailRepetido())
+                if (usuarioEmail.EmailRepetido()) //Comprueba si el email con el que se esta intentado hacer el registro no este vinculado ya a otra cuenta.
                 {
                     Msg.Text = "El email introducido ya esta en uso. Por favor, introduzca un email diferente.";
                 }
-                else if(usuarioNick.NickRepetido())
+                else if(usuarioNick.NickRepetido()) //Comprueba si el nick con el que se esta intentado hacer el registro no este vinculado ya a otra cuenta.
                 {
                     Msg.Text = "El nick introducido ya esta en uso. Por favor, introduzca un nick diferente";
                 }
                 else
                 {
-                    ENRegistro usuarioFinal = new ENRegistro();
+                    ENRegistro usuarioFinal = new ENRegistro(); //Hace el registro
                     usuarioFinal.Email = registroEmail.Text;
                     usuarioFinal.Nick = registroNick.Text;
                     usuarioFinal.Contrasena = registroContraseña.Text;
@@ -45,11 +45,11 @@ namespace LibreriaOnline
                     {
                         usuarioFinal.Telefono = int.Parse(registroTelefono.Text);
                     }
-                    if (usuarioFinal.Registrar())
+                    if (usuarioFinal.Registrar()) //Si no hay ningun error en la base de datos, crea el usuario.
                     {
                         Msg.Text = "Usuario creado con exito";
-                        Session.Add("email", usuarioFinal.Email);
-                        Response.Redirect("Home.aspx");
+                        Session.Add("email", usuarioFinal.Email); //Añade el email a Session para que se inicie sesion automaticamente
+                        Response.Redirect("Home.aspx"); //Redirige a la pagina Home.
                     }
                     else
                     {

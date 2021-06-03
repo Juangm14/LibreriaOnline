@@ -52,6 +52,8 @@
                         <asp:menuitem navigateurl="FAQs.aspx" text="PPFF" tooltip="PPFF"> </asp:menuitem>
             
                         <asp:menuitem navigateurl="Soporte.aspx" text="Soporte" tooltip="Soporte"> </asp:menuitem>
+
+                         <asp:menuitem navigateurl="VentaEntreUsuarios.aspx" text="Venta entre usuarios" tooltip="VentaEntreUsuarios"> </asp:menuitem>
             
                         <asp:menuitem  navigateurl="SignIn.aspx" text="Iniciar Sesion" tooltip="Iniciar Sesion"> </asp:menuitem>
 

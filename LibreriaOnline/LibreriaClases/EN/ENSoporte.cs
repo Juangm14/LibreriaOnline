@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace LibreriaOnline.EN
 {
     public class ENSoporte
@@ -54,24 +54,30 @@ namespace LibreriaOnline.EN
             Asunto = asunto;
         }
 
-        public bool readPregunta()
+        public bool readPregunta() //Metodo no necesario para nuestro programa
         {
             CADSoporte soporte = new CADSoporte();
             return soporte.readPregunta(this);
         }
 
-        public bool createPregunta()
+        public bool createPregunta() //Crea una pregunta
         {
             CADSoporte soporte = new CADSoporte();
             return soporte.createPregunta(this);
         }
 
-        public bool readFirstPregunta()
+        public DataSet Lista() //Devuelve un DataSet compuesto de todas las preguntas contestadas por los administradores de la pagina
+        {
+            CADSoporte soporte = new CADSoporte();
+            return soporte.Lista();
+        }
+
+        public bool readFirstPregunta()  //Metodo no necesario para nuestro programa
         {
             CADSoporte soporte = new CADSoporte();
             return soporte.readFirstPregunta(this);
         }
-        public bool readNextPregunta()
+        public bool readNextPregunta()  //Metodo no necesario para nuestro programa
         {
             CADSoporte soporte = new CADSoporte();
             if (soporte.readPregunta(this))
@@ -83,7 +89,7 @@ namespace LibreriaOnline.EN
                 return false;
             }
         }
-        public bool readPrevPregunta()
+        public bool readPrevPregunta()  //Metodo no necesario para nuestro programa
         {
             CADSoporte soporte = new CADSoporte();
             if (soporte.readPregunta(this))
@@ -95,7 +101,7 @@ namespace LibreriaOnline.EN
                 return false;
             }
         }
-        public bool editPregunta()
+        public bool editPregunta()  //Metodo no necesario para nuestro programa
         {
             CADSoporte soporte = new CADSoporte();
             ENSoporte copia = new ENSoporte();
@@ -115,7 +121,7 @@ namespace LibreriaOnline.EN
             }
         }
 
-        public bool deletePregunta()
+        public bool deletePregunta()  //Metodo no necesario para nuestro programa
         {
             CADSoporte soporte = new CADSoporte();
             if (soporte.readPregunta(this))
@@ -128,6 +134,7 @@ namespace LibreriaOnline.EN
             }
         }
 
+       
 
     }
 }
