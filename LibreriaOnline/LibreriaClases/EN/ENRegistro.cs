@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LibreriaOnline.EN {
-	public class ENRegistro
+	public class ENRegistro //Clase que sirve para registrar un nuevo usuario en la pantalla de registro y para iniciar sesión en la pantalla de inicio de sesión
 	{
 		string email;
 		string nombre;
@@ -82,10 +82,10 @@ namespace LibreriaOnline.EN {
 			Contrasena = contrasena;
 		}
 
-		public bool Registrar()
+		public bool Registrar() //Registra el usuario
 		{
 			CADRegistro registro = new CADRegistro();
-			if (!(registro.ExisteEmail(this) || registro.ExisteNick(this)))
+			if (!(registro.ExisteEmail(this) || registro.ExisteNick(this))) //Si existe ya una cuenta con el mismo nick o email, devolvera false y no se creara
 			{
 				return registro.Registrar(this);
 			}
@@ -94,50 +94,50 @@ namespace LibreriaOnline.EN {
 				return false;
 			}
 		}
-		public bool EmailRepetido()
+		public bool EmailRepetido() //Comprueba si existe ya una cuenta con ese email
 		{
 			CADRegistro registro = new CADRegistro();
 			return registro.ExisteEmail(this);
 		}
-		public bool NickRepetido()
+		public bool NickRepetido() //Comprueba si existe ya una cuenta con ese nick
 		{
 			CADRegistro registro = new CADRegistro();
 			return registro.ExisteNick(this);
 		}
 
-		public bool Log()
+		public bool Log() //Funcion para comprobar que un inicio de sesion es valido
 		{
 			ENRegistro verificar = new ENRegistro();
 			CADRegistro registro = new CADRegistro();
-			if (registro.ExisteEmail(this))
+			if (registro.ExisteEmail(this)) //Como se puede iniciar sesion tanto poniendo el nick como el email, primero comprueba si existe el emailc on el que se esta intentando iniciar sesión.
 			{
-				verificar.Email = Email;
+				verificar.Email = Email; 
 				registro.ReadEmail(verificar);
-				if (verificar.Contrasena == Contrasena)
+				if (verificar.Contrasena == Contrasena) //Si existe un usuario con ese email en la base de datos, comprueba que la contraseña introducida coincida con la que hay en la base de datos.
 				{
-					return true;
+					return true; // Si coincide, devuelve true.
 				}
 				else
 				{
-					return false;
+					return false; //Si no, devuelve false.
 				}
 			}
-			else if (registro.ExisteNick(this))
+			else if (registro.ExisteNick(this)) //Si no existe un correo con ese nombre, comprueba si hay algun nick con ese nombre.
 			{
 				verificar.Nick = Nick;
 				registro.ReadNick(verificar);
-				if (verificar.Contrasena == Contrasena)
+				if (verificar.Contrasena == Contrasena) //Si existe un usuario con ese nick en la base de datos, comprueba que la contraseña introducida coincida con la que hay en la base de datos.
 				{
-					return true;
+					return true; // Si coincide, devuelve true.
 				}
 				else
 				{
-					return false;
+					return false; //Si no, devuelve false.
 				}
 			}
 			else
 			{
-				return false;
+				return false; // Si ni el nick ni el correo existen, devuelve false.
 			}
 
 		}
