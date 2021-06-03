@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-
+using LibreriaClases.EN;
 namespace LibreriaOnline
 {
     public partial class VentaEntreUsuarios : System.Web.UI.Page
