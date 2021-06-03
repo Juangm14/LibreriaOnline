@@ -6,7 +6,7 @@ namespace LibreriaOnline
 {
 	public class ENRecomendaciones
 	{
-		string recomendados; //libro para recomendar
+		string genero; //genero del libro para recomendar
 		string usuario; //email del usuario, es decir su CP en la BBDD
 		string critica; //también imprimimos la critica con la recomendación
 		string titulo; //el título de la misma también se imprime
@@ -49,15 +49,15 @@ namespace LibreriaOnline
 				titulo = value;
 			}
 		}
-		public string Recomendados
+		public string Genero
 		{
 			get
 			{
-				return recomendados;
+				return genero;
 			}
 			set
 			{
-				recomendados = value; //Por si un usuario quiere cambiar su lista de recomendados por la de otro
+				genero = value; //Por si un usuario quiere cambiar su lista de recomendados por la de otro
 			}
 		}
 
@@ -74,48 +74,29 @@ namespace LibreriaOnline
 		}
 		public ENRecomendaciones()
 		{
-			recomendados = "";
+			genero = "";
 			usuario = "";
 			critica = "";
 			titulo = "";
 			correct = false;
 		}
 
-		public ENRecomendaciones(string reco, string usu, string cr, string ti, bool cor)
+		public ENRecomendaciones(string gen, string usu, string cr, string ti, bool cor)
 		{
-			recomendados = reco;
+			genero = gen;
 			usuario = usu;
 			critica = cr;
 			titulo = ti;
 			correct = cor;
 		}
 
-		public bool addRecomendado(string libro)
+		public bool Recomendado()
 		{
-			CADRecomendaciones added = new CADRecomendaciones();
-
-			if (!checkLibros(libro)) //No esta ya marcado como recomendado
-			{
-				this.recomendados = libro;
+			    CADRecomendaciones added = new CADRecomendaciones();
 				//El CAD buscara el libro con mayor nota y lo devuelve guardandolo en los atributos ENRecomendaciones
-				ENRecomendaciones aux = added.addRecomendado(this);
-
-				return aux.correct;
-
-			}
-
-			return false;
+				return added.Recomendado(this); ;
 		}
 
-		private bool checkLibros(string l)
-		{
-			if (this.recomendados.Contains(l))
-			{
-				return true;
-			}
-
-			return false;
-		}
 
 	}
 

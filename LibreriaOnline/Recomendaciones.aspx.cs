@@ -13,5 +13,19 @@ namespace LibreriaOnline
         {
 
         }
+
+        protected void BuscReco(object sender, EventArgs e)
+        {
+            ENRecomendaciones recomend = new ENRecomendaciones();
+            recomend.Genero = ListaLibros.SelectedValue;
+            if (recomend.Recomendado())
+            {
+                Response.Redirect("RecomenGenero.aspx?genero="+ ListaLibros.SelectedValue + "");
+            }
+            else
+            {
+                Label1.Text = "Error al realizar la busqueda, sentimos las molestias.";
+            }
+        }
     }
 }
