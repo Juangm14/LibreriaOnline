@@ -10,6 +10,9 @@ using System.Configuration;
 
 namespace LibreriaOnline
 {
+    /// <summary>
+	/// Se utiliza para comprobar que las reomendaciones funcionen correctamente
+	/// </summary>
     public class CADRecomendaciones
     {
         private String constring;

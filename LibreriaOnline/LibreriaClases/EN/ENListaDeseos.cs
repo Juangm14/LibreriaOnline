@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace LibreriaOnline.EN
 {
+	/// <summary>
+	/// Guarda y borra los libros deseados por los usuarios
+	/// </summary>
 	public class ENListaDeseos
 	{
 		private int isbn; //los libros marcados como deseados

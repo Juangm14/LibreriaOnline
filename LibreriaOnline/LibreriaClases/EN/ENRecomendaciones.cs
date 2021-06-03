@@ -4,6 +4,9 @@ using System.Text;
 
 namespace LibreriaOnline
 {
+	/// <summary>
+	/// Se utiliza para comprobar que las reomendaciones funcionen correctamente
+	/// </summary>
 	public class ENRecomendaciones
 	{
 		string genero; //genero del libro para recomendar

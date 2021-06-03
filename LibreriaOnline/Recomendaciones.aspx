@@ -3,11 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
      <div class ="container mb-3" >
-     <h3>
-         Los libros recomendados por la Crítica:
-     </h3>
+        <asp:Label runat ="server" Font-Bold ="true" ID ="bTitulo" Text="Los libros recomendados por la Crítica:" Font-Size="XX-Large"></asp:Label>
+           <br />
+         <asp:Label runat="server" id="bsubtitulo" Font-Size="X-Large" Text="Aquí mostraremos los libros criticados ordenados de mayor a menor nota, según los usuarios.">
+         </asp:Label>
     <br />
-     <asp:GridView runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
+         <br />
+     <asp:GridView runat="server" ID="Grid" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
          <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="titulo" HeaderText="titulo" SortExpression="titulo" />
@@ -33,6 +35,9 @@
     
         <br />   
      <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+         <asp:Label id="mensajeSession" runat="server">
+            <a href="SignIn.aspx" style="color:blue">aquí.</a>
+        </asp:Label>
          <br />
 
     <asp:DropDownList id="ListaLibros" runat="server" Height="32px" Width="200px" DataSourceID="SqlDataSource3" DataTextField="Genero" DataValueField="Genero">

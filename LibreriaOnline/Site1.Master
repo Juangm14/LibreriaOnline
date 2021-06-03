@@ -52,6 +52,8 @@
                             <asp:MenuItem NavigateUrl="~/MisRelatos.aspx" text="MisRelatos"></asp:MenuItem>
                         </asp:menuitem>
 
+                        <asp:MenuItem NavigateUrl="~/Recomendaciones.aspx" Text="Recomendaciones" ToolTip ="Recomendaciones"></asp:MenuItem>
+
                         <asp:menuitem navigateurl="Criticas.aspx" text="Criticas" tooltip="Criticas"> </asp:menuitem>
 
                         <asp:menuitem navigateurl="FAQs.aspx" text="PPFF" tooltip="PPFF"> </asp:menuitem>

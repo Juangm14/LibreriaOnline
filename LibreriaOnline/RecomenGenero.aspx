@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
      <div class ="container mb-3" >
-     <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+     <asp:Label ID="Label2" runat="server" Font-Bold ="true" Font-Size ="X-Large" Text=""></asp:Label>
       <br />   
       <br />          
 
@@ -32,8 +32,10 @@
              <asp:QueryStringParameter DefaultValue="NULL" Name="genero" QueryStringField="genero" Type="String" />
          </SelectParameters>
      </asp:SqlDataSource>
-    
-    
-  
+    <br /> 
+      <p>
+            <asp:Button class="btn-sm btn-success" id="Back" runat="server" onclick="PaVolver" text="Volver"/> &nbsp;
+        </p>   
+  <br /> 
     </div>
 </asp:Content>

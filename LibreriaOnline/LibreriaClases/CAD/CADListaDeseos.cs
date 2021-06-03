@@ -10,6 +10,9 @@ using System.Configuration;
 
 namespace LibreriaOnline
 {
+    /// <summary>
+	/// Guarda y borra los libros deseados por los usuarios
+	/// </summary>
     public class CADListaDeseos
     {
         private String constring;
