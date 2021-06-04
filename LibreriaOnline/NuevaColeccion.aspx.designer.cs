@@ -7,10 +7,12 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace LibreriaOnline {
+namespace LibreriaOnline
+{
 
 
-    public partial class NuevaColeccion {
+    public partial class NuevaColeccion
+    {
 
         /// <summary>
         /// Control cp.
@@ -29,5 +31,14 @@ namespace LibreriaOnline {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox pass;
+
+        /// <summary>
+        /// Control Label.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label;
     }
 }

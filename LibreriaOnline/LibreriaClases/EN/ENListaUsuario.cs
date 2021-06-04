@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibreriaOnline.CAD;
 
-namespace ConsoleApp1
+namespace LibreriaOnline.EN
 {
 	/// <summary>
 	/// Almacena los libros que se ha leido el usuario con su puntuacion.
@@ -13,7 +14,7 @@ namespace ConsoleApp1
 	{
 		private string _usuario;
 		private string _libro;
-		private int _puntuacion;
+		private int _nota;
 
 		public string usuario
 		{
@@ -25,54 +26,48 @@ namespace ConsoleApp1
 			get { return _libro; }
 			set { _libro = value; }
 		}
-		public int puntuacion
+		public int nota
 		{
-			get { return _puntuacion; }
-			set { _puntuacion = value; }
+			get { return _nota; }
+			set { _nota = value; }
 		}
 
 		public ENListaUsuario()
 		{
 			_usuario = "";
 			_libro = "";
-			_puntuacion = 0;
+			_nota = 0;
 		}
 
 		public ENListaUsuario(string usu, string li, int p)
 		{
 			_usuario = usu;
 			_libro = li;
-			_puntuacion = p;
+			_nota = p;
 		}
 
 		//Añade la puntuación a la BBDD, con su respectivo usuario y libro
-		public bool addPuntuacion()
+		public bool addListaUsuario()
 		{
 			CADListaUsuario c = new CADListaUsuario();
 
-			return c.addPuntuacion(this);
+			return c.addListaUsuario(this);
 		}
 
 		//Elimina la puntuación de la BBDD
-		public bool removePuntuacion()
+		public bool removeListaUsuario()
 		{
 			CADListaUsuario c = new CADListaUsuario();
 
-			return c.removePuntuacion(this);
+			return c.removeListaUsuario(this);
 		}
 
-		public bool updatePuntuacion()
+		//Modifica la puntuación de la BBDD
+		public bool updateListaUsuario()
         {
 			CADListaUsuario c = new CADListaUsuario();
 
-			return c.updatePuntuacion(this);
-		}
-
-		public bool readPuntuacion()
-        {
-			CADListaUsuario c = new CADListaUsuario();
-
-			return c.readPuntuacion(this);
+			return c.updateListaUsuario(this);
 		}
 	}
 }

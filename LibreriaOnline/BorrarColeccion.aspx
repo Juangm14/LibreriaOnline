@@ -9,5 +9,7 @@
     <p>
         <asp:button runat="server" Text="Borrar"/>
     </p>
-       
+    <p>
+        <asp:Label ID="Label" runat="server"> </asp:Label>
+    </p>   
 </asp:Content>

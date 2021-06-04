@@ -11,25 +11,34 @@ namespace LibreriaOnline
 {
 
 
-    public partial class Coleccion
+    public partial class ModificarColeccion
     {
 
         /// <summary>
-        /// Control GridColeccion.
+        /// Control Mod1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridColeccion;
+        protected global::System.Web.UI.WebControls.TextBox Mod1;
 
         /// <summary>
-        /// Control SqlDataSource1.
+        /// Control Mod2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.TextBox Mod2;
+
+        /// <summary>
+        /// Control Label.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label;
     }
 }
