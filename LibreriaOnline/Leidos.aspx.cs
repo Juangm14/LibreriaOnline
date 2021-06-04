@@ -49,6 +49,7 @@ namespace LibreriaOnline {
             ModLibroLeido.Visible = false;
             ElimLibroLeido.Visible = false;
             LabelLibro.Visible = true;
+            LabelNota.Visible = true;
             ListaLibros.Visible = true;
             AñadirPuntuacion.Visible = true;
             ListaPuntuacion.Visible = true;
@@ -62,6 +63,7 @@ namespace LibreriaOnline {
             ModLibroLeido.Visible = false;
             ElimLibroLeido.Visible = false;
             LabelLibro.Visible = true;
+            LabelNota.Visible = true;
             ListaLibros.Visible = true;
             ModificarPuntuacion.Visible = true;
             ListaPuntuacion.Visible = true;
