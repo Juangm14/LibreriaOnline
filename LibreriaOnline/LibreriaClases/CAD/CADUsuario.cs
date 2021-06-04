@@ -79,11 +79,11 @@ namespace LibreriaOnline.CAD
         {
             
             SqlConnection connection = new SqlConnection(constring);
-            String sql = "update Usuario set  nick = '{0}', direccion = '{1}', telefono = '{2}', contraseña = '{3}' where email = '{4}'";
+            String sql = "update Usuario set  nick = '{0}', direccion = '{1}', telefono = '{2}', contraseña = '{3}',nombre='{4}',apellidos='{5}',imagen='{7}' where email = '{6}'";
             try
             {
                 connection.Open();
-                SqlCommand c = new SqlCommand(string.Format(sql, new String[] { en.getNick(), en.getDireccion(), en.getTelefono(), en.getContraseña(),en.getEmail() }), connection);
+                SqlCommand c = new SqlCommand(string.Format(sql, new String[] { en.getNick(), en.getDireccion(), en.getTelefono(), en.getContraseña(),en.getNombre(),en.getApellidos(),en.getEmail(),en.image_ }), connection);
                 int filasAfectadas = c.ExecuteNonQuery();
                 connection.Close();
                 if (filasAfectadas > 0) return true;
