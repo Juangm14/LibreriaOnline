@@ -42,14 +42,12 @@
 
                      <items>
                         <asp:menuitem navigateurl="Home.aspx" Text="Inicio" tooltip="Inicio"></asp:menuitem>
-                         
-                        <asp:menuitem navigateurl="Libros.aspx" Text="Libros" tooltip="Libros"></asp:menuitem>
 
                         <asp:menuitem navigateurl="Coleccion.aspx" text="Colecciones" tooltip="Colecciones"></asp:menuitem>
-            
-                        <asp:menuitem navigateurl="Relatos.aspx" text="Relatos" tooltip="Relatos"> 
-                            <asp:MenuItem NavigateUrl="~/MisRelatos.aspx" text="MisRelatos"></asp:MenuItem>
-                        </asp:menuitem>
+
+                        <asp:menuitem navigateurl="Relatos.aspx" text="Relatos" tooltip="Relatos"> </asp:menuitem>
+
+                         <asp:menuitem navigateurl="Recomendaciones.aspx" text="Recomendaciones" tooltip="Recomendaciones"> </asp:menuitem>
 
                         <asp:menuitem navigateurl="Criticas.aspx" text="Criticas" tooltip="Criticas"> </asp:menuitem>
 
@@ -57,9 +55,9 @@
             
                         <asp:menuitem navigateurl="Soporte.aspx" text="Soporte" tooltip="Soporte"> </asp:menuitem>
 
-                          <asp:MenuItem ImageUrl="carrito.png" navigateurl="carrito.aspx" ToolTip="carrito" Value="carrito"></asp:MenuItem> 
+                         <asp:menuitem navigateurl="VentaEntreUsuarios.aspx" text="Venta entre usuarios" tooltip="VentaEntreUsuarios"> </asp:menuitem>
             
-                         <asp:menuitem  navigateurl="SignIn.aspx" text="Iniciar Sesion" tooltip="Iniciar Sesion"> </asp:menuitem>
+                        <asp:menuitem  navigateurl="SignIn.aspx" text="Iniciar Sesion" tooltip="Iniciar Sesion"> </asp:menuitem>
 
                          <asp:menuitem ImageUrl="~/Config.jpg" tooltip="engranaje">
                          <asp:menuitem navigateurl="Perfil.aspx"

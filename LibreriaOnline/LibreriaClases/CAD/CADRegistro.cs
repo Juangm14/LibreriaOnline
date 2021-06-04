@@ -17,7 +17,7 @@ namespace LibreriaOnline.CAD
 			constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
 		}
 
-		public bool ExisteEmail(ENRegistro registro)
+		public bool ExisteEmail(ENRegistro registro) //Comprueba si existe una cuenta con el email introducido en el EN.
 		{
 			bool encontrado = false;
             try
@@ -43,7 +43,7 @@ namespace LibreriaOnline.CAD
 		}
 
 
-		public bool ExisteNick(ENRegistro registro)
+		public bool ExisteNick(ENRegistro registro) //Comprueba si existe una cuenta con el nick introducido en el EN.
 		{
 			bool encontrado = false;
 			try
@@ -68,7 +68,7 @@ namespace LibreriaOnline.CAD
 			return encontrado;
 		}
 
-		public bool Registrar(ENRegistro registro)
+		public bool Registrar(ENRegistro registro) //Registra al usuario en la base de datos con los datos del EN.
 		{
 			bool creado = false;
 			try
@@ -87,7 +87,7 @@ namespace LibreriaOnline.CAD
 			}
 			return creado;
 		}
-		public bool ReadEmail(ENRegistro registro)
+		public bool ReadEmail(ENRegistro registro) //Busca el email introducido en EN y le añade sus datos.
 		{
 			bool leido = false;
 			try
@@ -113,7 +113,7 @@ namespace LibreriaOnline.CAD
 			return leido;
 		}
 
-		public bool ReadNick(ENRegistro registro)
+		public bool ReadNick(ENRegistro registro) //Busca el nick introducido en EN y le añade sus datos.
 		{
 			bool leido = false;
 			try

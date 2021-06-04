@@ -13,7 +13,7 @@ namespace LibreriaOnline {
         }
 
         protected void Enviar_Click(object sender, EventArgs e) {
-            if(DropDownList1.SelectedValue== "Pregunta")
+            if(DropDownList1.SelectedValue== "Pregunta") //Si es una pregunta, llama a la funcion de pregunta. Si no, llamara a la funcion de sugerencia.
             {
                 EnviarPregunta(sender, e);
             }
@@ -23,13 +23,13 @@ namespace LibreriaOnline {
             }
         }
 
-        protected void EnviarPregunta(object sender, EventArgs e)
+        protected void EnviarPregunta(object sender, EventArgs e) //Envia una pregunta a los administradores. Una vez sea respondida, se publicara en la pagina de preguntas frecuentes.
         {
-            if (AsuntoTextBox.Text == "")
+            if (AsuntoTextBox.Text == "") //Comprueba que no este vacio el campo de asunto
             {
                 MsgSoporte.Text = "Por favor, introduzca un asunto.";
             }
-            else if (PreguntaTextBox.Text == "")
+            else if (PreguntaTextBox.Text == "") //Comprueba que no este vacio el campo de pregunta
             {
                 MsgSoporte.Text = "Por favor, introduzca una pregunta.";
             }
@@ -38,7 +38,7 @@ namespace LibreriaOnline {
                 ENSoporte pregunta = new ENSoporte();
                 pregunta.Pregunta = PreguntaTextBox.Text;
                 pregunta.Asunto = AsuntoTextBox.Text;
-                if (pregunta.createPregunta())
+                if (pregunta.createPregunta()) //Envia la pregunta a la base de datos, donde sera respondida por los administradores.
                 {
                     MsgSoporte.Text = "Pregunta enviada a soporte.";
                     PreguntaTextBox.Text = "";
