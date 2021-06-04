@@ -204,6 +204,24 @@ namespace LibreriaOnline
         protected global::System.Web.UI.WebControls.TextBox TextPrecio;
 
         /// <summary>
+        /// Control Imagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Imagen;
+
+        /// <summary>
+        /// Control formFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox formFile;
+
+        /// <summary>
         /// Control Boton_crearLibro.
         /// </summary>
         /// <remarks>
@@ -294,6 +312,24 @@ namespace LibreriaOnline
         protected global::System.Web.UI.WebControls.DropDownList ModDropDownList1;
 
         /// <summary>
+        /// Control ModLabelTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ModLabelTitulo;
+
+        /// <summary>
+        /// Control ModTextTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ModTextTitulo;
+
+        /// <summary>
         /// Control ModLabelEditorial.
         /// </summary>
         /// <remarks>
@@ -328,6 +364,24 @@ namespace LibreriaOnline
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ModTextPrecio;
+
+        /// <summary>
+        /// Control ModLabelImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ModLabelImagen;
+
+        /// <summary>
+        /// Control TextImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextImagen;
 
         /// <summary>
         /// Control ModButton.

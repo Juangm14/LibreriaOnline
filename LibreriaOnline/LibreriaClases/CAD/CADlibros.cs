@@ -58,11 +58,11 @@ namespace LibreriaOnline.CAD
         public bool updateLibros(ENlibros en)
         {
             SqlConnection connection = new SqlConnection(cadenaConexion);
-            String sql = "update Libro set  ISBN = '{0}', Autores = '{1}', Titulo = '{2}', Editorial = '{3}', Genero = '{4}', Proveedor = '{5}', Precio = '{6}' where ISBN = '{0}'";
+            String sql = "update Libros set  ISBN = '{0}', Autores = '{1}', Titulo = '{2}', Editorial = '{3}', Genero = '{4}', Proveedor = '{5}', Precio = '{6}' where ISBN = '{0}'";
             try
             {
                 connection.Open();
-                SqlCommand c = new SqlCommand(string.Format(sql, new String[] { en.getISBN().ToString(), en.getAutores(), en.getTitulo(), en.getEditorial(), en.getGenero(), en.getProveedor(), en.getPrecio().ToString()}), connection);
+                SqlCommand c = new SqlCommand(string.Format(sql, new String[] { en.getISBN().ToString(), en.getAutores(), en.getTitulo(), en.getEditorial(), en.getGenero(), en.getProveedor(), en.getPrecio().ToString(), en.getImagen()}), connection);
                 int filasAfectadas = c.ExecuteNonQuery();
                 connection.Close();
                 if (filasAfectadas > 0) return true;
