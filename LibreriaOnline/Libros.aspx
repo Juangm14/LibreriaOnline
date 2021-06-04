@@ -3,42 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
 
-        <div class="container">
-
-        <asp:DataList ID="DataList2" runat="server" DataKeyField="ISBN" DataSourceID="SqlDataSource1" RepeatColumns="3"  CssClass="table table-responsive">
-            <ItemTemplate>
-                <asp:Image ID="Image1" width="140" height="120" runat="server" ImageUrl='<%# Eval("imagen") %>' CssClass="img-fluid" />
-                <br />
-                <br />
-                ISBN:
-                <asp:Label ID="ISBNLabel" runat="server" Text='<%# Eval("ISBN") %>' />
-                <br />
-                autores:
-                <asp:Label ID="autoresLabel" runat="server" Text='<%# Eval("autores") %>' />
-                <br />
-                titulo:
-                <asp:Label ID="tituloLabel" runat="server" Text='<%# Eval("titulo") %>' />
-                <br />
-                editorial:
-                <asp:Label ID="editorialLabel" runat="server" Text='<%# Eval("editorial") %>' />
-                <br />
-                genero:
-                <asp:Label ID="generoLabel" runat="server" Text='<%# Eval("genero") %>' />
-                <br />
-                proveedor:
-                <asp:Label ID="proveedorLabel" runat="server" Text='<%# Eval("proveedor") %>' />
-                <br />
-                Precio:
-                <asp:Label ID="PrecioLabel" runat="server" Text='<%# Eval("Precio") %>' />
-                <br />
-                <asp:Button ID="AgregarCarrito" OnCommand="AgregarCarrito_Command" CommandArgument='<%# Bind("ISBN") %>' runat="server" Text="Agregar al Carrito" CssClass="btn btn-success" />
-            </ItemTemplate>
-
-        </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Libros]"></asp:SqlDataSource>
-        </div>
-
-        <div class="container">
+    <div class="container mt-2">
         <p>
             <asp:Button class="btn-sm btn-success" ID="NuevoLibro" runat="server" onclick="NuevoLibro_Click" text="Nuevo libro"/> &nbsp;
             <asp:Button class="btn-sm btn-warning" ID="EditarLibro" runat="server" onclick="EditarLibro_Click" text="Modificar libro"/> &nbsp;
@@ -77,7 +42,7 @@
                 <asp:label runat="server" id="Precio" for="exampleFormControlInput1" class="form-label">Precio</asp:label>
                 <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="TextPrecio" placeholder="Introducir Precio"></asp:TextBox>
                 <asp:label runat="server" id= "Imagen" for="exampleFormControlInput1" class="form-label">Imagen</asp:label>
-                <asp:TextBox runat="server" class="form-control" type="file" id="formFile"></asp:TextBox>
+                <asp:TextBox runat="server" class="form-control mt-2" type="file" id="formFile" ></asp:TextBox>
                 <asp:Button runat="server" ID="Boton_crearLibro" text="Crear libro" OnClick="Boton_crear" class="btn-sm mt-2 btn-success" />
                 <asp:Label runat="server" ID="LabelCrear" />
 
@@ -143,5 +108,45 @@
               <asp:Label ID="ElimMsg" runat="server"></asp:Label>
             </div>
         </div>
+
+        <div class="container">
+
+        <asp:DataList ID="DataList2" runat="server" DataKeyField="ISBN" DataSourceID="SqlDataSource1" RepeatColumns="3"  CssClass="table table-responsive">
+            <ItemTemplate>
+                <asp:Image ID="Image1" width="140" height="120" runat="server" ImageUrl='<%# Eval("imagen") %>' CssClass="img-fluid" />
+                <br />
+                <br />
+                ISBN:
+                <asp:Label ID="ISBNLabel" runat="server" Text='<%# Eval("ISBN") %>' />
+                <br />
+                autores:
+                <asp:Label ID="autoresLabel" runat="server" Text='<%# Eval("autores") %>' />
+                <br />
+                titulo:
+                <asp:Label ID="tituloLabel" runat="server" Text='<%# Eval("titulo") %>' />
+                <br />
+                editorial:
+                <asp:Label ID="editorialLabel" runat="server" Text='<%# Eval("editorial") %>' />
+                <br />
+                genero:
+                <asp:Label ID="generoLabel" runat="server" Text='<%# Eval("genero") %>' />
+                <br />
+                proveedor:
+                <asp:Label ID="proveedorLabel" runat="server" Text='<%# Eval("proveedor") %>' />
+                <br />
+                Precio:
+                <asp:Label ID="PrecioLabel" runat="server" Text='<%# Eval("Precio") %>' />
+                <br />
+                <asp:Button ID="AgregarCarrito" OnCommand="AgregarCarrito_Command" CommandArgument='<%# Bind("ISBN") %>' runat="server" Text="Agregar al Carrito" CssClass="btn btn-success" />
+            </ItemTemplate>
+
+        </asp:DataList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Libros]"></asp:SqlDataSource>
+        <asp:Label runat="server" ID="ErrorCarrito" ForeColor="red"></asp:Label>
+        </div>
+
+        
+
+        
 
 </asp:Content>

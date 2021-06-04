@@ -78,6 +78,8 @@ namespace LibreriaOnline
             ElimBotonLibro.Visible = false;
             ElimMsg.Visible = false;
 
+            ErrorCarrito.Visible = false;
+
         }
         protected void Boton_crear(object sender, EventArgs e)
         {
@@ -85,7 +87,7 @@ namespace LibreriaOnline
             {
                 try
                 {
-                    ENlibros en = new ENlibros(TextISBN.Text.ToString(), TextAutores.Text.ToString(), TextTitulo.Text.ToString(), TextEditorial.Text.ToString(), TextGenero.Text.ToString(), TextProveedor.Text.ToString(), float.Parse(TextPrecio.Text.ToString()), "~/imagenesLibro/" + formFile.Text.ToString());
+                    ENlibros en = new ENlibros(TextISBN.Text.ToString(), TextAutores.Text.ToString(), TextTitulo.Text.ToString(), TextEditorial.Text.ToString(), TextGenero.Text.ToString(), TextProveedor.Text.ToString(), float.Parse(TextPrecio.Text.ToString()), formFile.Text.ToString());
                     if (en.CreateLibros())
                     {
                         LabelCrear.Visible = true;
@@ -125,6 +127,8 @@ namespace LibreriaOnline
             Proveedor.Visible = true;
             TextProveedor.Visible = true;
             Boton_crearLibro.Visible = true;
+            Imagen.Visible = true;
+            DataList2.Visible = false;
         }
         protected void EditarLibro_Click(object sender, EventArgs e)
         {
@@ -232,9 +236,15 @@ namespace LibreriaOnline
         //Parte de Carrito, para poder añadirlo
         protected void AgregarCarrito_Command(object sender, CommandEventArgs e) {
 
-            string ISBN = e.CommandArgument.ToString();
-            ENCarrito en = new ENCarrito(ISBN, Session["email"].ToString());
-            en.agregarElementoCarrito();
+            if (Session["email"].ToString().Contains("@gmail.com")) {
+                string ISBN = e.CommandArgument.ToString();
+                ENCarrito en = new ENCarrito(ISBN, Session["email"].ToString());
+                en.agregarElementoCarrito();
+            } else {
+                ErrorCarrito.Visible = true;
+                ErrorCarrito.Text = "<br> Para poder añadir al carrito tienes que ser Usuario, ahora mismo eres  Proveedor";
+            }
+
 
         }
     }

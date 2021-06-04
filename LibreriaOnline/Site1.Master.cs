@@ -16,26 +16,23 @@ namespace LibreriaOnline {
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem("Iniciar Sesion"));
                 
             }
+
             if (Session["email"] == null && NavigationMenu.FindItem("") != null)
             {
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem(""));
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem("Venta entre usuarios"));
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem("Recomendaciones"));
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem("carrito"));
-                /* IEnumerator menuItemEnumerator = engranaje.ChildItems.GetEnumerator();
-                 while (menuItemEnumerator.MoveNext())
-                 {
-                     if(((MenuItem)(menuItemEnumerator.Current)).ToolTip=="Cerrar Sesion")
-                     {
-                         existe = true;
-                     }
-                 }
-                 if (existe == true){
-                     NavigationMenu.FindItem("").ChildItems.RemoveAt(3);
-                 } 
-                */
             }
-               
+
+            if (Session["email"] != null && !Session["email"].ToString().Contains("@gmail.com") && NavigationMenu.FindItem("carrito") != null) {
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("Venta entre usuarios"));
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("Recomendaciones"));
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("carrito"));
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("Relatos"));
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("Colecciones"));
+            }
+            
         }
 
         protected void NavigationMenu_MenuItemClick(object sender, MenuEventArgs e) { //Si la opcion del menu que el usuario pulsa es el elemento "Cerrar Sesion" se hara Sesion.Clear() desiniciando la seasion y redirigira al usuario a la pagina Home.
