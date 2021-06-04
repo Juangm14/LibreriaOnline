@@ -12,7 +12,7 @@ namespace LibreriaOnline.EN
 	/// </summary>
 	public class ENColeccion
 	{
-		private int _id;
+		private int _id;      //Identificador de la colección
 		private string _nombre;  //Nombre de la colección
 		private int _coleccion; //Libro de la colección (ISBN)
 
@@ -56,19 +56,36 @@ namespace LibreriaOnline.EN
 			return c.addColeccion(this);
 		}
 
-		//Elimina un libro de la colección
+		//Elimina una colección
 		public bool removeColeccion()
 		{
 			CADColeccion c = new CADColeccion();
 
 			return c.removeColeccion(this);
 		}
-
+		
+		//Modifica una colección
 		public bool updateColeccion()
 		{
 			CADColeccion c = new CADColeccion();
 
 			return c.updateColeccion(this);
+		}
+
+		//Recupera la id de una colección
+		public bool getId()
+		{
+			CADColeccion c = new CADColeccion();
+
+			return c.getId(this);
+		}
+
+		//Recupera el ISBN de un libro
+		public bool findLibros()
+		{
+			CADColeccion c = new CADColeccion();
+
+			return c.findLibros(this);
 		}
 	}
 }
