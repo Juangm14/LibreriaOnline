@@ -26,12 +26,12 @@ namespace LibreriaOnline.CAD
 			{
 				c.Open();
 				SqlCommand com1 = new SqlCommand("Insert into Coleccion (nombre) VALUES ('" + en.nombre + "')", c);
-				SqlCommand com2 = new SqlCommand("Insert into ColeccionLibros (Id,ISBN) VALUES (" + en.id + "," + en.coleccion + ")", c);
 				if (!getId(en))
 				{
 					com1.ExecuteNonQuery();
 					getId(en);
 				}
+				SqlCommand com2 = new SqlCommand("Insert into ColeccionLibros (Id,ISBN) VALUES (" + en.id + "," + en.coleccion + ")", c);
 				if (com2.ExecuteNonQuery() != 0)
 					added = true;
 			}

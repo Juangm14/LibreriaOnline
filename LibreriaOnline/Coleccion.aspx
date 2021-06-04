@@ -29,7 +29,7 @@
                 <SortedDescendingCellStyle BackColor="#FCF6C0" />
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT c.[nombre], [titulo] FROM [Coleccion] c, [Libros] l, [ColeccionLibros] cl where cl.ISBN=l.ISBN"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT c.[nombre], [titulo] FROM [Coleccion] c, [Libros] l, [ColeccionLibros] cl where cl.ISBN=l.ISBN and c.Id=cl.Id"></asp:SqlDataSource>
         </p>
     </div>
 </asp:Content>
