@@ -168,6 +168,36 @@ Juan García Martínez 20085694R:
 
     **Otra de las funcionalidades era VentaEntreUsuarios.aspx, pero al no tenerlo a tiempo no he podido añadir la funcionalidad de agregar al carrito y compra**
 
+Benjamín: 
+
+    ENColeccion, ENListaUsuario, CADColeccion, CADListaUsuario.
+    ListaUsuario solo es accesible una vez se haya iniciado sesión mientras que Colección es accesible desde la
+    interfaz sin tener que iniciar sesión.
+
+    ENColeccion: Utiliza el nombre e id de las colecciones y el ISBN de los libros. Esta clase implementa métodos para añadir,
+    modificar y borrar colecciones, además de otros métodos para comprobar la existencia de un libro determinado en la base de 
+    datos y para obtener el id de las colecciones. El aspx.cs se utiliza para llamar a los métodos anteriores en caso de 
+    que sea necesario.
+
+    CADColeccion: Usa las herramientas de acceso conectado para conectarse con la base de datos y añadir una colección con sus
+    libros, borrarlo o cambiar el nombre, además de comprobar si un libro está en la base de datos y obtener su ISBN. A la 
+    hora se añadir o borrar, esta clase interactua con las tablas Coleccion y ColeccionLibros para establecer la relación
+    con la tabla Libros.
+
+    ENListaUsuario: Corresponde con la tabla Leídos de la base de datos. Utiliza el email del usuario, el ISBN del libro 
+    que se quiere marcar como leído y su nota correspondiente. Tiene métodos para añadir, borrar y modificar la nota de los 
+    libros leídos. El aspx.cs llama a los métodos en cuestión para relizar dichas acciones.
+
+    CADListaUsuario: Utiliza las herramientas de acceso conectado para comunicarse con la base de datos. Tiene métodos para 
+    añadir, borrar y modificar libros leídos, cada uno de estos métodos obtine el ISBN del libro a partir de su título.
+    
+Carlos:
+
+    EnLibros: Llamamos al CADLibros
+    CADLibros: Introducimos CRUD de libros
+    ENProveedores: Inicio de sesion, Registro 
+    CADProveedores: Introducimos CRUD de proveedores
+    
 ---------- Mejoras introducidas ----------
 
     Carrito de compra
