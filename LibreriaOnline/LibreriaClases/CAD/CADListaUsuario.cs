@@ -16,15 +16,29 @@ public class CADListaUsuario
 		constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
 	}
 
-	public bool addListaUsuario(ENListaUsuario en)
-	{
+    public bool addListaUsuario(ENListaUsuario en)
+    {
         bool added = true;
+        string s;
         SqlConnection c = new SqlConnection(constring);
         try
         {
             c.Open();
-            SqlCommand com = new SqlCommand("Insert into Leidos (email,ISBN,Nota) VALUES ('" + en.usuario + "'," + en.libro + "," + en.nota + ")", c);
-            if (com.ExecuteNonQuery() == 0)
+            SqlCommand com1 = new SqlCommand("Select ISBN from Libros where titulo = ('" + en.libro + "')", c);
+            SqlDataReader libro = com1.ExecuteReader();
+
+            if (libro.Read())
+            {
+                en.libro = libro["isbn"].ToString();
+                c.Close();
+            }
+            c.Open();
+            if (en.nota != 0)
+                s = "Insert into Leidos (email,ISBN,Nota) VALUES ('" + en.usuario + "'," + en.libro + "," + en.nota + ")";
+            else
+                s = "Insert into Leidos (email,ISBN) VALUES ('" + en.usuario + "'," + en.libro + ")";
+            SqlCommand com2 = new SqlCommand(s, c);
+            if (com2.ExecuteNonQuery() == 0)
                 added = false;
         }
         catch (SqlException ex)
@@ -33,11 +47,11 @@ public class CADListaUsuario
             Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
         }
         finally { c.Close(); }
-        
+
         return added;
     }
 
-	public bool removeListaUsuario(ENListaUsuario en)
+    public bool removeListaUsuario(ENListaUsuario en)
 	{
         bool deleted = true;
         SqlConnection c = new SqlConnection(constring);
