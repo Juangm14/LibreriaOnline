@@ -105,6 +105,32 @@ namespace LibreriaOnline.CAD
 
 			return check;
 		}
+
+		public bool getId(ENColeccion en)
+		{
+			bool get = false;
+			SqlConnection c = new SqlConnection(constring);
+			try
+			{
+				c.Open();
+				SqlCommand com = new SqlCommand("Select id from Coleccion where nombre='" + en.nombre + "'", c);
+				SqlDataReader dr = com.ExecuteReader();
+				if (dr.Read())
+				{
+					en.id = int.Parse(dr["id"].ToString());
+					get = true;
+				}
+				dr.Close();
+			}
+			catch (SqlException ex)
+			{
+				get = false;
+				Console.WriteLine("Operation has failed.Error: {0}", ex.Message);
+			}
+			finally { c.Close(); }
+
+			return get;
+		}
 	}
 }
 
