@@ -52,11 +52,20 @@ public class CADListaUsuario
     }
 
     public bool removeListaUsuario(ENListaUsuario en)
-	{
+    {
         bool deleted = true;
         SqlConnection c = new SqlConnection(constring);
         try
         {
+            c.Open();
+            SqlCommand com1 = new SqlCommand("Select ISBN from Libros where titulo = ('" + en.libro + "')", c);
+            SqlDataReader libro = com1.ExecuteReader();
+
+            if (libro.Read())
+            {
+                en.libro = libro["isbn"].ToString();
+                c.Close();
+            }
             c.Open();
             SqlCommand com = new SqlCommand("Delete from Leidos where email='" + en.usuario + "' and ISBN=" + en.libro, c);
             if (com.ExecuteNonQuery() == 0)
@@ -68,18 +77,27 @@ public class CADListaUsuario
             Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
         }
         finally { c.Close(); }
-        
+
         return deleted;
     }
 
-	public bool updateListaUsuario(ENListaUsuario en)
-	{
+    public bool updateListaUsuario(ENListaUsuario en)
+    {
         bool updated = true;
         SqlConnection c = new SqlConnection(constring);
         try
         {
             c.Open();
-            SqlCommand com = new SqlCommand("Update Leidos set Nota=" + en.nota + " where email='" + en.usuario + "' and ISBN="+ en.libro, c);
+            SqlCommand com1 = new SqlCommand("Select ISBN from Libros where titulo = ('" + en.libro + "')", c);
+            SqlDataReader libro = com1.ExecuteReader();
+
+            if (libro.Read())
+            {
+                en.libro = libro["isbn"].ToString();
+                c.Close();
+            }
+            c.Open();
+            SqlCommand com = new SqlCommand("Update Leidos set Nota=" + en.nota + " where email='" + en.usuario + "' and ISBN=" + en.libro, c);
             if (com.ExecuteNonQuery() == 0)
                 updated = false;
         }
@@ -89,7 +107,7 @@ public class CADListaUsuario
             Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
         }
         finally { c.Close(); }
-      
+
         return updated;
     }
 }
