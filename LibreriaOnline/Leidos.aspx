@@ -39,6 +39,18 @@
         <p>
             <asp:label id="Msg" runat="server"></asp:label>
         </p>
+
+        <p>
+            <asp:button ID="AñadirPuntuacion" runat="server" onclick="Nueva_Puntuacion" Text="Añadir"/>
+        </p>
+
+        <p>
+            <asp:button ID="ModificarPuntuacion" runat="server" onclick="Mod_Puntuacion" Text="Modificar"/>
+        </p>
+
+        <p>
+            <asp:button ID="EliminarPuntuacion" runat="server" onclick="Elim_Puntuacion" Text="Eliminar"/>
+        </p>
     </div>
         <p>
             <asp:GridView id="GridLeidos" class="container" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="1058px">
