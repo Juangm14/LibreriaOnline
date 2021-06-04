@@ -7,7 +7,7 @@ using LibreriaOnline.CAD;
 
 namespace LibreriaOnline.EN
 {
-    class ENUsuario {
+    public class ENUsuario {
         private string email;
         private string nick;
         private string nombre;
@@ -16,10 +16,12 @@ namespace LibreriaOnline.EN
         private int edad;
         private string direccion;
         private string contraseña;
-
-
-        public ENUsuario() {
-            email = "";
+        private string text;
+        private string v1;
+        private int v2;
+        private string image;
+        public ENUsuario(string usuario) {
+            email = usuario;
             nick = "";
             nombre = "";
             apellidos = "";
@@ -27,6 +29,31 @@ namespace LibreriaOnline.EN
             edad = 0;
             direccion = "";
             contraseña = "";
+        }
+
+        public ENUsuario()
+        {
+            email = null;
+            nick = "";
+            nombre = "";
+            apellidos = "";
+            telefono = "";
+            edad = 0;
+            direccion = "";
+            contraseña = "";
+            
+        }
+
+        public ENUsuario(string imagenn, string direccionn, string nickk, string telefonoo, string contraseñaa,string nombree, string apellidoo,string usuario)//Necesario para hacer el update del perfil 
+        {
+            image = imagenn;
+            telefono = telefonoo;
+            email = usuario;
+            direccion = direccionn;
+            contraseña = contraseñaa;
+            nick = nickk;
+            nombre = nombree;
+            apellidos = apellidoo;
         }
 
         public ENUsuario(string email, string nick, string nombre, int edad, string telefono, string apellidos, string direccion, string contraseña) {
@@ -39,56 +66,64 @@ namespace LibreriaOnline.EN
             this.direccion = direccion;
             this.contraseña = contraseña;
         }
+
+       
+        public string image_
+        {
+            get{ return image; }
+            set{ image = value; }
+        }
+        
+        public string email_
+        {
+            get { return email; }
+            set { email = value; }
+        }
         public bool modificardatosUsuario() {
             CADUsuario u = new CADUsuario();
             return u.modificarUsuario(this);
         }
+        
 
-        public bool relatosUsuario() {
+        public System.Data.SqlClient.SqlDataReader mostrardatos()//Mostramos los datos para que se muestren en el perfil
+        {
             CADUsuario u = new CADUsuario();
-            return u.relatosUsuario(this);
+            return u.mostrardatos(this);
         }
 
-        public bool readrelatosUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.readrelatosUsuario(this);
+        public string getNombre()//lee nombre
+        {
+            return nombre;
         }
 
-        public bool deleterelatosUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.deleterelatosUsuario(this);
+        public string getApellidos()//lee apellidos
+        {
+            return apellidos;
         }
+        public string getDireccion()//lee direccion
+        {
+            return direccion;
+        }
+        public string getNick()//lee nick
+        {
+            return nick;
+        }
+        public string getTelefono()//lee telefono
+        {
+            return telefono;
+        }
+        public string getContraseña()//lee contraseña
+        {
+            return contraseña;
+        }
+        public string getEmail()//lee email
+        {
+            return email;
+        }
+        public void setEmail(string email) { this.email = email; }
 
-        public bool venderUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.venderUsuario(this);
-        }
-
-        public bool deletevenderUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.deletevenderUsuario(this);
-        }
-
-        public bool recomendarlibrosUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.recomendarlibrosUsuario(this);
-        }
-
-        public bool criticaUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.criticaUsuario(this);
-        }
-
-        public bool readcriticaUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.readcriticaUsuario(this);
-        }
-
-        public bool deletecriticaUsuario() {
-            CADUsuario u = new CADUsuario();
-            return u.deletecriticaUsuario(this);
-        }
-        public bool createUsuario() {
+       
+        public bool createUsuario() {//se utilizaria en registro
             CADUsuario u = new CADUsuario();
             return u.readUsuario(this);
         }
