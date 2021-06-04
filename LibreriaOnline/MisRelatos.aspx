@@ -92,7 +92,7 @@
             </div>
         </div>
         <p>
-            <asp:GridView id="GridRelatosShow" class="container" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="1058px">
+            <asp:GridView id="GridRelatosShow" class="container" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1058px">
                 
                 <AlternatingRowStyle BackColor="White" />
 
@@ -112,7 +112,6 @@
                 <SortedDescendingCellStyle BackColor="#FCF6C0" />
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [genero], [Titulo], [text] FROM [Relato]"></asp:SqlDataSource>
         </p>
     </div>
 </asp:Content>

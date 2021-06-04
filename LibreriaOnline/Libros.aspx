@@ -113,7 +113,7 @@
 
         <asp:DataList ID="DataList2" runat="server" DataKeyField="ISBN" DataSourceID="SqlDataSource1" RepeatColumns="3"  CssClass="table table-responsive">
             <ItemTemplate>
-                <asp:Image ID="Image1" width="140" height="120" runat="server" ImageUrl='<%# Eval("imagen") %>' CssClass="img-fluid" />
+                <asp:Image ID="Image1" width="140" height="180" runat="server" ImageUrl='<%# Eval("imagen") %>' CssClass="img-fluid" />
                 <br />
                 <br />
                 ISBN:
