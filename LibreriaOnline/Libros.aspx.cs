@@ -32,8 +32,10 @@ namespace LibreriaOnline
             TextProveedor.Visible = false;
             Precio.Visible = false;
             TextPrecio.Visible = false;
+            Imagen.Visible = false;
             Boton_crearLibro.Visible = false;
             LabelCrear.Visible = false;
+            formFile.Visible = false;
 
             /*IDs Modificar libro*/
             ModLabelISBN.Visible = false;
@@ -50,6 +52,10 @@ namespace LibreriaOnline
             ModTextPrecio.Visible = false;
             ModButton.Visible = false;
             ModLabelUpdateLibro.Visible = false;
+            ModLabelImagen.Visible = false;
+            TextImagen.Visible = false;
+            ModLabelTitulo.Visible = false;
+            ModTextTitulo.Visible = false;
 
             /*IDs Eliminar libro */
             ElimLabelLibro.Visible = false;
@@ -57,28 +63,32 @@ namespace LibreriaOnline
             ElimBotonLibro.Visible = false;
             ElimMsg.Visible = false;
 
-            /*GridRelatosShow.Visible = true;*/
         }
         protected void Boton_crear(object sender, EventArgs e)
         {
-            try
+            if (Session["email"] != null && (!Session["email"].ToString().Contains("@gmail.com")))
             {
-                ENlibros en = new ENlibros(TextISBN.Text, TextAutores.Text, TextTitulo.Text, TextEditorial.Text, TextGenero.Text, TextProveedor.Text, float.Parse(TextPrecio.Text), "");
-                if (en.CreateLibros())
+                try
+                {
+                    ENlibros en = new ENlibros(TextISBN.Text.ToString(), TextAutores.Text.ToString(), TextTitulo.Text.ToString(), TextEditorial.Text.ToString(), TextGenero.Text.ToString(), TextProveedor.Text.ToString(), float.Parse(TextPrecio.Text.ToString()), "~/imagenesLibro/" + formFile.Text.ToString());
+                    if (en.CreateLibros())
+                    {
+                        LabelCrear.Visible = true;
+                        LabelCrear.Text = "<br>Libro creado correctamente";
+                    }
+                    else
+                    {
+                        LabelCrear.Visible = true;
+                        LabelCrear.Text = "<br>No se ha podido crear el libro. Introduce los datos correctamente";
+                    }
+
+                }
+                catch (FormatException ex)
                 {
                     LabelCrear.Visible = true;
-                    LabelCrear.Text = "<br>Libro creado correctamente";
+                    LabelCrear.Text = "<br> ERROR: " + ex.Message.ToString();
                 }
-                else
-                {
-                    LabelCrear.Visible = true;
-                    LabelCrear.Text = "<br>No se ha podido crear el libro. Introduce los datos correctamente";
-                }
-               
-            }catch (FormatException ex)
-            {
-                LabelCrear.Visible = true;
-                LabelCrear.Text = "<br> ERROR: " + ex.Message.ToString();
+                Response.Redirect("Libros.aspx");
             }
         }
         protected void NuevoLibro_Click(object sender, EventArgs e)
@@ -96,6 +106,7 @@ namespace LibreriaOnline
             TextEditorial.Visible = true;
             Precio.Visible = true;
             TextPrecio.Visible = true;
+            formFile.Visible = true;
             Proveedor.Visible = true;
             TextProveedor.Visible = true;
             Boton_crearLibro.Visible = true;
@@ -105,17 +116,18 @@ namespace LibreriaOnline
             ModLabelISBN.Visible = true;
             ModTextISBN.Visible = true;
             ModBuscarISBN.Visible = true;
-            /*GridRelatosShow.Visible = false;*/
         }
 
         protected void BuscarLibro_Click(object sender, EventArgs e)
         {
             try
             {
-                ENlibros en = new ENlibros(null,"juan@juan.com");
+                ENlibros en = new ENlibros(null,Session["Email"].ToString());
                 en.setISBN(int.Parse(ModTextISBN.Text.ToString()));
                 if (en.buscarLibro())
                 {
+                    ModLabelISBN.Visible = true;
+                    ModTextISBN.Visible = true;
                     ModButton.Visible = true;
                     ModDropDownList1.Visible = true;
                     ModGenero.Visible = true;
@@ -123,6 +135,8 @@ namespace LibreriaOnline
                     ModTextEditorial.Visible = true;
                     ModLabelPrecio.Visible = true;
                     ModTextPrecio.Visible = true;
+                    ModLabelImagen.Visible = true;
+                    TextImagen.Visible = true;
                 }
                 else
                 {
@@ -134,6 +148,7 @@ namespace LibreriaOnline
             {
                 ModMsgBuscar.Visible = true;
                 ModMsgBuscar.Text = "<br> ERROR: " + ex.Message.ToString();
+
             }
         }
         protected void BorrarLibro_Click(object sender, EventArgs e)
@@ -141,33 +156,62 @@ namespace LibreriaOnline
             ElimLabelLibro.Visible = true;
             ElimISBNLibro.Visible = true;
             ElimBotonLibro.Visible = true;
-            /*GridRelatosShow.Visible = false;*/
         }
 
         protected void EliminarLibro_Click(object sender, EventArgs e)
         {
-            /*GridRelatosShow.Visible = false;*/
-            ElimMsg.Visible = true;
-            try
-            {
-                ENlibros en = new ENlibros(null, "juan@juan.com");
-                en.setISBN(int.Parse(ElimISBNLibro.Text.ToString()));
-                if (en.deleteLibros())
-                {
-                    ElimMsg.Visible = true;
-                    ElimMsg.Text = "<br>Libro eliminado correctamente.";
-                }
-                else
-                {
-                    ElimMsg.Visible = true;
-                    ElimMsg.Text = "<br>El libro no se ha podido eliminar.";
-                }
-            }
-            catch (FormatException ex)
+            if (Session["email"] != null && (!Session["email"].ToString().Contains("@gmail.com")))
             {
                 ElimMsg.Visible = true;
-                ElimMsg.Text = "<br> ERROR: " + ex.Message.ToString();
+                try
+                {
+                    ENlibros en = new ENlibros(null, "juan@juan.com");
+                    en.setISBN(int.Parse(ElimISBNLibro.Text.ToString()));
+                    if (en.deleteLibros())
+                    {
+                        ElimMsg.Visible = true;
+                        ElimMsg.Text = "<br>Libro eliminado correctamente.";
+                    }
+                    else
+                    {
+                        ElimMsg.Visible = true;
+                        ElimMsg.Text = "<br>El libro no se ha podido eliminar.";
+                    }
+                }
+                catch (FormatException ex)
+                {
+                    ElimMsg.Visible = true;
+                    ElimMsg.Text = "<br> ERROR: " + ex.Message.ToString();
+                }
             }
+        }
+
+        protected void ModificarLibro_Click(object sender, EventArgs e)
+        {
+            if (Session["email"] != null && (!Session["email"].ToString().Contains("@gmail.com")))
+            {
+
+                ENlibros en = new ENlibros(ModTextISBN.Text.ToString(), ModTextNewAutor.Text.ToString(), ModTextTitulo.Text.ToString(), ModTextEditorial.Text.ToString(), ModDropDownList1.Text.ToString(), "juan@juan.com", float.Parse(ModTextPrecio.Text.ToString()), "~/imagenesLibro/" + TextImagen.Text.ToString());
+                try
+                {
+                    if (en.updateLibros())
+                    {
+                        ModLabelUpdateLibro.Visible = true;
+                        ModLabelUpdateLibro.Text = "<br>El libro ha sido modificado correctamente.";
+                    }
+                    else
+                    {
+                        ModLabelUpdateLibro.Visible = true;
+                        ModLabelUpdateLibro.Text = "<br>El libro no ha podido ser modificado, intentelo de nuevo.";
+                    }
+                }
+                catch (FormatException ex)
+                {
+                    ModLabelUpdateLibro.Visible = true;
+                    ModLabelUpdateLibro.Text = "<br> ERROR: " + ex.Message.ToString();
+                }
+            }
+
         }
     }
 }

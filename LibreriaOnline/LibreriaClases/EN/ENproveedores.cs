@@ -130,7 +130,7 @@ namespace LibreriaOnline
             CADProveedores registro = new CADProveedores();
             if (!(registro.ExisteEmail(this)))
             {
-                return registro.Registrar(this);
+                return registro.CrearProveedor(this);
             }
             else
             {

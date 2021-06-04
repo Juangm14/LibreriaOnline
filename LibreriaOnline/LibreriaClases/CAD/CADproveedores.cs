@@ -47,9 +47,12 @@ namespace LibreriaOnline.CAD
 			{
 				SqlConnection c = new SqlConnection(cadenaConexion);
 				c.Open();
-				SqlCommand com = new SqlCommand("Insert INTO Proveedor (Email, Nombre, Telefono, TipoLibro, Contraseña) VALUES ('" + en.getEmail() + "', '" + en.getNombre() + "', '" + en.getTelefono() + "', " + en.getTipoLibro() + ", " + en.getContraseña() + ")", c);
-				com.ExecuteNonQuery();
-				creado = true;
+				SqlCommand com = new SqlCommand("Insert INTO Proveedor (Email, Nombre, Contraseña, Telefono, TipoLibro ) VALUES ('" + en.getEmail() + "', '" + en.getNombre() + "', '" + en.getContraseña() + "','" + en.getTelefono() + "', '" + en.getTipoLibro() + "')", c);
+				int filasAfectadas= com.ExecuteNonQuery();
+                if (filasAfectadas > 0)
+                {
+					creado = true;
+				}		
 				c.Close();
 			}
 			catch (SqlException e)

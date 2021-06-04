@@ -42,6 +42,7 @@
             <asp:Button class="btn-sm btn-warning" ID="EditarLibro" runat="server" onclick="EditarLibro_Click" text="Modificar libro"/> &nbsp;
             <asp:Button class="btn-sm btn-danger " ID="BorrarLibro" runat="server" onclick="BorrarLibro_Click" text="Borrar libro"/>
         </p>
+        </div>
 
         <div id="FormularioCreacionLibro" class="container">
             <div class="mb-1">
@@ -73,6 +74,8 @@
                 <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="TextProveedor" placeholder="Introducir Proveedor"></asp:TextBox>
                 <asp:label runat="server" id="Precio" for="exampleFormControlInput1" class="form-label">Precio</asp:label>
                 <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="TextPrecio" placeholder="Introducir Precio"></asp:TextBox>
+                <asp:label runat="server" id= "Imagen" for="exampleFormControlInput1" class="form-label">Imagen</asp:label>
+                <asp:TextBox runat="server" class="form-control" type="file" id="formFile"></asp:TextBox>
                 <asp:Button runat="server" ID="Boton_crearLibro" text="Crear libro" OnClick="Boton_crear" class="btn-sm mt-2 btn-success" />
                 <asp:Label runat="server" ID="LabelCrear" />
 
@@ -105,6 +108,11 @@
             </div>
 
             <div class="mb-3">
+              <asp:label runat="server" id="ModLabelTitulo" for="exampleFormControlInput1" class="form-label">Titulo</asp:label>
+              <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="ModTextTitulo" placeholder="Titulo" Height="70px"></asp:TextBox>
+            </div>
+
+            <div class="mb-3">
               <asp:label runat="server" id="ModLabelEditorial" for="exampleFormControlInput1" class="form-label">Editorial</asp:label>
               <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="ModTextEditorial" placeholder="Editorial" Height="70px"></asp:TextBox>
             </div>
@@ -113,8 +121,12 @@
               <asp:label runat="server" id="ModLabelPrecio" for="exampleFormControlInput1" class="form-label">Precio</asp:label>
               <asp:TextBox runat="server" TextMode="SingleLine" class="form-control" id="ModTextPrecio" placeholder="Precio" Height="70px"></asp:TextBox>
             </div>
+            <div class="mb-3">
+              <asp:label runat="server" id= "ModLabelImagen" for="exampleFormControlInput1" class="form-label">Imagen</asp:label>
+              <asp:TextBox runat="server" class="form-control" type="file" id="TextImagen"></asp:TextBox>
+            </div>
            
-            <asp:Button class="btn-sm btn-warning" id="ModButton" runat="server" onclick="EditarLibro_Click" text="Modificar Libro"/> 
+            <asp:Button class="btn-sm btn-warning" id="ModButton" runat="server" onclick="ModificarLibro_Click" text="Modificar Libro"/> 
             <asp:Label id="ModLabelUpdateLibro" runat="server"></asp:Label>
             <p>
                 <asp:Label ID="Label4" runat="server"></asp:Label>
@@ -130,6 +142,4 @@
             </div>
         </div>
 
-
-    </div>
 </asp:Content>
