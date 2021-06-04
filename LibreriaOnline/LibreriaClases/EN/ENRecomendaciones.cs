@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LibreriaOnline
-{
+namespace LibreriaOnline {
 	/// <summary>
 	/// Se utiliza para comprobar que las reomendaciones funcionen correctamente
 	/// </summary>
-	public class ENRecomendaciones
-	{
+	public class ENRecomendaciones {
 		string genero; //genero del libro para recomendar
 		string usuario; //email del usuario, es decir su CP en la BBDD
 		string critica; //también imprimimos la critica con la recomendación
@@ -19,64 +17,48 @@ namespace LibreriaOnline
 		//Creamos los constructores correspondientes, por si acaso
 		// *A la hora de la verdad en la prácticas muchos de estos no son utilizados, pero en un proyecto así siempre
 		//viene bien tener esto creado para poder realizar una mantenimiento y pruebo de la aplicación bueno
-		public string Usuario
-		{
-			get
-			{
+		public string Usuario {
+			get {
 				return usuario;
 			}
-			set
-			{
+			set {
 				usuario = value;
 			}
 		}
-		public string Critica
-		{
-			get
-			{
+		public string Critica {
+			get {
 				return critica;
 			}
-			set
-			{
+			set {
 				critica = value;
 			}
 		}
-		public string Titulo
-		{
-			get
-			{
+		public string Titulo {
+			get {
 				return titulo;
 			}
-			set
-			{
+			set {
 				titulo = value;
 			}
 		}
-		public string Genero
-		{
-			get
-			{
+		public string Genero {
+			get {
 				return genero;
 			}
-			set
-			{
+			set {
 				genero = value; //Por si un usuario quiere cambiar su lista de recomendados por la de otro
 			}
 		}
 
-		public bool Correct
-		{
-			get
-			{
+		public bool Correct {
+			get {
 				return correct;
 			}
-			set
-			{
+			set {
 				correct = value;
 			}
 		}
-		public ENRecomendaciones()
-		{
+		public ENRecomendaciones() {
 			genero = "";
 			usuario = "";
 			critica = "";
@@ -84,8 +66,7 @@ namespace LibreriaOnline
 			correct = false;
 		}
 
-		public ENRecomendaciones(string gen, string usu, string cr, string ti, bool cor)
-		{
+		public ENRecomendaciones(string gen, string usu, string cr, string ti, bool cor) {
 			genero = gen;
 			usuario = usu;
 			critica = cr;
@@ -93,11 +74,10 @@ namespace LibreriaOnline
 			correct = cor;
 		}
 
-		public bool Recomendado()
-		{
-			    CADRecomendaciones added = new CADRecomendaciones();
-				//El CAD buscara el libro con mayor nota y lo devuelve guardandolo en los atributos ENRecomendaciones
-				return added.Recomendado(this); ;
+		public bool Recomendado() {
+			CADRecomendaciones added = new CADRecomendaciones();
+			//El CAD buscara el libro con mayor nota y lo devuelve guardandolo en los atributos ENRecomendaciones
+			return added.Recomendado(this); ;
 		}
 
 

@@ -21,6 +21,7 @@ namespace LibreriaOnline {
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem(""));
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem("Venta entre usuarios"));
                 NavigationMenu.Items.Remove(NavigationMenu.FindItem("Recomendaciones"));
+                NavigationMenu.Items.Remove(NavigationMenu.FindItem("carrito"));
                 /* IEnumerator menuItemEnumerator = engranaje.ChildItems.GetEnumerator();
                  while (menuItemEnumerator.MoveNext())
                  {

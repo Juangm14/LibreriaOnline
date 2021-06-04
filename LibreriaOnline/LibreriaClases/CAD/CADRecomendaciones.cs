@@ -8,46 +8,37 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 
-namespace LibreriaOnline
-{
+namespace LibreriaOnline {
     /// <summary>
 	/// Se utiliza para comprobar que las reomendaciones funcionen correctamente
 	/// </summary>
-    public class CADRecomendaciones
-    {
+    public class CADRecomendaciones {
         private String constring;
-        public CADRecomendaciones()
-        {
+        public CADRecomendaciones() {
             constring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\LibreriaOnline.mdf;Integrated Security=True";
         }
-        public bool Recomendado(ENRecomendaciones MiEnRecomendado)
-        {
-            if (!checkLibros(MiEnRecomendado.Genero))
-            {
+        public bool Recomendado(ENRecomendaciones MiEnRecomendado) {
+            if (!checkLibros(MiEnRecomendado.Genero)) {
                 return false;
             }
 
-            try
-            {
+            try {
                 //Nos conectamos a la BBDD
                 SqlConnection c = new SqlConnection(constring);
                 c.Open();
                 //Buscamos el libro con mayor nota para recomendarlo
                 SqlCommand com = new SqlCommand("Select * from [dbo].[Libros] Where genero ='" + MiEnRecomendado.Genero + "'", c);
                 SqlDataReader dr = com.ExecuteReader();
-               
-                if (dr.Read())
-                {
+
+                if (dr.Read()) {
                     //Igualamos los atributos de MiEnRecomendado a los sacados de la base de datos
 
-                  
+
                 }
 
                 dr.Close();
                 c.Close();
-            }
-            catch (SqlException e)
-            {
+            } catch (SqlException e) {
                 //Rodeamos el código con un try/catch para manejar las excepciones
                 Console.WriteLine("User operation has failed.Error: {0}", e.Message);
                 return false;
@@ -56,24 +47,19 @@ namespace LibreriaOnline
             return true;
         }
 
-        public bool checkLibros(string l)
-        {
+        public bool checkLibros(string l) {
             bool encontrado = false;
-            try
-            {
+            try {
                 SqlConnection c = new SqlConnection(constring);
                 c.Open();
                 SqlCommand com = new SqlCommand("Select * from [dbo].[Libros] Where genero='" + l + "'", c);
                 SqlDataReader dr = com.ExecuteReader();
-                if (dr.Read())
-                {
+                if (dr.Read()) {
                     encontrado = true;
                 }
                 dr.Close();
                 c.Close();
-            }
-            catch (SqlException e)
-            {
+            } catch (SqlException e) {
                 encontrado = false;
                 Console.WriteLine("Error: {0}", e.Message, " El libro no se encuntra marcado como deseado");
             }

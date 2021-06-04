@@ -30,6 +30,7 @@
                 Precio:
                 <asp:Label ID="PrecioLabel" runat="server" Text='<%# Eval("Precio") %>' />
                 <br />
+                <asp:Button ID="AgregarCarrito" OnCommand="AgregarCarrito_Command" CommandArgument='<%# Bind("ISBN") %>' runat="server" Text="Agregar al Carrito" CssClass="btn btn-success" />
             </ItemTemplate>
 
         </asp:DataList>

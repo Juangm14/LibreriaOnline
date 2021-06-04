@@ -25,6 +25,5 @@ namespace LibreriaClases.CAD {
 
             return bdvirtual;
         }
-
     }
 }

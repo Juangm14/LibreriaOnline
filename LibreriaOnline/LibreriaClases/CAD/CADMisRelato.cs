@@ -1,6 +1,7 @@
 ﻿using LibreriaOnline.EN;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -79,6 +80,16 @@ namespace LibreriaOnline.CAD {
                 return false;
             }
             return false;
+        }
+        public DataSet listarMisRelatos(ENMisRelato en) {
+            DataSet bdvirtual = new DataSet();
+
+            SqlConnection c = new SqlConnection(conexionRelato);
+            SqlDataAdapter da = new SqlDataAdapter("Select * from Relato where email = " + "('" + en.getUsuario() + "')", c);
+
+            da.Fill(bdvirtual, "Relato");
+
+            return bdvirtual;
         }
     }
 }

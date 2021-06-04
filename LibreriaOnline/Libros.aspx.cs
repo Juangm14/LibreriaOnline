@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaClases.EN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -211,6 +212,15 @@ namespace LibreriaOnline
                     ModLabelUpdateLibro.Text = "<br> ERROR: " + ex.Message.ToString();
                 }
             }
+
+        }
+
+        //Parte de Carrito, para poder añadirlo
+        protected void AgregarCarrito_Command(object sender, CommandEventArgs e) {
+
+            string ISBN = e.CommandArgument.ToString();
+            ENCarrito en = new ENCarrito(ISBN, Session["email"].ToString());
+            en.agregarElementoCarrito();
 
         }
     }
