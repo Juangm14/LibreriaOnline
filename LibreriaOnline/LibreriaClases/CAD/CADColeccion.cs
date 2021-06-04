@@ -82,6 +82,29 @@ namespace LibreriaOnline.CAD
 			
 			return updated;
 		}
+
+		public bool findLibros(ENColeccion en)
+		{
+			bool check = false;
+			SqlConnection c = new SqlConnection(constring);
+			try
+			{
+				c.Open();
+				SqlCommand com = new SqlCommand("Select ISBN from Libros where titulo='" + en.nombre + "'", c);
+				SqlDataReader dr = com.ExecuteReader();
+				check = dr.Read();
+				en.coleccion = Int32.Parse(dr["ISBN"].ToString());
+				dr.Close();
+			}
+			catch (SqlException ex)
+			{
+				check = false;
+				Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+			}
+			finally { c.Close(); }
+
+			return check;
+		}
 	}
 }
 
