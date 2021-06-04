@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using LibreriaOnline.EN;
 
 namespace LibreriaOnline {
     public partial class Leidos : System.Web.UI.Page {
@@ -77,6 +78,63 @@ namespace LibreriaOnline {
             ListaLibros.Visible = true;
             EliminarPuntuacion.Visible = true;
             Msg.Visible = false;
+        }
+
+        protected void Nueva_Puntuacion(object sender, EventArgs e)
+        {
+            try
+            {
+                ENListaUsuario en = new ENListaUsuario();
+                en.usuario = Session["email"].ToString();
+                en.libro = ListaLibros.Text.ToString();
+                if (ListaPuntuacion != null)
+                    en.nota = int.Parse(ListaPuntuacion.Text.ToString());
+                if (en.addListaUsuario())
+                    Msg.Text = "El libro se ha marcado como leído";
+                else
+                    Msg.Text = "El libro no se ha podido marcar como leído";
+            }
+            catch (FormatException)
+            {
+                Msg.Text = "Selecciona un libro";
+            }
+        }
+
+        protected void Mod_Puntuacion(object sender, EventArgs e)
+        {
+            try
+            {
+                ENListaUsuario en = new ENListaUsuario();
+                en.usuario = Session["email"].ToString();
+                en.libro = ListaLibros.Text.ToString();
+                en.nota = int.Parse(ListaPuntuacion.Text.ToString());
+                if (en.updateListaUsuario())
+                    Msg.Text = "La puntuacion se ha modificado";
+                else
+                    Msg.Text = "La puntuacion no se ha podido modificar";
+            }
+            catch (FormatException)
+            {
+                Msg.Text = "Rellena todos los parametros";
+            }
+        }
+
+        protected void Elim_Puntuacion(object sender, EventArgs e)
+        {
+            try
+            {
+                ENListaUsuario en = new ENListaUsuario();
+                en.usuario = Session["email"].ToString();
+                en.libro = ListaLibros.Text.ToString();
+                if (en.removeListaUsuario())
+                    Msg.Text = "El libro se ha eliminado de leídos";
+                else
+                    Msg.Text = "El libro no se ha podido eliminar de leídos";
+            }
+            catch (FormatException)
+            {
+                Msg.Text = "Selecciona un libro";
+            }
         }
     }
 }
