@@ -53,7 +53,7 @@ Listado EN Privada. Separamos las caracteristicas de los libros digitales y fisi
     ENCriticas: Realizar comentarios/criticas de los libros
     ENRelatos: Almacenar datos de los relatos
     ENRecomendaciones: Se recomendaran libros con las mejores puntuaciones
-    ENListaUsuario: Almacenar los libros que se ha leido el usuario con su puntuacion.
+    ENListaLeidos: Almacenar los libros que se ha leido el usuario con su puntuacion.
     ENListaDeseo: Almacenar los libros que el usuario desea comprar/alquilar
 
 Posibles mejoras.
@@ -168,8 +168,17 @@ Juan García Martínez 20085694R:
 
     **Otra de las funcionalidades era VentaEntreUsuarios.aspx, pero al no tenerlo a tiempo no he podido añadir la funcionalidad de agregar al carrito y compra**
 
+---------- Mejoras introducidas ----------
 
+    Carrito de compra
+    Interfaz entre la venta de usuarios
+    
+---------- Mejoras no introducidas ----------
 
+    No hemos metido nada sobre Ajax
+    Los controles de validacion son todos inline con (c#)
+    No hemos podido realizar la compra/venta/alquiler, por falta de tiempo al entregar los .aspx necesarios
+    
     
 
 
