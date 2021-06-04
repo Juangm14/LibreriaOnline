@@ -8,45 +8,45 @@ using System.Threading.Tasks;
 
 namespace LibreriaOnline
 {
-    class ENSugerencias {
+    public class ENSugerencias {
         private string titulo;
         private string texto;
         private int id;
-        private string autor;
+        private string asunto;
 
 
-        public string titulo_ {
+        public string Titulo {
             get { return titulo; }
             set { titulo = value; }
         }
 
-        public string texto_ {
+        public string Texto {
             get { return texto; }
             set { texto = value; }
         }
 
-        public int id_ {
+        public int Id {
             get { return id; }
             set { id = value; }
         }
 
-        public string autor_ {
-            get { return autor; }
-            set { autor = value; }
+        public string Asunto {
+            get { return asunto; }
+            set { asunto = value; }
         }
 
         public ENSugerencias() {
-            this.titulo = "";
-            texto = "";
-            autor = "";
-            id = 0;
+            Titulo = "";
+            Texto = "";
+            Asunto = "";
+            Id = -1;
         }
 
-        public ENSugerencias(string titulo, string texto, string autor, int id) {
-            this.titulo = titulo;
-            this.texto = texto;
-            this.autor = autor;
-            this.id = id;
+        public ENSugerencias(string titulo, string texto,  int id) {
+            Titulo = titulo;
+            Texto = texto;
+            
+            Id = id;
         }
 
 

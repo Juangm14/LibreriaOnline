@@ -33,6 +33,24 @@ namespace LibreriaOnline
         protected global::System.Web.UI.WebControls.Button GuardarUsuario;
 
         /// <summary>
+        /// Control fotoperfil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image fotoperfil;
+
+        /// <summary>
+        /// Control formFileSm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox formFileSm;
+
+        /// <summary>
         /// Control mostrarEmail.
         /// </summary>
         /// <remarks>

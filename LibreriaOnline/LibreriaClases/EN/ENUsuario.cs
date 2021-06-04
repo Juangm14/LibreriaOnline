@@ -19,7 +19,7 @@ namespace LibreriaOnline.EN
         private string text;
         private string v1;
         private int v2;
-
+        private string image;
         public ENUsuario(string usuario) {
             email = usuario;
             nick = "";
@@ -41,16 +41,19 @@ namespace LibreriaOnline.EN
             edad = 0;
             direccion = "";
             contraseña = "";
+            
         }
 
-        public ENUsuario(string direccionn, string nickk, string telefonoo, string contraseñaa,string usuario)
+        public ENUsuario(string imagenn, string direccionn, string nickk, string telefonoo, string contraseñaa,string nombree, string apellidoo,string usuario)
         {
-            
+            image = imagenn;
             telefono = telefonoo;
             email = usuario;
             direccion = direccionn;
             contraseña = contraseñaa;
             nick = nickk;
+            nombre = nombree;
+            apellidos = apellidoo;
         }
 
         public ENUsuario(string email, string nick, string nombre, int edad, string telefono, string apellidos, string direccion, string contraseña) {
@@ -65,6 +68,11 @@ namespace LibreriaOnline.EN
         }
 
        
+        public string image_
+        {
+            get{ return image; }
+            set{ image = value; }
+        }
         
         public string email_
         {
@@ -75,11 +83,22 @@ namespace LibreriaOnline.EN
             CADUsuario u = new CADUsuario();
             return u.modificarUsuario(this);
         }
+        
 
         public System.Data.SqlClient.SqlDataReader mostrardatos()
         {
             CADUsuario u = new CADUsuario();
             return u.mostrardatos(this);
+        }
+
+        public string getNombre()
+        {
+            return nombre;
+        }
+
+        public string getApellidos()
+        {
+            return apellidos;
         }
         public string getDireccion()
         {

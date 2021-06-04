@@ -27,6 +27,8 @@ namespace LibreriaOnline
                 mostrarContraseña.ReadOnly = true;
                 GuardarUsuario.Visible = false;
                 ElimUsuario.Visible = false;
+                formFileSm.Visible = false;
+                fotoperfil.Visible = true;
 
                 ENUsuario en = new ENUsuario(Session["email"].ToString());
                 SqlDataReader s = en.mostrardatos();
@@ -40,6 +42,8 @@ namespace LibreriaOnline
                     mostrarTelefono.Text = s["telefono"].ToString();
                     mostrarEdad.Text = s["edad"].ToString();
                     mostrarDireccion.Text = s["direccion"].ToString();
+                    fotoperfil.ImageUrl = s["imagen"].ToString();
+                    
                 }
 
             }
@@ -53,17 +57,19 @@ namespace LibreriaOnline
             mostrarEdad.ReadOnly = true;
             mostrarDireccion.ReadOnly = false;
             mostrarEmail.ReadOnly = true;
-            mostrarNombre.ReadOnly = true;
+            mostrarNombre.ReadOnly = false;
             mostrarDireccion.ReadOnly = false;
-            mostrarApellido.ReadOnly = true;
+            mostrarApellido.ReadOnly = false;
             mostrarNick.ReadOnly = false;
             mostrarTelefono.ReadOnly = false;
             mostrarContraseña.ReadOnly = false;
             GuardarUsuario.Visible = true;
             ElimUsuario.Visible = true;
             mostrarNick.Text = "";
-
+            fotoperfil.Visible = true;
+            formFileSm.Visible = true;
             ENUsuario en = new ENUsuario(Session["email"].ToString());
+
 
             SqlDataReader s = en.mostrardatos();
             if (s.Read())
@@ -76,6 +82,8 @@ namespace LibreriaOnline
                 mostrarTelefono.Text = s["telefono"].ToString();
                 mostrarEdad.Text = s["edad"].ToString();
                 mostrarDireccion.Text = s["direccion"].ToString();
+                fotoperfil.ImageUrl = s["imagen"].ToString();
+                
             }
 
             
@@ -86,24 +94,34 @@ namespace LibreriaOnline
       
         protected void GuardarUsuario_Click(object sender, EventArgs e)
         {
-            
-            ENUsuario en = new ENUsuario(mostrarDireccion.Text.ToString(), mostrarNick.Text.ToString(), mostrarTelefono.Text.ToString(), mostrarContraseña.Text.ToString(), Session["email"].ToString());
-            try
-            {
-                if (en.updateUsuario())
+            if (!formFileSm.Text.Equals("")) {
+
+                try
                 {
-                    Response.Redirect("Perfil.aspx");
+                    ENUsuario en = new ENUsuario(fotoperfil.ImageUrl = "~/imagenesPerfil/" + formFileSm.Text, mostrarDireccion.Text.ToString(), mostrarNick.Text.ToString(), mostrarTelefono.Text.ToString(), mostrarContraseña.Text.ToString(), mostrarNombre.Text.ToString(), mostrarApellido.Text.ToString(), Session["email"].ToString());
+
+                    if (en.updateUsuario())
+                    {
+
+                        Response.Redirect("Perfil.aspx");
+                    }
+                    else
+                    {
+                        GuardarUsuario.Visible = true;
+                        GuardarUsuario.Text = "El usuario no ha podido ser modificado, intentelo de nuevo.";
+                    }
                 }
-                else
+                catch (FormatException ex)
                 {
                     GuardarUsuario.Visible = true;
-                    GuardarUsuario.Text = "El usuario no ha podido ser modificado, intentelo de nuevo.";
+                    GuardarUsuario.Text = " ERROR: " + ex.Message.ToString();
                 }
             }
-            catch (FormatException ex)
+            else
             {
                 GuardarUsuario.Visible = true;
-                GuardarUsuario.Text = "<br> ERROR: " + ex.Message.ToString();
+                GuardarUsuario.Text = " ERROR: No has rellenado todos los campos obligatorios ";
+                
             }
         }
         protected void EliminarUsuario_Click(object sender, EventArgs e)

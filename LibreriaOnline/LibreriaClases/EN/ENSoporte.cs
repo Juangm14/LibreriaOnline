@@ -13,7 +13,7 @@ namespace LibreriaOnline.EN
         private int id;
         private string pregunta;
         private string respuesta;
-
+        private string asunto;
         public int ID
         {
             get { return id; }
@@ -32,18 +32,26 @@ namespace LibreriaOnline.EN
             set { respuesta = value; }
         }
 
+        public string Asunto
+        {
+            get { return asunto; }
+            set { asunto = value; }
+        }
+
         public ENSoporte()
         {
             Pregunta = "";
             ID = -1;
             Respuesta = "";
+            Asunto = "";
         }
 
-        public ENSoporte(string pregunta, string respuesta, int id)
+        public ENSoporte(string pregunta, string respuesta, int id, string asunto)
         {
             Pregunta = pregunta;
             ID = id;
             Respuesta = respuesta;
+            Asunto = asunto;
         }
 
         public bool readPregunta()
@@ -55,15 +63,7 @@ namespace LibreriaOnline.EN
         public bool createPregunta()
         {
             CADSoporte soporte = new CADSoporte();
-
-            if (!soporte.readPregunta(this))
-            {
-                return soporte.createPregunta(this);
-            }
-            else
-            {
-                return false;
-            }
+            return soporte.createPregunta(this);
         }
 
         public bool readFirstPregunta()
