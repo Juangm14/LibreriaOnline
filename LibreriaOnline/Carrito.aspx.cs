@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,7 @@ namespace LibreriaOnline {
 
                     DataList2.DataSource = data;
                     DataList2.DataBind();
+                    mensajeSession.Visible = false; 
                 } else {
                     mensajeSession.Visible = true;
                     mensajeSession.Text = "<br> Para tener el acceso completo a esta funcionalidad inicia sesion, ";
@@ -38,16 +40,20 @@ namespace LibreriaOnline {
             arg = info.Split(splitter);
 
             cantidad = (int.Parse(arg[0]) + int.Parse(arg[1])).ToString();
+            if (int.Parse(cantidad) > 0 && int.Parse(cantidad) < 100) {
+                ENCarrito en = new ENCarrito(arg[2], Session["email"].ToString(), cantidad);
 
-            ENCarrito en = new ENCarrito(arg[2], Session["email"].ToString(),cantidad);
+                en.modificarElementoCarrito();
+                Response.Redirect("Carrito.aspx");
 
-            en.modificarElementoCarrito();
-
-            Response.Redirect("Carrito.aspx");
+            } else {
+                mensajeSession.Visible = true;
+                mensajeSession.Text = "Introduce una candidad correcta, entre 1 y 99";
+                mensajeSession.ForeColor = Color.FromArgb(255, 0, 0);
+            }
         }
 
         protected void eliminarElemento_Command(object sender, CommandEventArgs e) {
-
 
             ENCarrito en = new ENCarrito(e.CommandArgument.ToString(), Session["email"].ToString());
             en.eliminarElementoCarrito();

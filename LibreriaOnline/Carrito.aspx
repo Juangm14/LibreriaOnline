@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="LibreriaOnline.Carrito" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master"  CodeBehind="Carrito.aspx.cs" Inherits="LibreriaOnline.Carrito" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
