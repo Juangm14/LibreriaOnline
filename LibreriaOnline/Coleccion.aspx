@@ -4,9 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
     <div class="container">
         <p>
-            <asp:Button class="btn-sm btn-success" runat="server" onclick="Unnamed_Click" text="Nueva colección"/> &nbsp;
-            <asp:Button class="btn-sm btn-warning" runat="server" onclick="Unnamed_Click1" text="Modificar colección"/> &nbsp;
-            <asp:Button class="btn-sm btn-danger" runat="server" onclick="Unnamed_Click2" text="Borrar colección"/>
+            <asp:Button class="btn-sm btn-success" runat="server" onclick="Nueva_Coleccion" text="Nueva colección"/> &nbsp;
+            <asp:Button class="btn-sm btn-warning" runat="server" onclick="Mod_Coleccion" text="Modificar colección"/> &nbsp;
+            <asp:Button class="btn-sm btn-danger" runat="server" onclick="Borrar_Coleccion" text="Borrar colección"/>
         </p>
 
         <p>

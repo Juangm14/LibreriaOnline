@@ -9,5 +9,11 @@
         <p>
             Libros: <asp:TextBox id="pass" Columns="30" runat="server" />
         </p>
+        <p>
+            <asp:button runat="server" onclick="Nueva_Coleccion" Text="Añadir"/>
+        </p>
+        <p>
+            <asp:Label ID="Label" runat="server"> </asp:Label>
+        </p> 
     </div>
 </asp:Content>

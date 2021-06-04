@@ -11,16 +11,16 @@ namespace LibreriaOnline {
 
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e) {
-
+        protected void Nueva_Coleccion(object sender, EventArgs e) {
+            Response.Redirect("NuevaColeccion.aspx");
         }
 
-        protected void Unnamed_Click1(object sender, EventArgs e) {
-
+        protected void Mod_Coleccion(object sender, EventArgs e) {
+            Response.Redirect("ModificarColeccion.aspx");
         }
 
-        protected void Unnamed_Click2(object sender, EventArgs e) {
-
+        protected void Borrar_Coleccion(object sender, EventArgs e) {
+            Response.Redirect("BorrarColeccion.aspx");
         }
     }
 }
