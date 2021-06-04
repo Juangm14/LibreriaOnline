@@ -13,7 +13,7 @@ namespace LibreriaOnline.EN
 	public class ENListaUsuario
 	{
 		private string _usuario;
-		private int _libro;
+		private string _libro;
 		private int _nota;
 
 		public string usuario
@@ -21,7 +21,7 @@ namespace LibreriaOnline.EN
 			get { return _usuario; }
 			set { _usuario = value; }
 		}
-		public int libro
+		public string libro
 		{
 			get { return _libro; }
 			set { _libro = value; }
@@ -35,11 +35,11 @@ namespace LibreriaOnline.EN
 		public ENListaUsuario()
 		{
 			_usuario = "";
-			_libro = 0;
+			_libro = "";
 			_nota = 0;
 		}
 
-		public ENListaUsuario(string usu, int li, int p)
+		public ENListaUsuario(string usu, string li, int p)
 		{
 			_usuario = usu;
 			_libro = li;
@@ -62,6 +62,7 @@ namespace LibreriaOnline.EN
 			return c.removeListaUsuario(this);
 		}
 
+		//Modifica la puntuación de la BBDD
 		public bool updateListaUsuario()
         {
 			CADListaUsuario c = new CADListaUsuario();
