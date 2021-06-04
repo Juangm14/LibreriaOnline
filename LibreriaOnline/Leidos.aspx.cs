@@ -40,5 +40,43 @@ namespace LibreriaOnline {
                 ElimLibroLeido.Visible = true;
             }
         }
+
+        protected void Libro_Leido(object sender, EventArgs e)
+        {
+            GridLeidos.Visible = false;
+            NuevoLibroLeido.Visible = false;
+            ModLibroLeido.Visible = false;
+            ElimLibroLeido.Visible = false;
+            LabelLibro.Visible = true;
+            ListaLibros.Visible = true;
+            AñadirPuntuacion.Visible = true;
+            ListaPuntuacion.Visible = true;
+            Msg.Visible = false;
+        }
+
+        protected void Mod_Libro_Leido(object sender, EventArgs e)
+        {
+            GridLeidos.Visible = false;
+            NuevoLibroLeido.Visible = false;
+            ModLibroLeido.Visible = false;
+            ElimLibroLeido.Visible = false;
+            LabelLibro.Visible = true;
+            ListaLibros.Visible = true;
+            ModificarPuntuacion.Visible = true;
+            ListaPuntuacion.Visible = true;
+            Msg.Visible = false;
+        }
+
+        protected void Libro_No_Leido(object sender, EventArgs e)
+        {
+            GridLeidos.Visible = false;
+            NuevoLibroLeido.Visible = false;
+            ModLibroLeido.Visible = false;
+            ElimLibroLeido.Visible = false;
+            LabelLibro.Visible = true;
+            ListaLibros.Visible = true;
+            EliminarPuntuacion.Visible = true;
+            Msg.Visible = false;
+        }
     }
 }
