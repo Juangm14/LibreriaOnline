@@ -87,7 +87,7 @@ namespace LibreriaOnline
             {
                 try
                 {
-                    ENlibros en = new ENlibros(TextISBN.Text.ToString(), TextAutores.Text.ToString(), TextTitulo.Text.ToString(), TextEditorial.Text.ToString(), TextGenero.Text.ToString(), TextProveedor.Text.ToString(), float.Parse(TextPrecio.Text.ToString()), formFile.Text.ToString());
+                    ENlibros en = new ENlibros(TextISBN.Text.ToString(), TextAutores.Text.ToString(), TextTitulo.Text.ToString(), TextEditorial.Text.ToString(), TextGenero.Text.ToString(), TextProveedor.Text.ToString(), float.Parse(TextPrecio.Text.ToString()), "~/imagenesLibro/" + formFile.Text.ToString());
                     if (en.CreateLibros())
                     {
                         LabelCrear.Visible = true;
@@ -210,7 +210,7 @@ namespace LibreriaOnline
             if (Session["email"] != null && (!Session["email"].ToString().Contains("@gmail.com")))
             {
 
-                ENlibros en = new ENlibros(ModTextISBN.Text.ToString(), ModTextNewAutor.Text.ToString(), ModTextTitulo.Text.ToString(), ModTextEditorial.Text.ToString(), ModDropDownList1.Text.ToString(), "juan@juan.com", float.Parse(ModTextPrecio.Text.ToString()), "~/imagenesLibro/" + TextImagen.Text.ToString());
+                ENlibros en = new ENlibros(ModTextISBN.Text.ToString(), ModTextNewAutor.Text.ToString(), ModTextTitulo.Text.ToString(), ModTextEditorial.Text.ToString(), ModDropDownList1.Text.ToString(), Session["email"].ToString(), float.Parse(ModTextPrecio.Text.ToString()), "~/imagenesLibro/" + TextImagen.Text.ToString());
                 try
                 {
                     if (en.updateLibros())
