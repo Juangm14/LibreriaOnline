@@ -7,9 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace LibreriaOnline {
+namespace LibreriaOnline
+{
 
 
-    public partial class WebForm1 {
+    public partial class WebForm1
+    {
     }
 }

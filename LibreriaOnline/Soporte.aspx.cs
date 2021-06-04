@@ -55,12 +55,12 @@ namespace LibreriaOnline
             }
         }
 
-        protected void EnviarSugerencia(object sender, EventArgs e)
+        protected void EnviarSugerencia(object sender, EventArgs e)//Enviamos la sugerencia 
         {
             {
                 if (AsuntoTextBox.Text == "")
                 {
-                    MsgSoporte.Text = "Por favor, introduzca un asunto.";
+                    MsgSoporte.Text = "Por favor, introduzca un asunto.";//Pedimos que nos introduzca el asunto 
                 }
                 else if (PreguntaTextBox.Text == "")
                 {
@@ -71,15 +71,15 @@ namespace LibreriaOnline
                     ENSugerencias sugerencia = new ENSugerencias();
                     sugerencia.Texto = PreguntaTextBox.Text;
                     sugerencia.Titulo = AsuntoTextBox.Text;
-                    if (sugerencia.createSugerencia())
+                    if (sugerencia.createSugerencia())//Llamamos al cad para que introduzca los datos en la base de datos
                     {
-                        MsgSoporte.Text = "Pregunta enviada a soporte.";
+                        MsgSoporte.Text = "Pregunta enviada a soporte.";//Mensaje de confirmación de que se ha enviado correctamente
                         PreguntaTextBox.Text = "";
                         AsuntoTextBox.Text = "";
                     }
                     else
                     {
-                        MsgSoporte.Text = "Error inesperado, intentalo mas tarde.";
+                        MsgSoporte.Text = "Error inesperado, intentalo mas tarde.";//Mostramos error si no se ha podido añadir a la base de datos 
                     }
                 }
             }

@@ -44,7 +44,7 @@ namespace LibreriaOnline.EN
             
         }
 
-        public ENUsuario(string imagenn, string direccionn, string nickk, string telefonoo, string contraseñaa,string nombree, string apellidoo,string usuario)
+        public ENUsuario(string imagenn, string direccionn, string nickk, string telefonoo, string contraseñaa,string nombree, string apellidoo,string usuario)//Necesario para hacer el update del perfil 
         {
             image = imagenn;
             telefono = telefonoo;
@@ -85,45 +85,45 @@ namespace LibreriaOnline.EN
         }
         
 
-        public System.Data.SqlClient.SqlDataReader mostrardatos()
+        public System.Data.SqlClient.SqlDataReader mostrardatos()//Mostramos los datos para que se muestren en el perfil
         {
             CADUsuario u = new CADUsuario();
             return u.mostrardatos(this);
         }
 
-        public string getNombre()
+        public string getNombre()//lee nombre
         {
             return nombre;
         }
 
-        public string getApellidos()
+        public string getApellidos()//lee apellidos
         {
             return apellidos;
         }
-        public string getDireccion()
+        public string getDireccion()//lee direccion
         {
             return direccion;
         }
-        public string getNick()
+        public string getNick()//lee nick
         {
             return nick;
         }
-        public string getTelefono()
+        public string getTelefono()//lee telefono
         {
             return telefono;
         }
-        public string getContraseña()
+        public string getContraseña()//lee contraseña
         {
             return contraseña;
         }
-        public string getEmail()
+        public string getEmail()//lee email
         {
             return email;
         }
         public void setEmail(string email) { this.email = email; }
 
        
-        public bool createUsuario() {
+        public bool createUsuario() {//se utilizaria en registro
             CADUsuario u = new CADUsuario();
             return u.readUsuario(this);
         }

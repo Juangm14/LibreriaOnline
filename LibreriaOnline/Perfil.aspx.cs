@@ -11,10 +11,10 @@ namespace LibreriaOnline
 {
     public partial class Perfil : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)//Se muestren los datos cuando entramos al perfil 
         {
             
-            if (!IsPostBack)
+            if (!IsPostBack)//
             {
                 mostrarEdad.ReadOnly = true;
                 mostrarDireccion.ReadOnly = true;
@@ -52,7 +52,7 @@ namespace LibreriaOnline
         }
         
         
-        protected void editar_Click(object sender, EventArgs e)
+        protected void editar_Click(object sender, EventArgs e)//Con el boton de editar que algunos campos se puedan modificar y otros no
         {
             mostrarEdad.ReadOnly = true;
             mostrarDireccion.ReadOnly = false;
@@ -71,7 +71,7 @@ namespace LibreriaOnline
             ENUsuario en = new ENUsuario(Session["email"].ToString());
 
 
-            SqlDataReader s = en.mostrardatos();
+            SqlDataReader s = en.mostrardatos();//Llamammos al mostrar datos para que nos salgan los datos correspondientes
             if (s.Read())
             {
                 mostrarContraseña.Text = s["contraseña"].ToString();
@@ -94,16 +94,16 @@ namespace LibreriaOnline
       
         protected void GuardarUsuario_Click(object sender, EventArgs e)
         {
-            if (!formFileSm.Text.Equals("")) {
+            if (!formFileSm.Text.Equals("")) {//Si el campo de poner la url de la imagen esta vacio que de error
 
                 try
                 {
-                    ENUsuario en = new ENUsuario(fotoperfil.ImageUrl = "~/imagenesPerfil/" + formFileSm.Text, mostrarDireccion.Text.ToString(), mostrarNick.Text.ToString(), mostrarTelefono.Text.ToString(), mostrarContraseña.Text.ToString(), mostrarNombre.Text.ToString(), mostrarApellido.Text.ToString(), Session["email"].ToString());
+                    ENUsuario en = new ENUsuario(fotoperfil.ImageUrl = "~/imagenesPerfil/" + formFileSm.Text, mostrarDireccion.Text.ToString(), mostrarNick.Text.ToString(), mostrarTelefono.Text.ToString(), mostrarContraseña.Text.ToString(), mostrarNombre.Text.ToString(), mostrarApellido.Text.ToString(), Session["email"].ToString());//Guardamos los datos en la base de datos 
 
-                    if (en.updateUsuario())
+                    if (en.updateUsuario())//Modificamos los datos
                     {
 
-                        Response.Redirect("Perfil.aspx");
+                        Response.Redirect("Perfil.aspx");//Redirigimos a perfil cuando le demos a guardar
                     }
                     else
                     {
@@ -124,22 +124,22 @@ namespace LibreriaOnline
                 
             }
         }
-        protected void EliminarUsuario_Click(object sender, EventArgs e)
+        protected void EliminarUsuario_Click(object sender, EventArgs e)//Eliminamos usuario 
         {
 
             ENUsuario en = new ENUsuario(mostrarEmail.Text);
            
           
                 
-                if (en.deleteUsuario())
+                if (en.deleteUsuario())//Llamos al delete con su sentencia para borrar
                 {
 
-                Response.Redirect("SignIn.aspx");
+                Response.Redirect("SignIn.aspx");//Cuando elimine se redirija al signin
                 }
                 else
                 {
                     ElimUsuario.Visible = true;
-                    ElimUsuario.Text = "El usuario no se ha podido eliminar.";
+                    ElimUsuario.Text = "El usuario no se ha podido eliminar.";//Muestre mensaje de error si no se ha podido eliminar
                 }
             
             }

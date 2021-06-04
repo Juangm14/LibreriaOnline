@@ -11,27 +11,60 @@
             </asp:GridView>
         </p>
     </div>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="portadafuncional.jpg" class="d-block w-100" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img src="pagina3.jpg" class="d-block w-100" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img src="pagina2.jpg" class="d-block w-100" alt="Third slide">
+<div class="card-deck">
+  <div class="card container mb-3">
+    <a href="SignIn.aspx">
+
+                    <img src="portadafuncional.jpg" alt="Card image cap" style="width:1200px;height:800px; />
+
+                </a>
+    <div class="card-body">
+      <h5 class="card-title">Cliente</h5>
+      <p class="card-text">Hazte cliente de nosotros y haz uso de nuestras herramientas exclusivas .</p>
+      
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div class="card container mb-3">
+    <a href="Criticas.aspx">
+
+                    <img src="pagina2.jpg" alt="Card image cap" style="width:1200px;height:800px; />
+
+                </a>
+    <div class="card-body">
+      <h5 class="card-title">Críticas</h5>
+      <p class="card-text">Haz críticas sobre los libros que quieras.</p>
+      
+    </div>
+  </div>
+
+  <div class="card container mb-3">
+     <a href="Relatos.aspx">
+
+                    <img src="pagina3.jpg" alt="Card image cap" style="width:1200px;height:800px; />
+
+                </a>
+    <div class="card-body">
+      <h5 class="card-title">Relatos</h5>
+      <p class="card-text">Date a conocer escribiendo tus relatos y compartiendolos con la comunidad.</p>
+      
+    </div>
+  </div>
+    <div class="card container mb-3">
+     <a href="Soporte.aspx">
+
+                    <img src="preguntas-y-libros.jpg" alt="Card image cap" style="width:1200px;height:800px; />
+
+                </a>
+    <div class="card-body ">
+      <h5 class="card-title">Preguntas</h5>
+      <p class="card-text">Contacta con nuestro soporte si tienes alguna duda y/o sugerencia. Te atenderemos con la mayor brevedad posible.</p>
+      
+    </div>
+  </div>
 </div>
+
+    
+
     </asp:Content>
 
 
