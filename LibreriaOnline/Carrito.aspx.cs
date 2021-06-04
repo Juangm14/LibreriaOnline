@@ -57,6 +57,8 @@ namespace LibreriaOnline {
             ENCarrito en = new ENCarrito(e.CommandArgument.ToString(), Session["email"].ToString());
             en.eliminarElementoCarrito();
 
+            Response.Redirect("Carrito.aspx");
+
         }
     }
 }
