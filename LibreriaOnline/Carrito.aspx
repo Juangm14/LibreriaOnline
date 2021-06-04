@@ -6,38 +6,36 @@
         Tu carrito de Bookend
     </h2>
     <div class="container">
-        <asp:DataList ID="DataList2" runat="server" DataKeyField="ISBN" DataSourceID="SqlDataSource1" RepeatColumns="3"  CssClass="table table-responsive">
+        <asp:DataList ID="DataList2" runat="server" DataKeyField="ISBN" RepeatColumns="3"  CssClass="table table-responsive">
             <ItemTemplate>
-                <asp:Image ID="Image1" width="140" height="120" runat="server" ImageUrl='<%# Eval("imagen") %>' CssClass="img-fluid" />
+                <asp:Image ID="Image1" width="140" height="160" runat="server" ImageUrl='<%# Eval("imagen") %>' CssClass="img-fluid mb-2" />
+                <br />
+                <asp:Button runat="server" Text="+1" onCommand="agregar" CommandArgument='<%# Eval("Cantidad") + ";1;" + Eval("ISBN") %>'  CssClass="btn btn-sm btn-secondary"></asp:Button>
+                <asp:Button runat="server" Text="+5" onCommand="agregar" CommandArgument='<%# Eval("Cantidad") + ";5;" + Eval("ISBN") %>' CssClass="btn btn-sm btn-secondary"></asp:Button>
+                <asp:Button runat="server" Text="+10" onCommand="agregar" CommandArgument='<%# Eval("Cantidad") + ";10;" + Eval("ISBN") %>' CssClass="btn btn-sm btn-secondary"></asp:Button>
+                <asp:Button runat="server" Text="-1" onCommand="agregar" CommandArgument='<%# Eval("Cantidad") + ";-1;" + Eval("ISBN") %>' CssClass="btn btn-sm btn-secondary"></asp:Button>
+                <asp:Button runat="server" Text="-5" onCommand="agregar" CommandArgument='<%# Eval("Cantidad") + ";-5;" + Eval("ISBN") %>' CssClass="btn btn-sm btn-secondary"></asp:Button>
+                <asp:Button runat="server" Text="-10" onCommand="agregar" CommandArgument='<%# Eval("Cantidad") + ";-10;" + Eval("ISBN") %>'  CssClass="btn btn-sm btn-secondary "></asp:Button>
+                <asp:Button runat="server" Text="Eliminar" onCommand="eliminarElemento_Command" CommandArgument='<%# Eval("ISBN") %>' CssClass="btn btn-sm btn-danger"></asp:Button>
                 <br />
                 <br />
                 ISBN:
                 <asp:Label ID="ISBNLabel" runat="server" Text='<%# Eval("ISBN") %>' />
                 <br />
-                autores:
-                <asp:Label ID="autoresLabel" runat="server" Text='<%# Eval("autores") %>' />
-                <br />
                 titulo:
                 <asp:Label ID="tituloLabel" runat="server" Text='<%# Eval("titulo") %>' />
-                <br />
-                editorial:
-                <asp:Label ID="editorialLabel" runat="server" Text='<%# Eval("editorial") %>' />
-                <br />
-                genero:
-                <asp:Label ID="generoLabel" runat="server" Text='<%# Eval("genero") %>' />
-                <br />
-                proveedor:
-                <asp:Label ID="proveedorLabel" runat="server" Text='<%# Eval("proveedor") %>' />
                 <br />
                 Precio:
                 <asp:Label ID="PrecioLabel" runat="server" Text='<%# Eval("Precio") %>' />
                 <br />
-                <br />
-                <asp:Button ID="Button1" runat="server" CommandName="Seleccionar" OnClick="AgregarCarrito_Click" Text="Agregar al Carrito" CssClass="btn btn-success" />
+                Cantidad:
+                <asp:Label ID="Label1" runat="server" Text='<%# Eval("Cantidad") %>' />
                 <br />
             </ItemTemplate>
-
         </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Libros]"></asp:SqlDataSource>
+
+        <asp:Label id="mensajeSession" runat="server">
+            <a href="SignIn.aspx" style="color:blue">aquí.</a>
+        </asp:Label>
         </div>
     </asp:Content>
