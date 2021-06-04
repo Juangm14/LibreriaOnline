@@ -29,5 +29,13 @@
              </a >
         </p>
 
+        <p>
+            
+            ¿Eres proveedor?
+             <a  href="Proveedores.aspx">
+                 <span style="color:blue";>Inicia sesión aqui</span>
+             </a >
+        </p>
+
     </div>
 </asp:Content>

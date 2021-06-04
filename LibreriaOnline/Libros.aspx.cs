@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaClases.EN;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,20 @@ namespace LibreriaOnline
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null) {
+                DataList2.Visible = false;
+                NuevoLibro.Visible = false;
+                EditarLibro.Visible = false;
+                BorrarLibro.Visible = false;
+
+                Response.Redirect("SignIn.aspx");
+            }
+
+            if (Session["email"].ToString().Contains("@gmail.com")) {
+                NuevoLibro.Visible = false;
+                EditarLibro.Visible = false;
+                BorrarLibro.Visible = false;
+            }
 
             /*IDs crear libro */
             GeneroLibro.Visible = false;
@@ -63,6 +78,8 @@ namespace LibreriaOnline
             ElimBotonLibro.Visible = false;
             ElimMsg.Visible = false;
 
+            ErrorCarrito.Visible = false;
+
         }
         protected void Boton_crear(object sender, EventArgs e)
         {
@@ -110,6 +127,8 @@ namespace LibreriaOnline
             Proveedor.Visible = true;
             TextProveedor.Visible = true;
             Boton_crearLibro.Visible = true;
+            Imagen.Visible = true;
+            DataList2.Visible = false;
         }
         protected void EditarLibro_Click(object sender, EventArgs e)
         {
@@ -191,7 +210,7 @@ namespace LibreriaOnline
             if (Session["email"] != null && (!Session["email"].ToString().Contains("@gmail.com")))
             {
 
-                ENlibros en = new ENlibros(ModTextISBN.Text.ToString(), ModTextNewAutor.Text.ToString(), ModTextTitulo.Text.ToString(), ModTextEditorial.Text.ToString(), ModDropDownList1.Text.ToString(), "juan@juan.com", float.Parse(ModTextPrecio.Text.ToString()), "~/imagenesLibro/" + TextImagen.Text.ToString());
+                ENlibros en = new ENlibros(ModTextISBN.Text.ToString(), ModTextNewAutor.Text.ToString(), ModTextTitulo.Text.ToString(), ModTextEditorial.Text.ToString(), ModDropDownList1.Text.ToString(), Session["email"].ToString(), float.Parse(ModTextPrecio.Text.ToString()), "~/imagenesLibro/" + TextImagen.Text.ToString());
                 try
                 {
                     if (en.updateLibros())
@@ -211,6 +230,21 @@ namespace LibreriaOnline
                     ModLabelUpdateLibro.Text = "<br> ERROR: " + ex.Message.ToString();
                 }
             }
+
+        }
+
+        //Parte de Carrito, para poder añadirlo
+        protected void AgregarCarrito_Command(object sender, CommandEventArgs e) {
+
+            if (Session["email"].ToString().Contains("@gmail.com")) {
+                string ISBN = e.CommandArgument.ToString();
+                ENCarrito en = new ENCarrito(ISBN, Session["email"].ToString());
+                en.agregarElementoCarrito();
+            } else {
+                ErrorCarrito.Visible = true;
+                ErrorCarrito.Text = "<br> Para poder añadir al carrito tienes que ser Usuario, ahora mismo eres  Proveedor";
+            }
+
 
         }
     }

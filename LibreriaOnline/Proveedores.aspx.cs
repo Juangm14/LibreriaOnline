@@ -88,23 +88,23 @@ namespace LibreriaOnline
         }
         protected void InicioSesion_Click(object sender, EventArgs e)
         {
-            if (LabelEmail.Text == "")
+            if (TextEmail.Text == "")
             {
                 Msg.Text = "Email no introducido.";
             }
-            else if (LabelContraseña.Text == "")
+            else if (TextContraseña.Text == "")
             {
                 Msg.Text = "Contraseña no introducida.";
             }
             else
             {
                 ENProveedores en = new ENProveedores();
-                en.setEmail(LabelEmail.Text.ToString());
-                en.setContraseña(LabelContraseña.Text.ToString());
+                en.setEmail(TextEmail.Text.ToString());
+                en.setContraseña(TextContraseña.Text.ToString());
                 if (en.Log())
                 {
                     Msg.Text = "Se ha iniciado sesión correctamente.";
-                    Session.Add("email", LabelEmail.Text.ToString());
+                    Session.Add("email", TextEmail.Text.ToString());
                     Response.Redirect("Libros.aspx");
                 }
                 else

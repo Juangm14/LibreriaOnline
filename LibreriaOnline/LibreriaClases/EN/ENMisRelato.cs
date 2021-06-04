@@ -1,6 +1,7 @@
 ﻿using LibreriaOnline.CAD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,10 +36,11 @@ namespace LibreriaOnline.EN {
             this.usuario = usuario;
         }
 
-        public ENMisRelato() {
+        public ENMisRelato(string email) {
             this.genero = "";
             this.titulo = "";
             this.texto = "";
+            usuario = email;
         }
         public bool createRelato() {
             CADMisRelato cad = new CADMisRelato();
@@ -55,6 +57,11 @@ namespace LibreriaOnline.EN {
         public bool bucarRelato() {
             CADMisRelato cad = new CADMisRelato();
             return cad.bucarRelato(this);
+        }
+
+        public DataSet listarMisRelatos() {
+            CADMisRelato cad = new CADMisRelato();
+            return cad.listarMisRelatos(this);
         }
     }
 }

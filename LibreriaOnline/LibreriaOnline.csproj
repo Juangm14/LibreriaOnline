@@ -70,21 +70,27 @@
       <DependentUpon>LibreriaOnline.mdf</DependentUpon>
     </Content>
     <Content Include="BorrarColeccion.aspx" />
+    <Content Include="Carrito.aspx" />
     <Content Include="Coleccion.aspx" />
     <Content Include="Config.jpg" />
+    <Content Include="CrearOfertaUsu.aspx" />
     <Content Include="Criticas.aspx" />
     <Content Include="FAQs.aspx" />
     <Content Include="Leidos.aspx" />
     <Content Include="Libro Auxiliar.png" />
     <Content Include="libro.jpg" />
     <Content Include="ListaDeseo.aspx" />
+    <Content Include="MisRelatos.aspx" />
     <Content Include="NuevaColeccion.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="perfil.jpg" />
+    <Content Include="Recomendaciones.aspx" />
+    <Content Include="RecomenGenero.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Relatos.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="Soporte.aspx" />
+    <Content Include="VentaEntreUsuarios.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="Libros.aspx" />
@@ -98,12 +104,26 @@
     <Compile Include="BorrarColeccion.aspx.designer.cs">
       <DependentUpon>BorrarColeccion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Coleccion.aspx.cs">
       <DependentUpon>Coleccion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Coleccion.aspx.designer.cs">
       <DependentUpon>Coleccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearOfertaUsu.aspx.cs">
+      <DependentUpon>CrearOfertaUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearOfertaUsu.aspx.designer.cs">
+      <DependentUpon>CrearOfertaUsu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Criticas.aspx.cs">
       <DependentUpon>Criticas.aspx</DependentUpon>
@@ -133,6 +153,13 @@
     <Compile Include="ListaDeseo.aspx.designer.cs">
       <DependentUpon>ListaDeseo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MisRelatos.aspx.cs">
+      <DependentUpon>MisRelatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisRelatos.aspx.designer.cs">
+      <DependentUpon>MisRelatos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NuevaColeccion.aspx.cs">
       <DependentUpon>NuevaColeccion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,6 +175,20 @@
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recomendaciones.aspx.cs">
+      <DependentUpon>Recomendaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recomendaciones.aspx.designer.cs">
+      <DependentUpon>Recomendaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecomenGenero.aspx.cs">
+      <DependentUpon>RecomenGenero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecomenGenero.aspx.designer.cs">
+      <DependentUpon>RecomenGenero.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +244,13 @@
     </Compile>
     <Compile Include="Proveedores.aspx.designer.cs">
       <DependentUpon>Proveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VentaEntreUsuarios.aspx.cs">
+      <DependentUpon>VentaEntreUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VentaEntreUsuarios.aspx.designer.cs">
+      <DependentUpon>VentaEntreUsuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using LibreriaOnline.EN;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -56,6 +57,8 @@ namespace LibreriaOnline {
                 mensajeSession.Visible = false;
             }
 
+            ListarRelatos();
+
         }
 
         protected void NuevoRelato_Click(object sender, EventArgs e) {
@@ -83,7 +86,7 @@ namespace LibreriaOnline {
         protected void BuscarRelato_Click(object sender, EventArgs e) {
             GridRelatosShow.Visible = false;
             try {
-                ENMisRelato en = new ENMisRelato();
+                ENMisRelato en = new ENMisRelato(Session["email"].ToString());
                 if (ModTextTitulo.Text.Length != 0) {
                     en.setTitulo(ModTextTitulo.Text.ToString());
 
@@ -169,7 +172,7 @@ namespace LibreriaOnline {
             ElimMsg.Visible = true;
             if (ElimTituloRelato.Text.Length != 0) {
                 try {
-                    ENMisRelato en = new ENMisRelato();
+                    ENMisRelato en = new ENMisRelato(Session["email"].ToString());
                     en.setTitulo(ElimTituloRelato.Text.ToString());
                     if (en.deleteRelato()) {
                         ElimMsg.Visible = true;
@@ -186,6 +189,14 @@ namespace LibreriaOnline {
                 ElimMsg.Visible = true;
                 ElimMsg.Text = "<br>ERROR: Introduce el titulo del relato a borrar.";
             }
+        }
+
+        protected void ListarRelatos() {
+            ENMisRelato en = new ENMisRelato(Session["email"].ToString());
+            DataSet data = en.listarMisRelatos();
+            GridRelatosShow.DataSource = data;
+            GridRelatosShow.DataBind();
+
         }
     }
 }
