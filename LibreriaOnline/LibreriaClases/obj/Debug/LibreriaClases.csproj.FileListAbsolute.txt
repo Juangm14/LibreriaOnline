@@ -1,0 +1,6 @@
+C:\Users\emili\source\repos\LibreriaOnline\LibreriaOnline\LibreriaClases\bin\Debug\LibreriaClases.dll
+C:\Users\emili\source\repos\LibreriaOnline\LibreriaOnline\LibreriaClases\bin\Debug\LibreriaClases.pdb
+C:\Users\emili\source\repos\LibreriaOnline\LibreriaOnline\LibreriaClases\obj\Debug\LibreriaClases.csprojAssemblyReference.cache
+C:\Users\emili\source\repos\LibreriaOnline\LibreriaOnline\LibreriaClases\obj\Debug\LibreriaClases.csproj.CoreCompileInputs.cache
+C:\Users\emili\source\repos\LibreriaOnline\LibreriaOnline\LibreriaClases\obj\Debug\LibreriaClases.dll
+C:\Users\emili\source\repos\LibreriaOnline\LibreriaOnline\LibreriaClases\obj\Debug\LibreriaClases.pdb

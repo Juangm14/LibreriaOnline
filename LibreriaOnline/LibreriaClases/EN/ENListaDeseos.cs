@@ -3,81 +3,89 @@ using System.Collections.Generic;
 
 namespace LibreriaOnline.EN
 {
+	/// <summary>
+	/// Guarda y borra los libros deseados por los usuarios
+	/// </summary>
 	public class ENListaDeseos
 	{
-		List<ENlibros> deseados; //lista con los libros marcados como deseados
-		string usuario; //email del usuario, es decir su CP en la BBDD
+		private int isbn; //los libros marcados como deseados
+		private string usuario; //email del usuario, es decir su CP en la BBDD
 
+		//Creamos todos los gets y sets correspondientes, por si acaso
+		//Creamos los constructores correspondientes, por si acaso
+		// *A la hora de la verdad en la prácticas muchos de estos no son utilizados, pero en un proyecto así siempre
+		//viene bien tener esto creado para poder realizar una mantenimiento y pruebo de la aplicación bueno
 		public string Usuario
 		{
 			get
-			{ 
-				return usuario; 
-			}
-			set 
-			{ 
-				usuario = value; 
-			}
-		}
-
-		public List<ENlibros> Deseados
-		{
-			get
 			{
-				return deseados;
+				return usuario;
 			}
 			set
 			{
-				deseados = value; //Por si un usuario quiere cambiar su lista de deseos por la de otro
+				usuario = value;
+			}
+		}
+
+		public int Isbn
+		{
+			get
+			{
+				return isbn;
+			}
+			set
+			{
+				isbn = value;
 			}
 		}
 
 		public ENListaDeseos()
 		{
-			deseados = new List<ENlibros>(); ;
+			isbn = 0;
 			usuario = "";
 		}
-		public ENListaDeseos(ENlibros libro, string usu)
+		public ENListaDeseos(int libro, string usu)
 		{
-			deseados.Add(libro);
+			isbn = libro;
 			usuario = usu;
 		}
 
-		public bool addDeseado(ENlibros libro)
-        {
+		public bool addDeseado(string aux)
+		{
 			CADListaDeseos added = new CADListaDeseos();
+			return added.addDeseado(this, aux); //Return el bool del CAD, para ver si ha funcionado
+		}
 
-            if (!checkLibros(libro)) //No esta ya marcado como deseado
-            {
-				this.deseados.Add(libro);
-				return added.addDeseado(this);
-			}
-
-			return false;
-        }
-
-		public bool removeDeseado(ENlibros libro)
+		public bool removeDeseado(string libro)
 		{
 			CADListaDeseos removed = new CADListaDeseos();
+			int ISBN = removed.BuscaISBN(libro);
 
-			if (checkLibros(libro))
-            {
-				this.deseados.Remove(libro);
+			if (checkLibros(ISBN)) //Comprobamos que este marcado como deseado
+			{
+				this.Isbn = ISBN;
 				return removed.removeDeseado(this);
 			}
 
 			return false;
 		}
 
-		private bool checkLibros(ENlibros l)
-        {
-			if (this.deseados.Contains(l))
+		public bool checkLibros(int l)
+		{
+			if (this.isbn == l)
 			{
+				// Como internamente el método addDeseado a parte de insertar el libro en la BBDD también sobreescribe
+				//el atributo string "deseados" si el último libro que has añadido lo quieres por ejemplo eliminar,
+				//al tener guardado el valor podemos ahorranos que el checkLibros tenga que consultar la BBDD y así
+				//ganar tiempo de respuesta de la aplicación
 				return true;
 			}
+			else
+			{
+				CADListaDeseos exist = new CADListaDeseos();
+				return exist.checkLibros(l);
 
-			return false;
-        }
+			}
+		}
 	}
 }
-

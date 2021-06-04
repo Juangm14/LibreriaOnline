@@ -9,14 +9,14 @@ using System.Web.UI.WebControls;
 namespace LibreriaOnline {
     public partial class SignIn : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            Msg.Text = "";
+            Msg.Text = ""; //Inicializa el label a una cadena vacia
         }
 
         protected void InicioSesion_Click(object sender, EventArgs e) {
-            if (logUsuario.Text == "") {
+            if (logUsuario.Text == "") { //Comprueba que no este vacio el campo usuario
                 Msg.Text = "Email o nick no introducido.";
             }
-            else if(logContrasena.Text == "")
+            else if(logContrasena.Text == "") //Comprueba que no este vacio el campo contraseña
             {
                 Msg.Text = "Contraseña no introducida.";
             }
@@ -26,11 +26,11 @@ namespace LibreriaOnline {
                 usuario.Nick = logUsuario.Text;
                 usuario.Email = logUsuario.Text;
                 usuario.Contrasena = logContrasena.Text;
-                if (usuario.Log())
+                if (usuario.Log()) //Intenta iniciar sesión. Si el usuario ha escrito bien sus credenciales y no ocurre ningun error inesperado en la base de datos, se iniciara sesión.
                 {
                     Msg.Text = "Se ha iniciado sesión correctamente.";
-                    Session.Add("email", usuario.Email);
-                    Response.Redirect("Home.aspx");
+                    Session.Add("email", usuario.Email); //Se añade el email a Session
+                    Response.Redirect("Home.aspx"); //Se redirige a la pagina Home
                 }
                 else
                 {

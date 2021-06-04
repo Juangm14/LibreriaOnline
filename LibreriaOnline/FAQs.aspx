@@ -8,7 +8,7 @@
     </div>
     
     <p>
-        <asp:GridView Class="container" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" Class="container" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="Pregunta" HeaderText="Pregunta" SortExpression="Pregunta" />
@@ -24,7 +24,6 @@
             <SortedDescendingCellStyle BackColor="#FCF6C0" />
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT pregunta AS Pregunta, respuesta AS Respuesta from Soporte where respuesta is NOT NULL"></asp:SqlDataSource>
     </p>
     <div class=" container mb-3"> 
 
