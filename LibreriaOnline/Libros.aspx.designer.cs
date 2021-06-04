@@ -7,12 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace LibreriaOnline
-{
+namespace LibreriaOnline {
 
 
-    public partial class WebForm2
-    {
+    public partial class WebForm2 {
 
         /// <summary>
         /// Control DataList2.

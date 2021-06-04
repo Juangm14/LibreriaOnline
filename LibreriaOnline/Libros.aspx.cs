@@ -15,6 +15,20 @@ namespace LibreriaOnline
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["email"] == null) {
+                DataList2.Visible = false;
+                NuevoLibro.Visible = false;
+                EditarLibro.Visible = false;
+                BorrarLibro.Visible = false;
+
+                Response.Redirect("SignIn.aspx");
+            }
+
+            if (Session["email"].ToString().Contains("@gmail.com")) {
+                NuevoLibro.Visible = false;
+                EditarLibro.Visible = false;
+                BorrarLibro.Visible = false;
+            }
 
             /*IDs crear libro */
             GeneroLibro.Visible = false;

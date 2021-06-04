@@ -20,7 +20,6 @@ namespace LibreriaOnline {
                     DataList2.DataBind();
                     mensajeSession.Visible = false; 
                 } else {
-                    mensajeSession.Visible = true;
                     mensajeSession.Text = "<br> Para tener el acceso completo a esta funcionalidad inicia sesion, ";
                     mensajeSession.Visible = true;
                 }

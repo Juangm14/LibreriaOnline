@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Inicio" runat="server">
 
         <div class="container">
+
         <asp:DataList ID="DataList2" runat="server" DataKeyField="ISBN" DataSourceID="SqlDataSource1" RepeatColumns="3"  CssClass="table table-responsive">
             <ItemTemplate>
                 <asp:Image ID="Image1" width="140" height="120" runat="server" ImageUrl='<%# Eval("imagen") %>' CssClass="img-fluid" />
