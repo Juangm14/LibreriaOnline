@@ -22,7 +22,6 @@ namespace LibreriaOnline
                     ComprarOferta.Visible = true;
                     problema.Visible = false;
                     TextBoxOferta.Visible = true;
-                    mensajeSession.Visible = false;
                     ENVentaUsu en = new ENVentaUsu();
                     datos = en.Lista();
                     GridView1.DataSource = datos;
@@ -38,7 +37,6 @@ namespace LibreriaOnline
                     ComprarOferta.Visible = false;
                     problema.Visible = true;
                     problema.Text = "<br> Para tener el acceso completo a esta funcionalidad inicia sesion ";
-                    mensajeSession.Visible = true;
 
                 }
            

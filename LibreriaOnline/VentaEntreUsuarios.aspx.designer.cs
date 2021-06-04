@@ -7,12 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace LibreriaOnline
-{
+namespace LibreriaOnline {
 
 
-    public partial class VentaEntreUsuarios
-    {
+    public partial class VentaEntreUsuarios {
 
         /// <summary>
         /// Control NuevaOferta.
@@ -76,14 +74,5 @@ namespace LibreriaOnline
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label problema;
-
-        /// <summary>
-        /// Control mensajeSession.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label mensajeSession;
     }
 }

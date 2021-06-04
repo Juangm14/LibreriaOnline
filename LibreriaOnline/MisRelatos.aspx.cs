@@ -55,9 +55,10 @@ namespace LibreriaOnline {
                 EditarRelato.Visible = true;
                 BorrarRelato.Visible = true;
                 mensajeSession.Visible = false;
+                ListarRelatos();
             }
 
-            ListarRelatos();
+            
 
         }
 

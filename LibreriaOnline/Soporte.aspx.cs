@@ -53,6 +53,23 @@ namespace LibreriaOnline {
         protected void EnviarSugerencia(object sender, EventArgs e)
         {
 
+            if (AsuntoTextBox.Text == "") {
+                MsgSoporte.Text = "Por favor, introduzca un asunto.";//Pedimos que nos introduzca el asunto 
+            } else if (PreguntaTextBox.Text == "") {
+                MsgSoporte.Text = "Por favor, introduzca una sugerencia.";
+            } else {
+                ENSugerencias sugerencia = new ENSugerencias();
+                sugerencia.Texto = PreguntaTextBox.Text;
+                sugerencia.Titulo = AsuntoTextBox.Text;
+                if (sugerencia.createSugerencia())//Llamamos al cad para que introduzca los datos en la base de datos
+                {
+                    MsgSoporte.Text = "Sugerencia enviada a soporte correctamente.";//Mensaje de confirmación de que se ha enviado correctamente
+                    PreguntaTextBox.Text = "";
+                    AsuntoTextBox.Text = "";
+                } else {
+                    MsgSoporte.Text = "Error inesperado, intentalo mas tarde.";//Mostramos error si no se ha podido añadir a la base de datos 
+                }
+            }
         }
     }
 }

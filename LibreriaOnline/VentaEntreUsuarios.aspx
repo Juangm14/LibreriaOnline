@@ -31,8 +31,6 @@
             </asp:GridView>
             
             <asp:Label ID="problema" runat="server" Text="Label"></asp:Label> 
-            <asp:Label id="mensajeSession" runat="server">
-            <a href="SignIn.aspx" style="color:blue">aquí.</a>
         </asp:Label>
             
         </div>
