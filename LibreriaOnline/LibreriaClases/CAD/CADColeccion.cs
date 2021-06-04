@@ -20,23 +20,27 @@ namespace LibreriaOnline.CAD
 
 		public bool addColeccion(ENColeccion en)
 		{
-			bool added = true;
+			bool added = false;
 			SqlConnection c = new SqlConnection(constring);
 			try
 			{
 				c.Open();
-				SqlCommand com1 = new SqlCommand("Insert into Coleccion (id,nombre) VALUES (" + en.id + ",'" + en.nombre + "')", c);
-				SqlCommand com2 = new SqlCommand("Insert into ColeccionLibros (id,ISBN) VALUES (" + en.id + "," + en.coleccion + ")", c);
-				if (com1.ExecuteNonQuery() == 0 || com2.ExecuteNonQuery() == 0)
-					added = false;
+				SqlCommand com1 = new SqlCommand("Insert into Coleccion (nombre) VALUES ('" + en.nombre + "')", c);
+				SqlCommand com2 = new SqlCommand("Insert into ColeccionLibros (Id,ISBN) VALUES (" + en.id + "," + en.coleccion + ")", c);
+				if (!getId(en))
+				{
+					com1.ExecuteNonQuery();
+					getId(en);
+				}
+				if (com2.ExecuteNonQuery() != 0)
+					added = true;
 			}
 			catch (SqlException ex)
 			{
-				added = false;
 				Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
 			}
 			finally { c.Close(); }
-			
+
 			return added;
 		}
 
@@ -47,8 +51,14 @@ namespace LibreriaOnline.CAD
 			try
 			{
 				c.Open();
-				SqlCommand com = new SqlCommand("Delete from Coleccion where id=" + en.id, c);
-				if (com.ExecuteNonQuery() == 0)
+				if (getId(en))
+				{
+					SqlCommand com1 = new SqlCommand("Delete from ColeccionLibros where id='" + en.id + "'", c);
+					SqlCommand com2 = new SqlCommand("Delete from Coleccion where nombre='" + en.nombre + "'", c);
+					com1.ExecuteNonQuery();
+					com2.ExecuteNonQuery();
+				}
+				else
 					deleted = false;
 			}
 			catch (SqlException ex)
@@ -57,7 +67,7 @@ namespace LibreriaOnline.CAD
 				Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
 			}
 			finally { c.Close(); }
-			
+
 			return deleted;
 		}
 
@@ -68,9 +78,8 @@ namespace LibreriaOnline.CAD
 			try
 			{
 				c.Open();
-				SqlCommand com1 = new SqlCommand("Update ColeccionLibros set nombre='" + en.nombre + "' where id=" + en.id, c);
-				SqlCommand com2 = new SqlCommand("Update Coleccion set nombre='" + en.nombre + "' where id=" + en.id, c);
-				if (com1.ExecuteNonQuery() == 0 || com2.ExecuteNonQuery() == 0)
+				SqlCommand com = new SqlCommand("Update Coleccion set nombre='" + en.nombre + "' where id=" + en.id, c);
+				if (com.ExecuteNonQuery() == 0)
 					updated = false;
 			}
 			catch (SqlException ex)
@@ -79,7 +88,7 @@ namespace LibreriaOnline.CAD
 				Console.WriteLine("User operation has failed. Error: {0}", ex.Message);
 			}
 			finally { c.Close(); }
-			
+
 			return updated;
 		}
 
